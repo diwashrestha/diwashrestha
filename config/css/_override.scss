@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+$code-font-family: Source Code Pro,
+Fira Mono,
+Source Code Pro,
+Menlo,
+Consolas,
+Monaco,
+monospace;
+$global-font-family: system-ui,
+-apple-system,
+BlinkMacSystemFont,
+PingFang SC,
+Microsoft YaHei UI,
+Segoe UI,
+Roboto,
+Oxygen,
+Ubuntu,
+Cantarell,
+Fira Sans,
+Droid Sans,
+Helvetica Neue,
+Helvetica,
+Arial,
+sans-serif;
+$header-title-font-family: Major Mono Display,
+Roboto Slab,
+Merriweather,
+Vidaloka,
+Lato,
+Open Sans,
+Montserrat,
+EB Garamond,
+serif;
+$font-stack: Open Sans,
+Helvetica,
+sans-serif;
+$primary-color: #333;
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+$font-stack1: Roboto Slab;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+    font: 100% $font-stack1;
+}
