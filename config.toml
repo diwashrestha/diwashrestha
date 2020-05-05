@@ -12,13 +12,7 @@ theme = "LoveIt"
   # LoveIt theme version
   version = "0.2.X"
   
-  google_fonts = [
-    ["Fira Code", "400, 700"],
-    ["Open Sans", "400, 400i, 700, 700i"]
-  ]
 
-  heading_font = "Fira Code" 
-  body_font = "Open Sans"
 
 [menu]
   [[menu.main]]
@@ -125,7 +119,7 @@ theme = "LoveIt"
   # LoveIt NEW | 0.2.0 Section (all posts) page config
   [params.section]
     # special amount of posts in each section page
-    paginate = 10
+    paginate = 15
     # date format (month and day)
     dateFormat = "01-02"
     # amount of RSS pages

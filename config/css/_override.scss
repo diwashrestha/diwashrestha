@@ -49,7 +49,9 @@ body {
     color: $primary-color;
 }
 
-$font-stack1: Roboto Slab;
+$font-stack1: Lato,
+Raleway,
+Roboto;
 h1,
 h2,
 h3,
@@ -58,4 +60,12 @@ h5,
 h6,
 h7 {
     font: 100% $font-stack1;
+}
+
+$font-single_title: Roboto;
+.single-title.animated.flipInX {
+    font: 100% $font-single_title;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 140%;
 }
