@@ -1,5 +1,5 @@
 ---
-title: "Interactive_Visualization_Plotly_ggplot"
+title: "Interactive Visualization with ggplot2 and Plotly"
 date: 2020-05-03T23:30:16+05:45
 draft: false
 ---
@@ -8,7 +8,7 @@ I love to work with data while analysing the data, I like to explore it and for 
 
 
 
-GGplot2 is powerfull visualization package based on The grammar of graphics and part of tidyverse. It is easy to use and powerful to create any type of visualization. The problem is it can only make beautiful static visualization.
+[GGplot2](https://ggplot2.tidyverse.org/) is powerfull visualization package based on [The grammar of graphics](https://www.springer.com/gp/book/9780387245447) and part of tidyverse. It is easy to use and powerful to create any type of visualization. The problem is it can only make beautiful static visualization.
 
 I write blogs, create dashboard and reports. The interactive graph allows users to interact with a graph which is more interactive than a static graph. It is not possible to create an interactive graph with ggplot2.
 
