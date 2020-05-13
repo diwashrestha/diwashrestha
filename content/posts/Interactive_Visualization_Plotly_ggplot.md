@@ -64,6 +64,8 @@ nobelbar <- ggplot(data) + geom_bar(aes(category, fill = category)) +
 nobelbar
 ```
 
+![image](/images/ggplot_plotly/nobel_prize.png)
+
 ### Make ggplot interactive
 
 
@@ -74,6 +76,7 @@ ggplotly(nobelbar, tooltip = c("fill", "count"))
 ```
 
 
+
 I like to keep the plot clean , So I hide the Modebar of the plotly.
 
 ```R
@@ -81,7 +84,8 @@ nobel_plot <- ggplotly(nobelbar, tooltip = c("fill", "count")) %>%
   config(displayModeBar = F)
 ```
 
-
+{{< load-plotly >}}
+{{< plotly json="test1.json" height="400px" >}}
 
 ### Save the plot
 
