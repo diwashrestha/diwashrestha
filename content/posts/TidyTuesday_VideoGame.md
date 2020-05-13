@@ -1,7 +1,10 @@
 ---
 title: "TidyTuesday:VideoGame"
 date: 2020-05-03T23:19:55+05:45
+author: false
 draft: false
+featuredImage: /images/tidytuesday/preview.jpg
+featuredImagePreview: /images/tidytuesday/preview.jpg
 ---
 
 In this post, I will analyse the #Tidytuesday Dataset about a video game from the Steam store.

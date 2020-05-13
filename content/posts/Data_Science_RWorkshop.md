@@ -1,7 +1,10 @@
 ---
 title: "Data_Science_RWorkshop"
 date: 2020-05-03T23:12:29+05:45
+author: false
 draft: false
+featuredImage: /images/datascience_r_workshop/preview.jpg
+featuredImagePreview: /images/datascience_r_workshop/preview.jpg
 ---
 
 R Nepal and Kathfest collaborated to organize the 3 days “Data Science with R” workshop. This workshop was held in Kathford Engineering College on occasion of the Kathfest.

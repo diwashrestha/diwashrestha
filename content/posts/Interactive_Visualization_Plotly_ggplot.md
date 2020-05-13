@@ -1,7 +1,10 @@
 ---
 title: "Interactive Visualization with ggplot2 and Plotly"
 date: 2020-05-03T23:30:16+05:45
+author: false
 draft: false
+featuredImage: /images/usi-preview.png
+featuredImagePreview: /images/usi-preview.png
 ---
 
 I love to work with data while analysing the data, I like to explore it and for that best thing is to visualize the data. I create a visualization to show the information or finding from the analysis. For this task, I use the ggplot2 package from the Tidyverse Universe.
@@ -85,7 +88,7 @@ nobel_plot <- ggplotly(nobelbar, tooltip = c("fill", "count")) %>%
 ```
 
 {{< load-plotly >}}
-{{< plotly json="test1.json" height="400px" >}}
+{{< plotly json="/plotly/test1.json" height="400px" >}}
 
 ### Save the plot
 

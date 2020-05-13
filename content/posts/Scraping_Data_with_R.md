@@ -1,7 +1,10 @@
 ---
 title: "Scraping_Data_with_R"
 date: 2020-05-03T23:23:51+05:45
+author: false
 draft: false
+featuredImage: /images/tidytuesday/preview.jpg
+featuredImagePreview: /images/tidytuesday/preview.jpg
 ---
 In Data Analysis require a data on which we can perform analysis and find insights. We always don’t get clean open data for our analysis so we need to create, find our data. In this post, I describe how to extract data from a website using R.
 
