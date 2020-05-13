@@ -3,8 +3,8 @@ title: "Classification of Survival in Titanic"
 date: 2018-08-27T23:11:19+05:45
 author: false
 draft: false
-featuredImage: /images/tidytuesday/preview.jpg
-featuredImagePreview: /images/tidytuesday/preview.jpg
+featuredImage: /images/survival_classify/preview.jpg
+featuredImagePreview: /images/survival_classify/preview.jpg
 ---
 
 In this blog, I will create a machine learning model which will predict the survival of the people in the Titanic accident. I will use titanic survival dataset and use the knn algorithm to find the survival of the people in the dataset.

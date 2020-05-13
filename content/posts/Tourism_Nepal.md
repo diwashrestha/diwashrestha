@@ -3,8 +3,8 @@ title: "Tourism_Nepal"
 date: 2020-05-03T23:29:14+05:45
 author: false
 draft: false
-featuredImage: /images/tidytuesday/preview.jpg
-featuredImagePreview: /images/tidytuesday/preview.jpg
+featuredImage: /images/tourism_in_nepal/preview.jpg
+featuredImagePreview: /images/tourism_in_nepal/preview.jpg
 ---
 
 ### Introduction

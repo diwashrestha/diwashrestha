@@ -3,8 +3,8 @@ title: "Visualize_Earthquake"
 date: 2020-05-03T23:19:18+05:45
 author: false
 draft: false
-featuredImage: /images/tidytuesday/preview.jpg
-featuredImagePreview: /images/tidytuesday/preview.jpg
+featuredImage: /images/visual_earthquake/preview.jpg
+featuredImagePreview: /images/visual_earthquake/preview.jpg
 ---
 
 According to Wikipedia:

@@ -3,8 +3,8 @@ title: "Local_Hack_Day_2018"
 date: 2020-05-03T23:12:04+05:45
 author: false
 draft: false
-featuredImage: /images/tidytuesday/preview.jpg
-featuredImagePreview: /images/tidytuesday/preview.jpg
+featuredImage: /images/LHD_2018/preview.jpg
+featuredImagePreview: /images/LHD_2018/preview.jpg
 ---
 
 I organized MLH Local Hackday DataHackthon in ACHS College on Dec 1st,2018. MLH Local Hackday Hackathon is 12 hours global event which is held on December 1 every year around the world.R Nepal was also one of the organizers of the MLH Local Hackday with the moto of Learning, Building, Sharing.
