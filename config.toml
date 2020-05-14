@@ -11,6 +11,7 @@ theme = "LoveIt"
 [params]
   # LoveIt theme version
   version = "0.2.X"
+  images = ["/logo.jpg"]
   
 
 
@@ -134,9 +135,9 @@ theme = "LoveIt"
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/myAvatar.png"
       # subtitle shown in home page
-      subtitle = "This is My New Hugo Site"
+      subtitle = "This is My Personal Website"
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
