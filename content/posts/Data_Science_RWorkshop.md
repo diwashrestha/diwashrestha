@@ -3,8 +3,8 @@ title: "Data Science RWorkshop"
 date: 2020-05-03T23:12:29+05:45
 author: false
 draft: false
-featuredImage: /images/datascience_r_workshop/preview.jpg
-featuredImagePreview: /images/datascience_r_workshop/preview.jpg
+featuredImage: /images/datascience_r_workshop/preview.png
+featuredImagePreview: /images/datascience_r_workshop/preview.png
 ---
 
 [RNepal](https://www.facebook.com/RUGNepal/) and [Kathfest](https://www.facebook.com/kathfest/) collaborated to organize the 3 days “Data Science with R” workshop. This workshop was held in [Kathford Engineering College](https://kathford.edu.np/) on occasion of the Kathfest.

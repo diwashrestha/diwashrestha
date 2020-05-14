@@ -3,8 +3,8 @@ title: "Population Analysis"
 date: 2020-05-03T12:59:22+05:45
 author: false
 draft: false
-featuredImage: /images/pop_analysis/preview.jpg
-featuredImagePreview: /images/pop_analysis/preview.jpg
+featuredImage: /images/pop_analysis/preview.png
+featuredImagePreview: /images/pop_analysis/preview.png
 ---
 
 

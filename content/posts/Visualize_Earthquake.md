@@ -3,8 +3,8 @@ title: "Visualizing Earthquake"
 date: 2019-06-19T23:19:18+05:45
 author: false
 draft: false
-featuredImage: /images/visual_earthquake/preview.jpg
-featuredImagePreview: /images/visual_earthquake/preview.jpg
+featuredImage: /images/visual_earthquake/preview.png
+featuredImagePreview: /images/visual_earthquake/preview.png
 ---
 
 According to Wikipedia:

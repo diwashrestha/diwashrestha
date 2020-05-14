@@ -3,8 +3,8 @@ title: "EDA on Titanic"
 date: 2018-05-17T23:08:21+05:45
 author: false
 draft: false
-featuredImage: /images/eda_titanic/preview.jpg
-featuredImagePreview: /images/eda_titanic/preview.jpg
+featuredImage: /images/eda_titanic/preview.png
+featuredImagePreview: /images/eda_titanic/preview.png
 ---
 
 In this post, I am going to do Exploratory Data Analysis(EDA) on Titanic disaster datasets from kaggle Titanic: Machine Learning Disaster Competition. Before building machine learning model, I want to do EDA on this dataset find some idea about the features and structure of the dataset.

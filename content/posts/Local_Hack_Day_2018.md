@@ -3,8 +3,8 @@ title: "Local Hack Day 2018"
 date: 2020-05-03T23:12:04+05:45
 author: false
 draft: false
-featuredImage: /images/LHD_2018/preview.jpg
-featuredImagePreview: /images/LHD_2018/preview.jpg
+featuredImage: /images/LHD_2018/preview.png
+featuredImagePreview: /images/LHD_2018/preview.png
 ---
 
 

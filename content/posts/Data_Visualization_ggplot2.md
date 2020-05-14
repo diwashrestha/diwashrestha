@@ -3,8 +3,8 @@ title: "Data Visualization with ggplot2"
 date: 2020-05-03T23:08:57+05:45
 author: false
 draft: false
-featuredImage: /images/data_viz_ggplot/preview.jpg
-featuredImagePreview: /images/data_viz_ggplot/preview.jpg
+featuredImage: /images/data_viz_ggplot/preview.png
+featuredImagePreview: /images/data_viz_ggplot/preview.png
 ---
 
 We have seen lots of visuals in our life like pictures, animations, and some graphical plots. Graphics help or make easy to get an idea or understand anything. Visualization is an important part of the Data science or Data Analysis. In this blog, we will learn about visualization in R by creating different type of plots. 

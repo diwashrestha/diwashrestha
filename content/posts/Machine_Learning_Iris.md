@@ -3,8 +3,8 @@ title: "Machine_Learning_Iris"
 date: 2020-05-03T19:37:45+05:45
 author: false
 draft: false
-featuredImage: /images/ml_on_iris/preview.jpg
-featuredImagePreview: /images/ml_on_iris/preview.jpg
+featuredImage: /images/ml_on_iris/preview.png
+featuredImagePreview: /images/ml_on_iris/preview.png
 ---
 
 In this blog, we will use some machine learning concept with help of ScikitLearn a Machine Learning Package and Iris dataset which can be loaded from sci-kit learn. we will use numpy to work on the Iris dataset and Matplotlib for Visualization. Iris data set is a multivariate data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper. The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis. The data set consists of 50 samples from each of three species of Iris:
