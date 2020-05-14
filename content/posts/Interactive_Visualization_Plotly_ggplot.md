@@ -77,6 +77,28 @@ I will pass the ggplot to the ggplotly function from plotly package ,which creat
 ```R
 ggplotly(nobelbar, tooltip = c("fill", "count"))
 ```
+{{< echarts >}}
+{
+    "title": {
+    "text": "Summary Line Chart",
+    "top": "2%",
+    "left": "center"
+  },
+    "xAxis": {
+        "type": "category",
+        "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    },
+    "yAxis": {
+        "type": "value"
+    },
+    "series": [{
+        "data": [ 194, 200, 150, 80, 70, 110, 130],
+        "type": "bar"
+    }]
+}
+{{< /echarts >}}
+
+
 
 
 
@@ -88,7 +110,8 @@ nobel_plot <- ggplotly(nobelbar, tooltip = c("fill", "count")) %>%
 ```
 
 {{< load-plotly >}}
-{{< plotly json="/plotly/test1.json" height="400px" >}}
+{{< plotly json="/plotly/test.json" height="500px" modebar="false" >}}
+
 
 ### Save the plot
 
