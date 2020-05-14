@@ -1,6 +1,6 @@
 ---
-title: "Statistics_R"
-date: 2020-05-03T23:18:51+05:45
+title: "Statistics with R"
+date: 2019-05-20T23:18:51+05:45
 author: false
 draft: false
 featuredImage: /images/stats_R/preview.png
@@ -118,6 +118,7 @@ IQR(mtcars$wt)
 ## quartile of the sugar
 quantile(mtcars$am)
 ```
+
 ```
   0%  25%  50%  75% 100% 
    0    0    0    1    1 
@@ -187,12 +188,16 @@ Normal distribution is one of the most important theories because nearly all sta
 hist(mtcars$mpg, breaks = 15)
 ```
 
+![Normal Distribution](/images/stats_R/histo.png)
+
 **qqnorm()** and **qqline** functions are used to find whether data is normally distributed.
 
 ```R
 qqnorm(mtcars$mpg)
 qqline(mtcars$mpg)
 ```
+
+![qqnorm()](/images/stats_R/normal.png)
 
 If the points do not deviate away from the line , the data is normally distributed.
 
@@ -203,6 +208,8 @@ The modality of a distribution is determined by the number of peaks it contains.
 ```R
 hist(mtcars$mpg, breaks = 15)
 ```
+
+![Modality](/images/stats_R/modality.png)
 
 ### Skewness and Kurtosis
 

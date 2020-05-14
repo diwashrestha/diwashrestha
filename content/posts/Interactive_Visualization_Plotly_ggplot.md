@@ -15,7 +15,7 @@ I love to work with data while analysing the data, I like to explore it and for 
 
 I write blogs, create dashboard and reports. The interactive graph allows users to interact with a graph which is more interactive than a static graph. It is not possible to create an interactive graph with ggplot2.
 
-Plotly can convert the high-quality ggplot graphs to interactive using the ggploty function in plotly package. plotly is a free opensource library for interactive visualization. In this blog, I will create a static visualization with ggplot2 and then make the ggplot graph interactive with plotly package. I will use data about Nobel prize winner to create the visualization. Lets get visualizing
+[Plotly](https://plotly.com/) can convert the high-quality ggplot graphs to interactive using the ggploty function in plotly package. plotly is a free opensource library for interactive visualization. In this blog, I will create a static visualization with ggplot2 and then make the ggplot graph interactive with plotly package. I will use data about Nobel prize winner to create the visualization. Lets get visualizing
 
 ### Load Packages
 
@@ -31,7 +31,7 @@ library(plotly) # interactive data visualization
 
 ### Load Data
 
-I am using the nobel prize winner data which is sourced from tidytuesday github which release every week new data project.
+I am using the nobel prize winner data which is sourced from [tidytuesday](https://github.com/rfordatascience/tidytuesday) github which release every week new data project.
 
 ```R
 data <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-14/nobel_winners.csv")
@@ -39,18 +39,15 @@ data <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/
 
 Here is the data that i will use to create visualization.
 
-prize_year
-<dbl>
-category
-<chr>
-prize
-<chr>
-1901	Chemistry	The Nobel Prize in Chemistry 1901	
-1901	Literature	The Nobel Prize in Literature 1901	
-1901	Medicine	The Nobel Prize in Physiology or Medicine 1901	
-1901	Peace	The Nobel Peace Prize 1901	
-1901	Peace	The Nobel Peace Prize 1901	
-1901	Physics	The Nobel Prize in Physics 1901	
+| prize_year | category | prize |
+| ------ | ------ | ------ |
+| <dbl> | <chr> | <chr> |
+| 1901 |	Chemistry |	The Nobel Prize in Chemistry 1901 |	
+| 1901 | Literature	 | The Nobel Prize in Literature 1901 | 	
+| 1901	 | Medicine	 | The Nobel Prize in Physiology or Medicine 1901 | 	
+| 1901	 | Peace	 | The Nobel Peace Prize 1901	 | 
+| 1901	 | Peace	 | The Nobel Peace Prize 1901	 | 
+| 1901	 | Physics	 | The Nobel Prize in Physics 1901 | 	
 6 rows | 1-3 of 18 columns
 
 ### Create a barplot
@@ -67,7 +64,7 @@ nobelbar <- ggplot(data) + geom_bar(aes(category, fill = category)) +
 nobelbar
 ```
 
-![image](/images/ggplot_plotly/nobel_prize.png)
+![Nobel Prize](/images/ggplot_plotly/nobel_prize.png)
 
 ### Make ggplot interactive
 
@@ -77,30 +74,8 @@ I will pass the ggplot to the ggplotly function from plotly package ,which creat
 ```R
 ggplotly(nobelbar, tooltip = c("fill", "count"))
 ```
-{{< echarts >}}
-{
-    "title": {
-    "text": "Summary Line Chart",
-    "top": "2%",
-    "left": "center"
-  },
-    "xAxis": {
-        "type": "category",
-        "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    },
-    "yAxis": {
-        "type": "value"
-    },
-    "series": [{
-        "data": [ 194, 200, 150, 80, 70, 110, 130],
-        "type": "bar"
-    }]
-}
-{{< /echarts >}}
 
-
-
-
+<iframe width="750" height="500" frameborder="0" scrolling="no" src="/plotly/nobelprize.html"></iframe>
 
 I like to keep the plot clean , So I hide the Modebar of the plotly.
 
@@ -109,8 +84,7 @@ nobel_plot <- ggplotly(nobelbar, tooltip = c("fill", "count")) %>%
   config(displayModeBar = F)
 ```
 
-{{< load-plotly >}}
-{{< plotly json="/plotly/test.json" height="500px" modebar="false" >}}
+<iframe width="750" height="500" frameborder="0" scrolling="no" src="/plotly/nobelprize.html"></iframe>
 
 
 ### Save the plot
@@ -123,6 +97,6 @@ htmlwidgets::saveWidget(as_widget(nobel_plot), "nobelprize.html")
 
 ### Wrapping up
 
-Atlast we made the ggplot2 charts interactive using a single ggplotly() function.You can find lots of data in Tidytuesday repo and create great visualization to show the insights.
+Atlast we made the ggplot2 charts interactive using a single ggplotly() function.You can find lots of data in [Tidytuesday repo](https://github.com/rfordatascience/tidytuesday) and create great visualization to show the insights.
 
 
