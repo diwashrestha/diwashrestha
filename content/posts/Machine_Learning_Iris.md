@@ -1,5 +1,5 @@
 ---
-title: "Machine_Learning_Iris"
+title: "Machine Learning Iris"
 date: 2020-05-03T19:37:45+05:45
 author: false
 draft: false
