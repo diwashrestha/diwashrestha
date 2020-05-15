@@ -7,7 +7,6 @@ title = "Diwashrestha"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
-
 enableEmoji = true
 
 [params]
@@ -36,7 +35,7 @@ enableEmoji = true
     post = ""
     name = "Projects"
     url = "/projects/"
-    title = "projects"
+    title = ""
     weight = 3
   [[menu.main]]
     identifier = "categories"
@@ -135,11 +134,12 @@ enableEmoji = true
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/myAvatar.png"
+      avatarURL = "/aboutme/avatar.png"
+      
       # subtitle shown in home page
       subtitle = "This is My Personal Website"
       # whether to use typeit animation for subtitle
-      typeit = true
+      typeit = false
       # whether to show social links
       social = true
       # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
@@ -152,7 +152,15 @@ enableEmoji = true
       # LoveIt DELETED | 0.2.0 default behavior when you don't set "hiddenFromHomePage" in front matter
       defaultHiddenFromHomePage = false
 
-
+[params.typeit]
+    # typing speed between each step (measured in milliseconds)
+    speed = 100
+    # blinking speed of the cursor (measured in milliseconds)
+    cursorSpeed = 1000
+    # character used for the cursor (HTML format is supported)
+    cursorChar = "|"
+    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+    duration = -1
 
   # Social config about the author
   [params.social]
@@ -163,26 +171,7 @@ enableEmoji = true
     Facebook = "shrestha.diwash.50"
     Stackoverflow = "9717032/diwash-shrestha"
     
-[params.page]
-    # LoveIt NEW | 0.2.0 whether to hide a page from home page
-    hiddenFromHomePage = false
-    # LoveIt NEW | 0.2.0 whether to hide a page from search results
-    hiddenFromSearch = false
-    # LoveIt NEW | 0.2.0 whether to enable twemoji
-    twemoji = true
-    # whether to enable lightgallery
-    lightgallery = true
-    # LoveIt NEW | 0.2.0 whether to enable the ruby extended syntax
-    ruby = true
-    # LoveIt NEW | 0.2.0 whether to enable the fraction extended syntax
-    fraction = true
-    # LoveIt NEW | 0.2.0 whether to enable the fontawesome extended syntax
-    fontawesome = true
-    # whether to show link to Raw Markdown content of the content
-    linkToMarkdown = true
-    # LoveIt NEW | 0.2.4 whether to show the full text content in RSS
-    rssFullText = false
-    # LoveIt NEW | 0.2.0 Table of the contents config 
+ 
 
 # Markup related config in Hugo
 [markup]
