@@ -11,7 +11,8 @@ theme = "LoveIt"
 [params]
   # LoveIt theme version
   version = "0.2.X"
-  images = ["/logo.jpg"]
+  dateFormat = "2006-01-02"
+  images = ["/logo.png"]
   
 
 
@@ -43,6 +44,22 @@ theme = "LoveIt"
     url = "/categories/"
     title = ""
     weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About Me"
+    url = "/aboutme/"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = "Program"
+    pre = ""
+    post = ""
+    name = "Program & Talks"
+    url = "/program&talk/"
+    title = ""
+    weight = 5
 
 
 # LoveIt NEW | 0.2.0 App icon config
@@ -156,14 +173,13 @@ theme = "LoveIt"
 
   # Social config about the author
   [params.social]
-    GitHub = "xxxx"
-    Linkedin = "xxxx"
-    Twitter = "xxxx"
-    Instagram = "xxxx"
-    Facebook = "xxxx"
-    Youtubechannel = ""
-    Stackoverflow = ""
-    Email = "xxxx@xxxx.com"
+    GitHub = "https://github.com/diwashrestha"
+    Linkedin = "https://www.linkedin.com/in/shresthadiwash/"
+    Twitter = "https://twitter.com/diwastha"
+    Instagram = "https://www.instagram.com/shrestha__diwash/"
+    Facebook = "https://www.facebook.com/shrestha.diwash.50"
+    Stackoverflow = "https://stackoverflow.com/users/9717032/diwash-shrestha"
+    
  
 
 # Markup related config in Hugo

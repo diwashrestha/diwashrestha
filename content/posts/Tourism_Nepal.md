@@ -1,6 +1,6 @@
 ---
-title: "Tourism_Nepal"
-date: 2020-05-03T23:29:14+05:45
+title: "Tourism in Nepal"
+date: 2019-11-22T23:29:14+05:45
 author: false
 draft: false
 featuredImage: /images/tourism_in_nepal/preview.png
