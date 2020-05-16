@@ -1,6 +1,6 @@
 ---
 title: "Statistics with R"
-date: 2019-05-20T23:18:51+05:45
+date: 2019-04-20T23:18:51+05:45
 author: false
 draft: false
 featuredImage: /images/stats_R/preview.png

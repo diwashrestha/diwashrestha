@@ -1,6 +1,6 @@
 ---
 title: "Data Science RWorkshop"
-date: 2020-05-03T23:12:29+05:45
+date: 2018-11-30T23:12:29+05:45
 author: false
 draft: false
 featuredImage: /images/datascience_r_workshop/preview.png

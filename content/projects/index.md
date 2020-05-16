@@ -83,7 +83,7 @@ This uses linear regression algorithm to predict the year Medical Expense using 
 
 {{< image src="/projects/NEA.png">}}
 
-This interactive visualizations shows insight about the production ,revenue of electricity in Nepal. Flexdashboard is used to create the dashboard along with Highcharter,Tidyverse.
+This interactive visualizations shows insight about the production, revenue of electricity in Nepal. Flexdashboard is used to create the dashboard along with Highcharter, Tidyverse.
 
 ##### :computer: *Technology Used*
 > Highcharter, R, TidyVerse, Flexdashboard

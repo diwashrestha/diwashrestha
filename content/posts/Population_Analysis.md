@@ -1,6 +1,6 @@
 ---
 title: "Population Analysis"
-date: 2020-05-03T12:59:22+05:45
+date: 2017-06-23T12:59:22+05:45
 author: false
 draft: false
 featuredImage: /images/pop_analysis/preview.png
