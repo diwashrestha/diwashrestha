@@ -7,7 +7,7 @@ featuredImage: /images/tidytuesday/preview.png
 featuredImagePreview: /images/tidytuesday/preview.png
 ---
 
-In this post, I will analyse the #Tidytuesday Dataset about a video game from the Steam store.
+In this post, I will analyse the [Tidytuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-30) Dataset about a video game from the [Steam](https://store.steampowered.com/) store using R and [Rstudio](https://rstudio.com/).
 
 
 ### Load the packages
@@ -172,7 +172,7 @@ video_game %<>%
   )
 ```
 
-The owner column has the range of owner of a game and the code create max and min owner of the game.
+The owner column has the range of owner of games and the code create max and min owner of the games.
 
 Let’s see the final data frame:
 
@@ -216,6 +216,8 @@ ggplot(data = video_game %>% group_by(developer) %>%
   theme(axis.text.x = element_text(angle = 40, hjust = 1))
 ```
 
+{{<image src="/images/tidytuesday/game1.png">}}
+
 ```R
 ggplot(data = video_game %>% group_by(publisher) %>%
   tally(sort = TRUE) %>% head(10)) +
@@ -227,6 +229,7 @@ ggplot(data = video_game %>% group_by(publisher) %>%
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 40, hjust = 1))
 ```
+{{<image src="/images/tidytuesday/game2.png">}}
 
 Big Fish Games is the biggest publisher by the game count as it publishes lots of free to play and casual games. Sega which is the second-largest publisher has less than half of the game published by the Big Fish Games.
 
@@ -252,6 +255,8 @@ video_game %>%
   )
 ```
 
+{{<image src="/images/tidytuesday/game3.png">}}
+
 The Big Fish Games has released 265 games but the player base of their games is very small. Other publishers in this group have a much larger player base like Ubisoft, Square Enix, SEGA has much larger player base for their games.
 
 ```R
@@ -265,6 +270,8 @@ ggplot(data = video_game %>% arrange(desc(average_playtime)) %>% head(20)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+{{<image src="/images/tidytuesday/game4.png">}}
+
 ```R
 ggplot(data = video_game %>% group_by(max_owners) %>% 
          arrange(desc(max_owners)) %>% head(10)) +
@@ -276,8 +283,9 @@ ggplot(data = video_game %>% group_by(max_owners) %>%
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+{{<image src="/images/tidytuesday/game5.png">}}
 
-Dota2, Team Fortress 2 is free to play multiplayer games released on 2013 and 2007 respectively. The Player Unknown BattleGround(PUBG) is also a multiplayer battle royale shooter which is a huge hit. Counter-Strike is currently available free in steam which may have increased the owner count. All Top five games are multiplayer games with a strong player base and metascore.
+Dota2, Team Fortress 2 is free to play multiplayer games released on 2013 and 2007 respectively. The Player Unknown BattleGround *(PUBG)* is also a multiplayer battle royale shooter which is a huge hit. Counter-Strike is currently available free in steam which may have increased the owner count. All Top five games are multiplayer games with a strong player base and metascore.
 
 ```R
 ggplot(data = video_game %>% group_by(max_owners) %>% 
@@ -290,8 +298,9 @@ ggplot(data = video_game %>% group_by(max_owners) %>%
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+{{<image src="/images/tidytuesday/game6.png">}}
 
-Pubg is currently one of the most popular games in the steam store and huge player base. Other games in this group have a very low price or currently free in the steam store.
+PUBG is currently one of the most popular games in the steam store and huge player base. Other games in this group have a very low price or currently free in the Steam store.
 
 ```R
 ggthemr("flat")
@@ -307,6 +316,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+{{<image src="/images/tidytuesday/game7.png">}}
 
 The average game price was rising up to the year 2013 then it started to decrease. It may be due to the increment in the release of the game with a very low price or freemium model.
 
@@ -318,6 +328,7 @@ ggplot(data = video_game) + geom_bar(aes(x = year)) +
   ) +
   theme_minimal()
 ```
+{{<image src="/images/tidytuesday/game8.png">}}
 
 There is growth in the release of the games from the year 2015 onward.
 
@@ -331,6 +342,7 @@ ggplot(data = video_game) + geom_bar(aes(x = month)) +
   ) +
   theme_minimal()
 ```
+{{<image src="/images/tidytuesday/game9.gif">}}
 
 The above animation shows the number of games released on each month of the year.
 
@@ -350,9 +362,12 @@ ggplot(data = video_game %>% mutate(release_date = mdy(release_date)) %>%
   theme_minimal()
 ```
 
+{{<image src="/images/tidytuesday/game10.png">}}
+
 There is a rise in the release of games since 2015 and much of the games are released on workdays than the weekend days.
 
 ### Wrapping up
 
 Tidytuesday repo has a great dataset for analysis and visualization. You can also extract other data from the repo and work on it. I have taken some references from the work of other people while working on this data and they are:
-[Anasthsia Kuprina](https://twitter.com/Kuprinasha) [CHRISTOPHER YEE](https://www.christopheryee.org/blog/tidytuesday-steam-games/)
+* [Anasthsia Kuprina](https://twitter.com/Kuprinasha)
+* [CHRISTOPHER YEE](https://www.christopheryee.org/blog/tidytuesday-steam-games/)

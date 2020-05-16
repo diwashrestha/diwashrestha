@@ -7,7 +7,7 @@ featuredImage: /images/stats_R/preview.png
 featuredImagePreview: /images/stats_R/preview.png
 ---
 
-In this post i will discuss about the statistics with R.This will be divided in to two blog posts.
+In this post we will discuss about the statistics with R.
 
 ### Introduction
 
@@ -28,7 +28,7 @@ Descriptive Statistics is used to summarize the data and it focuses on Distribut
 
 ### Measures for central tendency
 
-Central tendency is a measure that best summarizes the data and is a measure that is related to the center of the data set.Mean, median, and mode are the most common measures for central tendency.
+Central tendency is a measure that best summarizes the data and is a measure that is related to the center of the data set. Mean, median, and mode are the most common measures for central tendency.
 
 We will use mtcars dataset from the datasets package in R.
 
@@ -59,7 +59,7 @@ mean(mtcars$mpg)
 
 ### Median
 
-The median is the Middle or midpoint of the data and is also the 50 percentile of the data. The median is not affected by the outliers and skewness of the data. **Median()** function is used to get Median.
+The median is the Middle or midpoint of the data and is also the 50 percentile of the data. The median is not affected by the outliers and skewness of the data. **median()** function is used to get Median.
 
 
 ```R
@@ -72,7 +72,7 @@ median(mtcars$cyl)
 
 ### Mode
 
-Mode is a value in data that has highest frequency and useful when the differences are non-numeric and seldom occur.
+Mode is a value in data that that is repeated more often than any other.
 
 ```R
 y <- table(mtcars$gear)
@@ -87,12 +87,12 @@ names(y)[which(y ==max(y))]
 ### Measures of variability
 
 
-Measure of variability are the measures of the spread of the data. It can be range ,interquartile range, variance, standard deviation.
+Measures of variability is the measures of the spread of the data. It can be range ,interquartile range, variance, standard deviation.
 
 
 ### Range
 
-Range is the difference between the largest and smallest points in the data. range() function is used to find the range in R.
+Range is the difference between the largest and smallest points in the data. **range()** function is used to find the range in R.
 
 ```R
 range(mtcars$disp)
@@ -289,4 +289,4 @@ str(mtcars)
  ```
 
 
-In this blog i wrote about the basic or descriptive statistics with R. In another blog i will write about the inferential part of statistics which is very important used mostly in research and analysis.
+This all  about the basic or descriptive statistics with R.

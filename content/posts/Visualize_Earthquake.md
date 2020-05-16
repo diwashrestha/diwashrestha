@@ -8,16 +8,16 @@ featuredImage: /images/visual_earthquake/preview.png
 featuredImagePreview: /images/visual_earthquake/preview.png
 ---
 
-According to Wikipedia:
+According to [USGS](https://www.usgs.gov/about/about-us/who-we-are):
 
-> An earthquake is the shaking of the surface of the Earth, resulting from the sudden release of energy in the Earth’s lithosphere that creates seismic waves.
+> An earthquake is caused by a sudden slip on a fault. The tectonic plates are always slowly moving, but they get stuck at their edges due to friction. When the stress on the edge overcomes the friction, there is an earthquake that releases energy in waves that travel through the earth's crust and cause the shaking that we feel.
 
-Earthquake size can be very weak which can’t be felt to those which can destroy cities. The size of the earthquake is deterind by the magnitude of the earthquake in seismic scale.
+Earthquake size can be very weak which can’t be felt to those which can destroy cities. The size of the earthquake is determind by the magnitude of the earthquake in seismic scale.
+
+{{<image src="/images/visual_earthquake/earthquake.jpg">}}
 
 
-![Earthquake](/images/visual_earthquake/earthquake.jpg)
-
-In this blog, I will create an interactive visualization of the 20 largest earthquakes in the world. I am using the data from [https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes](Earthquake.usgs.gov), US government website about geological research. The data is extracted using rvest package(web scraping package). I will use [http://jkunst.com/highcharter/index.html](highcharter) package to create the visualization.
+In this blog, We will create an interactive visualization of the 20 largest earthquakes in the world. We will use the data from [Earthquake.usgs.gov](https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes), US government website about geological research. The data is extracted using rvest package(web scraping package). We will use [highcharter](http://jkunst.com/highcharter/index.html) package to create the visualization.
 
 ```R
 # loading library
@@ -59,7 +59,7 @@ Here is the look of data that i will use to create the visualization of the eart
 |8.8 |	Offshore Bio-Bio, Chile |	Maule Earthquake |	2010-02-27 |	06:34	|-36 |	-72 |	Duputel et al., 2012 |
 
 
-In this visualization i will also use data of the tectonic plates of the earth.I am using geojson of the earthmap and the tectonic to create the map.The data baout the tectonic plates and the world map i am taking from highcharter example.
+In this visualization we will also use data of the tectonic plates of the earth. We will be  using geojson of the earthmap and the tectonic to create the map.The data about the tectonic plates and the world map is taken  from [highcharter](http://jkunst.com/highcharter/highmaps.html) example.
 
 ```R
 getContent <- function(url) {
