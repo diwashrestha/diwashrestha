@@ -80,14 +80,23 @@ other = "Annulla"
 [noResultsFound]
 other = "Nessun risultato trovato"
 
-[lunrLanguageLib]
-other = "lib/lunr/lunr.it.js"
-
 [lunrLanguageCode]
 other = "it"
 
+[lunrLanguageLib]
+other = "lib/lunr/lunr.it.js"
+
 [copyToClipboard]
 other = "Copia negli appunti"
+
+[cookieconsentMessage]
+other = "Questo sito Web utilizza i Cookies per migliorare la tua esperienza."
+
+[cookieconsentDismiss]
+other = "Essere d'accordo"
+
+[cookieconsentLink]
+other = "Per saperne di più"
 # === partials/assets.html ===
 
 # === partials/plugin/share.html ===

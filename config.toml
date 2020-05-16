@@ -28,7 +28,7 @@ enableEmoji = true
       # subtitle shown in home page
       subtitle = "This is My Personal Website"
       # whether to use typeit animation for subtitle
-      typeit = false 
+      typeit = true
       # whether to show social links
       social = true
       # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
@@ -47,7 +47,7 @@ enableEmoji = true
     # blinking speed of the cursor (measured in milliseconds)
     cursorSpeed = 1000
     # character used for the cursor (HTML format is supported)
-    cursorChar = "_"
+    cursorChar = "|"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     duration = -1
 
@@ -170,7 +170,28 @@ enableEmoji = true
     Facebook = "shrestha.diwash.50"
     Stackoverflow = "9717032/diwash-shrestha"
     
- 
+   # LoveIt NEW | 0.2.0 Code config
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+      # the maximum number of lines of displayed code by default
+      maxShownLines = 10
+    # LoveIt NEW | 0.2.0 Mapbox GL JS config
+    [params.page.mapbox]
+      # access token of Mapbox GL JS
+      accessToken = ""
+      # style for the light theme
+      lightStyle = "mapbox://styles/mapbox/light-v9"
+      # style for the dark theme
+      darkStyle = "mapbox://styles/mapbox/dark-v9"
+      # whether to add NavigationControl
+      navigation = true
+      # whether to add GeolocateControl
+      geolocate = true
+      # whether to add ScaleControl
+      scale = true
+      # whether to add FullscreenControl
+      fullscreen = true 
 
 # Markup related config in Hugo
 [markup]

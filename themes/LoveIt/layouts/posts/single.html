@@ -1,13 +1,20 @@
-{{- define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end -}}
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
 
+    {{- $toc := $params.toc -}}
+    {{- if eq $toc true -}}
+        {{- $toc = .Site.Params.page.toc | default dict -}}
+    {{- else if eq $toc false -}}
+        {{- $toc = dict "enable" false -}}
+    {{- end -}}
+
     {{- /* Auto TOC */ -}}
-    {{- if ne $params.toc.enable false -}}
+    {{- if ne $toc.enable false -}}
         <div class="toc" id="toc-auto">
             <h2 class="toc-title">{{ T "contents" }}</h2>
-            <div class="toc-content{{ if eq $params.toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
+            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
         </div>
     {{- end -}}
 
@@ -46,13 +53,13 @@
             </div>
             <div class="post-meta-line">
                 {{- $publish_date := .PublishDate.Format (.Site.Params.dateformat | default "2006-01-02") -}}
-                <i class="far fa-calendar-alt fa-fw"></i><time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>{{ T "wordCount" .WordCount }}&nbsp;
-                <i class="far fa-clock fa-fw"></i>{{ T "readingTime" .ReadingTime }}&nbsp;
+                <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime={{ $publish_date }}>{{ $publish_date }}</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i><span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
             </div>
@@ -61,12 +68,12 @@
         {{- /* Featured image */ -}}
         {{- with $params.featuredimage -}}
             <div class="featured-image">
-                {{- partial "plugin/image.html" (dict "src" . "alt" $.Description "large" true) -}}
+                {{- dict "src" . "alt" $.Description "large" true | partial "plugin/image.html" -}}
             </div>
         {{- end -}}
 
         {{- /* Static TOC */ -}}
-        {{- if ne $params.toc.enable false -}}
+        {{- if ne $toc.enable false -}}
             <div class="details toc" id="toc-static">
                 <div class="details-summary toc-title">
                     <span>{{ T "contents" }}</span>
