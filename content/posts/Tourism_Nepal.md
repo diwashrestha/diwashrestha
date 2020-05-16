@@ -3,15 +3,18 @@ title: "Tourism in Nepal"
 date: 2019-11-22T23:29:14+05:45
 author: false
 draft: false
+lightgallery: true
 featuredImage: /images/tourism_in_nepal/preview.png
 featuredImagePreview: /images/tourism_in_nepal/preview.png
 ---
 
 ### Introduction
 
- Nepal is celebrating year 2020 as “Tourism Year” targeting 2 million international tourist arrivals. You can learn more about the #VisitNepal2020. I want to see the trend/history of nepal tourism and extracted the data from the Wikipedia using rvest package in last blog.
+Nepal is celebrating year 2020 as “Tourism Year” targeting 2 million international tourist arrivals. You can learn more about the [#VisitNepal2020](https://visitnepal2020.com/). I want to see the trend/history of nepal tourism and extracted the data from the [Wikipedia](https://en.wikipedia.org/wiki/Tourism_in_Nepal)  in [Scraping Data with R](/posts/scraping_data_with_r/) blog post.
 
-In this section, I will work on the same data from the last blog try to analyse, create some visualization and understand the trend of Tourism in Nepal.
+{{<image src="/images/tourism_in_nepal/vny2020.jpeg" caption="Visit Nepal 2020">}}
+
+In this section, we will work on the scrapped data from the [Scraping Data with R](/posts/scraping_data_with_r/) blog post and  perform analysis, create some visualization and understand the trend of Tourism in Nepal.
 
 ### Lets Start
 
@@ -28,22 +31,23 @@ library(gganimate)
 library(plotly)
 ```
 
-```
-year    tourist_number   per_change
-<int>      <int>           <dbl>
-1993	  293567	      -12.2
-1994	  326531	       11.2
-1995	  363395	       11.3
-1996	  393613	       8.3
-1997	  421857	       7.2
-1998	  463684	       9.9
-1999	  491504	       6.0
-2000	  463646	      -5.7
-2001	  361237	      -22.1
-2002	  275468	      -23.7
-```
 
-This is the data frame which I got after the extraction and cleaning process in the last blog. Now I will create a visualization from this data using ggplot2 and plotly.
+| year |   tourist_number |   per_change |
+| ----- | ----- | ----- |
+| <int> |     <int>    |       <dbl> |
+| 1993	|  293567	 |     -12.2 |
+| 1994	| 326531	 |      11.2 |
+| 1995	|  363395	 |      11.3 |
+| 1996	|  393613	 |      8.3 |
+| 1997	|  421857	|       7.2 |
+| 1998	|  463684	 |      9.9 |
+| 1999	|  491504	  |     6.0 |
+| 2000	|  463646	  |    -5.7 |
+| 2001	|  361237	   |   -22.1 |
+| 2002	|  275468	   |   -23.7 |
+
+
+This is the data frame which I got after the extraction and cleaning process in the Scraping Data with R blog post. Now I will create a visualization from this data using [ggplot2](https://ggplot2.tidyverse.org/) and [plotly](https://plot.ly/r/).
 
 ### Visuals
 
@@ -64,9 +68,9 @@ ggplotly(gplot)
 
 <iframe max-width: "100%" width="700" height = "600" frameborder="0" scrolling="no" src="//plotly.com/~Diwashrestha/4.embed?showlink=false"></iframe>
 
-This barplot shows the number of arrival of international tourist from 1993 to 2017. The trend of tourist number was good from 1993 to 2000. Then from 2001, the flow of the international tourist decreased as it was the period where civil war was at its height. The country was in the emergency period.
+This barplot shows the number of arrival of international tourist from 1993 to 2018. The trend of tourist number was good from 1993 to 2000. Then from 2001, the flow of the international tourist decreased as it was the period where civil war was at its height. The country was in the emergency period.
 
-In 2015 there was an earthquake which destroyed most of the historic sites in Kathmandu valley and with large physical and human casualties. This decreased the number of tourist in Nepal. I can see that 2016 onward the number of tourists arrival increased every year. In 2018 the number of tourist arrival crossed 1 million.
+In 2015 there was an earthquake which destroyed most of the historic sites in Kathmandu valley and with large physical and human casualties. This decreased the number of tourist in Nepal. I can see that 2016 onward the number of tourists arrival increased every year. In 2018 the number of tourist arrival crossed first time 1 million.
 
 ```R
 gplot <- ggplot(tourist_df, aes(
@@ -88,6 +92,7 @@ ggplotly(gplot)
 This plot shows the percentage change in the flow of the tourist arrival every year.
 
 ### Top 10 Country
+
 In this section, I will find the top 10 countries with must tourist to Nepal.
 
 
@@ -105,10 +110,35 @@ In this section, I will find the top 10 countries with must tourist to Nepal.
 | 8	| Australia	|33371	|25507|	16619|	24516|	20469|
 | 9	| Myanmar	|30852	|25769|	21631|	N/A	| N/A |
 | 10| Germany	|29918	|23812	|16405	|18028	|22263|
+|11	| Bangladesh | 	29060	| 23440| 	14831| 	21851| 	22410| 
+|12	| Japan	|  27326| 	22979	| 17613	| 25892	| 26694| 
+|13	| France | 	26140| 	20863	| 16405	| 24097	| 21842| 
+|14	| Malaysia | 	18284	| 13669	| 9855	| 18915	| 18842| 
+|15	| Spain	| 15953| 	12255	| 6741	| 13110	| 10412| 
+|16	| Canada| 	15105	| 12491	| 8398	| 11610| 	12132| 
+|17	| Netherlands| 	13393	| 11453	| 7515	| 12320	| 10516| 
 
-This is the data I got from the last blog and now I need to extract the top 10 countries from this dataframe.
+This is the data I got from the [Scraping Data with R blog post](/posts/scraping_data_with_r/) and now I need to extract the top 10 countries from this dataframe.
 
+```R
 con_tour_df<- head(con_tour_df,10)
+```
+
+|  Rank  |  Country | 2013  | 2014 |   2015  |  2016 |  2017 |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| *chr*  |   *chr* |  *chr* | *chr* |   *chr* |  *chr* | *chr* |
+| 1	 | India	|160832 |	118249	|75124 |	135343|	180974|
+| 2	| China	|104664	| 104005 |	66984 |	123805 |	113173|
+| 3	| United States |	79146 |	53645	| 42687	|49830	|47355|
+| 4	| United Kingdom |	51058	|46295|	29730|	36759	|35688|
+| 5	| Sri Lanka	|45361|	57521|	44367|	37546|	32736|
+| 6	| Thailand	|39154	|26722	|32338	|33422	|40969|
+| 7	| South Korea|	34301|	25171|	18112	|23205|	19714|
+| 8	| Australia	|33371	|25507|	16619|	24516|	20469|
+| 9	| Myanmar	|30852	|25769|	21631|	N/A	| N/A |
+| 10| Germany	|29918	|23812	|16405	|18028	|22263|
+
+
 This dataframe has the years in a different column. I keep all the years in year column along with there tourist arrival value.
 
 ```R
@@ -142,13 +172,13 @@ con_tour_df$value <- as.integer(con_tour_df$value)
 | 2	| China	| 2017 |	113173 |	2 |	113173 |
 
 
-This the final data frame that I got after cleaning. Now, it is time to create some visualization/animation.
+This is the final data frame that I got after cleaning. Now, it is time to create some visualization/animation.
 
 
 
 
 
-I am using the ggplot2 package to create static visualization and gganimate to create beautiful animations.
+I am using the [ggplot2](https://ggplot2.tidyverse.org/) package to create static visualization and [gganimate](https://gganimate.com/index.html) to create beautiful animations.
 
 ```R
 colors <- c("#a6cee3", "#e31a1c", "#b2df8a", "#33a02c",
@@ -157,7 +187,7 @@ colors <- c("#a6cee3", "#e31a1c", "#b2df8a", "#33a02c",
             "#80b1d3", "#fdb462", "#b3de69")
 ```
 
-In this visualization, i need 10 different colours to show a different country in the animation. I created a colour palette and named colors which will be used while creating visualization below.
+In this visualization, I need 10 different colours to show a different country in the animation. I created a colour palette and named colors which will be used while creating visualization below.
 
 ```R
 ggplot(con_tour_df, aes(x = rank, y = value, group = Country)) +
@@ -200,7 +230,7 @@ ggplot(con_tour_df, aes(x = rank, y = value, group = Country)) +
 ![](/images/tourist_arrival.gif)
 ### Conclusion
 
-In this blog I showed the interactive visualization made with ggplot2 and plotly. I also made the animation showing the number of tourist arrival based on country from 2013 to 2017.
+In this blog I showed the interactive visualization made with [ggplot2](https://ggplot2.tidyverse.org/) and [plotly](https://plot.ly/r/) using the [scraped data](/posts/scraping_data_with_r/). I also made the animation showing the number of tourist arrival based on country from 2013 to 2017.
 
 Feel free to send to me your feedback and suggestions regarding this post!
 

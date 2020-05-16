@@ -1,6 +1,6 @@
 ---
 title: "Scraping Data with R"
-date: 2020-05-03T23:23:51+05:45
+date: 2019-11-05T23:23:51+05:45
 author: false
 draft: false
 featuredImage: /images/scrap_data/preview.png
@@ -28,7 +28,7 @@ library(tidyverse)
 
 We need the link from which we want to scrape the data. I opened the wiki webpage and I will scrape the table shown below.
 
-I will use the read_html() function which reads the HTML page.
+I will use the *read_html()* function which reads the HTML page.
 
 ```R
 wikipage <- read_html("https://en.wikipedia.org/wiki/Tourism_in_Nepal")
@@ -36,11 +36,11 @@ wikipage <- read_html("https://en.wikipedia.org/wiki/Tourism_in_Nepal")
 
 ### Data Extraction
 
-We need the CSS selector of the table from which we want to scrape the data. I opened the inspect view which can be opened by clicking the right button of the webpage and click the inspect. for the table, the CSS selector is “table.wikitable”.
+We need the CSS selector of the table from which we want to scrape the data. I opened the inspect view which can be opened by clicking the right button of the webpage and click the inspect. for the table, the CSS selector is *table.wikitable*.
 
 
 
-I passed the CSS selector to the html_nodes() function and result is passed to the html_table() function using pipeline(%>%). The below code extract the arrival table data as data frame.
+I passed the CSS selector to the *html_nodes()* function and result is passed to the *html_table()* function using pipeline(%>%). The below code extract the arrival table data as data frame.
 
 ```R
 table <- wikipage %>%
@@ -73,7 +73,7 @@ names(tourist_df) <- c("year","tourist_number","per_change")
 2002	 | 275,468 | 	-23.7  | 
 
 
-The tourist_number column has “,” between the number which makes it string. I removed the “,” using str_remove() from stringr package.
+The tourist_number column has **,** between the number which makes it string. I removed the **,** using *str_remove()* from stringr package.
 
 ```R
 tourist_df$tourist_number <- str_remove(tourist_df$tourist_number,",")
@@ -105,7 +105,7 @@ This is the final dataframe after cleaning.
 | 2001	| 361237 |	-22.1 |
 | 2002	| 275468 |	-23.7 |
 
-In the same way, I can extract another arrival from the country table. both tables have the same selector “table.wikitable” when the html_nodes extract the tables it keeps data in list form in the table object. We can extract the data for the arrival by country from table list using the index 2.
+In the same way, I can extract another *arrival from the country* table. Both tables have the same selector *table.wikitable* when the html_nodes extract the tables it keeps data in list form in the table object. We can extract the data for the arrival by country from table list using the index 2.
 
 ```R
 table <- wikipage %>%
@@ -117,7 +117,7 @@ table <- table[[2]]
 con_tour_df <- as.data.frame(table)
 ```
 
-I rename the columns of the dataframe .
+I rename the columns of the dataframe as below.
 
 ```R
 names(con_tour_df)<- c("Rank","Country",2013,2014,2015,2016,2017)
@@ -139,15 +139,15 @@ names(con_tour_df)<- c("Rank","Country",2013,2014,2015,2016,2017)
 | 10	| Germany	| 29,918	| 23,812	| 16,405	| 18,028	| 22,263| 
 
 
-This the data how it look like after extracting using rvest.
+This the data how it look like after extracting using [rvest](https://rvest.tidyverse.org/).
 
-I remove the “,” from every column using the purr package map() and str_remove() of the stringr package.
+I remove the *,* from every column using the [purr](https://purrr.tidyverse.org/) package map() and str_remove() of the [stringr](https://stringr.tidyverse.org/) package.
 
 ```R
 con_tour_df <- con_tour_df%>% map(str_remove,",") %>% as_tibble()
 ```
 
-This is the final dataframe after some cleaning process.
+This is the final dataframe after data cleaning.
 
 | Rank | Country|  2013 | 2014|  2015 | 2016|  2017| 
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -163,7 +163,8 @@ This is the final dataframe after some cleaning process.
 | 9	| Myanmar	| 30852	| 25769	| 21631	| N/A | 	N/A | 
 | 10	| Germany	| 29918	| 23812	| 16405	| 18028	| 22263| 
 
-Finally, I have extracted the data from Wikipedia. I will analyse this data and share the insights in the next post.
+Finally, I have extracted the data from Wikipedia. I will analyse this data and share the insights in the [Tourism in Nepal](/posts/tourism_nepal/)
+  post.
 
 Feel free to send to me your feedback and suggestions regarding this post!
 

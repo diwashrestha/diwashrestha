@@ -1,6 +1,6 @@
 ---
 title: "Interactive Visualization with ggplot2 and Plotly"
-date: 2020-05-03T23:30:16+05:45
+date: 2019-12-15T23:30:16+05:45
 author: false
 draft: false
 featuredImage: /images/ggplot_plotly/preview.png
@@ -13,7 +13,7 @@ I love to work with data and while analyzing the data visualization helps a lot 
 
 [GGplot2](https://ggplot2.tidyverse.org/) is powerfull visualization package based on [The grammar of graphics](https://www.springer.com/gp/book/9780387245447) and part of [Tidyverse](https://www.tidyverse.org/). It is easy to use and powerful to create any type of visualization. The problem is it can only make beautiful static visualization.
 
-[Plotly](https://plotly.com/r/) is a free opensource library for interactive visualization. Plotly can convert the high-quality ggplot graphs to interactive graphs .We will use plotly along with ggplot2 to create beautiful interactive visualization. 
+[Plotly](https://plotly.com/r/) is a free opensource library for interactive visualization. Plotly can convert the high-quality ggplot graphs to interactive graphs. We will use plotly along with ggplot2 to create beautiful interactive visualization. 
 
 
 At First we will create a static visualization with ggplot2 and then make the ggplot graph interactive with plotly package. We will use data about [Nobel Prize](https://www.nobelprize.org/) winner to create the visualization.
@@ -32,7 +32,7 @@ library(plotly) # interactive data visualization
 
 ### Load Data
 
-I am using the [Nobel Prize](https://www.nobelprize.org/) winner data which is sourced from [tidytuesday](https://github.com/rfordatascience/tidytuesday) github which release every week new data project.
+I am using the [Nobel Prize](https://www.nobelprize.org/) winner data which is sourced from [TidyTuesday](https://github.com/rfordatascience/tidytuesday) github which release every week new data project.
 
 ```R
 data <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-14/nobel_winners.csv")
@@ -98,6 +98,6 @@ htmlwidgets::saveWidget(as_widget(nobel_plot), "nobelprize.html")
 
 ### Wrapping up
 
-Atlast we made the ggplot2 charts interactive using a single ggplotly() function.You can find lots of data in [Tidytuesday repo](https://github.com/rfordatascience/tidytuesday) for analysis  and create great visualization to show the insights.
+At last we made the ggplot2 charts interactive using a single *ggplotly()* function.You can find lots of data in [Tidytuesday repo](https://github.com/rfordatascience/tidytuesday) for analysis  and create great visualization to show the insights.
 
 
