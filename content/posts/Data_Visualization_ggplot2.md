@@ -9,6 +9,8 @@ featuredImagePreview: /images/data_viz_ggplot/preview.png
 
 We have seen lots of visuals in our life like pictures, animations, and some graphical plots. Graphics help or make easy to get an idea or understand anything. Visualization is an important part of the Data science or Data Analysis. In this blog, we will learn about visualization in R by creating different type of plots. 
 
+![](/images/data_viz_ggplot/download.jpg)
+
 ### Lets Visualize
 
 We will use ggplot2 package which follows the grammar of graphics. Its very powerful tool for visualization and very famous in R community.We will use the mpg datasets in ggplot2 package to create the visual graphs.
@@ -40,6 +42,7 @@ ggplot(data = mpg) +
   labs(title = "Scatterplot with ggplot2", x = "CTY", y = "displ") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph1.png)
 
 The ggplot() takes data frame input then we can define the required graph type using geom_graphtype(). Here I am using geom_point() to show scatterplot. Then we need to assign the x and y value from the data frame that is going to be used in creating graph. We can assign a title, labels to x-axis and y-axis of the graph using the labs().ggplot2 has multiple themes which are built in and I am using theme_minimal.
 
@@ -53,6 +56,7 @@ ggplot(data = mpg, aes(x = hwy, y = displ)) +
   labs(title = "Barchart with ggplot2") +
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph2.png)
 
 ### Count Chart
 
@@ -64,6 +68,7 @@ ggplot(data = mpg) + geom_bar(aes(manufacturer)) +
   labs(title = "Count Chart with ggplot2") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph3.png)
 
 ### Bubble Chart
 
@@ -76,6 +81,7 @@ ggplot(data = mpg) +
   labs(title = "Bubble Chart with ggplot2") +
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph4.png)
 
 ### Line Chart
 
@@ -94,6 +100,7 @@ ggplot(data = data, aes(x = x, y = y)) +
   theme_minimal()
 ```
 
+![](/images/data_viz_ggplot/graph5.png)
 
 In this line chart, we can see the series of the data points connected by the lines. Time series and finacial analysis use line plots .
 
@@ -108,6 +115,7 @@ ggplot(data = mpg, aes(x = " ")) +
   labs(title = "Pie Chart") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph6.png)
 
 ### Histogram
 
@@ -120,6 +128,7 @@ ggplot(data = mpg, aes(displ)) +
   labs(title = "Histogram with ggplot2") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph7.png)
 
 ### Area Plot
 
@@ -131,6 +140,7 @@ ggplot(data = mpg, aes(x = cty, fill = drv)) +
   labs(title = "Areaplot with ggplot2") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph8.png)
 
 ### Box Plot
 
@@ -142,6 +152,7 @@ ggplot(data = mpg, aes(x = cyl, y = cty, fill = cyl)) +
   labs(title = "Boxplot with ggplot2") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph9.png)
 
 ### Density Plot
 
@@ -153,5 +164,6 @@ ggplot(data = mpg, aes(hwy)) +
   labs(title = "Density Plot with ggplot2") + 
   theme_minimal()
 ```
+![](/images/data_viz_ggplot/graph10.png)
 
 These are the few of the many visualization types which are used in Data Analysis or Data Science. I hope it this was helpful for you.

@@ -11,7 +11,7 @@ In this blog, I will create a machine learning model which will predict the surv
 
 
 
-RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City. The data is taken from data.world. I have also done exploratory analysis in my previous blog on this data I will not work on EDA in this blog on the same data.
+> RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City. The data is taken from data.world. I have also done exploratory analysis in my previous blog on this data I will not work on EDA in this blog on the same data.
 
 Lets start with loading the packages and dataset.
 
@@ -80,7 +80,7 @@ fare    cabin  embarked      boat      body   home_dest
   0      0         0           0         0       0
 ```
 
-The name column holds the name of each person which is a string and it cant be used in KNN. The titanic_df data frame has the home_dest column which is the destination of the people and it’s in the string. The boat column has the boat number if the people were alive otherwise blank. The cabin column has a cabin of the people which was provided for the rich people only and other cabin is unknown. The ticket column gives the ticket number of each person which is different for each person. I will drop these five columns from the data frame.
+The name column holds the name of each person which is a string and it cant be used in KNN. The titanic_df data frame has the home_dest column which is the destination of the people and it’s in the string. The boat column has only that number of boats which had people who were alive otherwise it’s blank. The cabin column has a cabin of the people which was provided for the rich people only and other cabin is unknown. The ticket column gives the ticket number of each person which is different for each person. I will drop these five columns from the data frame.
 
 The embarked column gives Port of Embarkation:
 

@@ -8,7 +8,7 @@ featuredImagePreview: /images/LHD_2018/preview.png
 ---
 
 
-I organized [MLH](https://mlh.io/)  **Local Hackday DataHackthon**  in [ACHS College](https://achsnepal.edu.np/) on Dec 1st,2018. MLH Local Hackday Hackathon is 12 hours global event which is held on December 1 every year around the world.R Nepal was also one of the organizers of the MLH Local Hackday with the moto of 
+I organized [MLH](https://mlh.io/)  **Local Hackday DataHackthon**  in [ACHS College](https://achsnepal.edu.np/) on Dec 1st,2018. MLH Local Hackday Hackathon is 12 hours global event which is held on December 1 every year around the world. [RNepal]() was also one of the organizers of the MLH Local Hackday with the moto of 
 
 > **Learning, Building, Sharing.**
 
@@ -32,4 +32,4 @@ I gave a presentation about data analysis and machine learning. How it is done a
 There were 40 participants in the event and they worked in a group to solve the data problem. They presented their insights using reports, graphs and presentation. Every group were given a certificate of participation in [MLH](https://mlh.io/)  Local HackDay DataHackthon by Data Scientist [Saurav Paudel](https://www.linkedin.com/in/saurav-poudel-34a65688/?originalSubdomain=np). There were some swags and stickers provided by the MLH team and we shared with participants and guest. Overall the event was successful and it was a great experience to organize such a great global event.
 
 
-
+{{< image src="/images/LHD_2018/preview1.jpg"caption="Group Photo" >}}

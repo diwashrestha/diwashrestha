@@ -9,6 +9,8 @@ featuredImagePreview: /images/eda_titanic/preview.png
 
 In this post, I am going to do Exploratory Data Analysis(EDA) on Titanic disaster datasets from kaggle Titanic: Machine Learning Disaster Competition. Before building machine learning model, I want to do EDA on this dataset find some idea about the features and structure of the dataset.
 
+![](/images/eda_titanic/titanic.jpg)
+
 >RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City. There were an estimated 2,224 passengers and crew aboard, and more than 1,500 died, making it one of the deadliest commercial peacetime maritime disasters in modern history. RMS Titanic was the largest ship afloat at the time it entered service.
 -- [Wikipedia](https://en.wikipedia.org/wiki/RMS_Titanic).
 
@@ -91,6 +93,8 @@ sum(is.na(titanic.df))
 ```
 
 Out of 1309 observations, titanic.df has 264 missing value. I want to find the distribution of missing value in our data frame. I am going to use the VIM and mice package to show the pattern of missing value in titanic.df.
+
+![](/images/eda_titanic/graph1.png)
 
 ```R
 ##finding any missing value in dataframe
@@ -193,6 +197,7 @@ g + geom_bar(aes(y = (..count..)/sum(..count..))) +
           scale_y_continuous(labels=scales::percent)+
           theme_minimal()+ylab("Percent")
 ```
+![](/images/eda_titanic/graph2.png)
 
 In above figure, 0 means not Survived and 1 mins survived. We can see in the figure that more than 60% people were not able to survive the disaster.
 
@@ -203,10 +208,13 @@ In above figure, 0 means not Survived and 1 mins survived. We can see in the fig
 g <-ggplot(titanic.df,aes(Age))+theme_minimal()
 g + geom_density()
 ```
+![](/images/eda_titanic/graph3.png)
 
 ```R
 g + geom_histogram(binwidth = 5)
 ```
+
+![](/images/eda_titanic/graph4.png)
 
 Two figure of Age distribution shows that Titanic was filled with the passenger aged 80 years to infants. The peak in above plot shows that the maximum number of people were from (25- 35) age group.
 
@@ -216,6 +224,8 @@ g <-ggplot(titanic.df,aes(Age))+
   facet_wrap(~Survived)
 g + geom_density()
 ```
+
+![](/images/eda_titanic/graph5.png)
 
 This density plot shows us the distribution of age of passenger on basis of their survival. The plot shows that kids were likely to survive the disaster.
 
@@ -230,6 +240,7 @@ g+geom_bar(aes(y = (..count..)/sum(..count..))) +
           scale_y_continuous(labels=scales::percent) +
           theme_minimal()+ylab("Percent")
 ```
+![](/images/eda_titanic/graph6.png)
 
 This plot shows more than 60% of Titanic passenger were Male.
 
@@ -241,6 +252,7 @@ g <-ggplot(titanic.df,aes(Sex,fill=Sex))+
 
 g + geom_bar()
 ```
+![](/images/eda_titanic/graph7.png)
 
 This plot shows that more female survived the Titanic disaster than the male even though the population of the male was bigger than female in Titanic.
 
@@ -252,6 +264,8 @@ g <-ggplot(titanic.df,aes(Pclass,fill=Sex)) +
 g + geom_bar()
 ```
 
+![](/images/eda_titanic/graph8.png)
+
 The passenger of Titanic was categorized into three classes. From above figure, we can see that 3rd class passengers were more than half of the Titanic passengers.
 
 ```R
@@ -261,8 +275,9 @@ g <-ggplot(titanic.df,aes(Survived,fill=Survived)) +
 
 g + geom_bar()
 ```
+![](/images/eda_titanic/graph9.png)
 
-This plot shows the survival of passenger on basis of Passenger class. We can see that 3rd and 2nd class passengers were more likely to not survive the disaster.1st class passengers were more likely to survive the disaster.
+This plot shows the survival of passenger on basis of Passenger class. We can see that 3rd and 2nd class passengers were not likely to survive the disaster while 1st class passengers were more likely to survive the disaster.
 
 ###  Embark
 
@@ -274,8 +289,9 @@ g <-ggplot(titanic.df,aes(Survived,fill=Survived)) +
 
 g + geom_bar()
 ```
+![](/images/eda_titanic/graph10.png)
 
- Titanic’s first voyage was to New York before sailing to the Atlantic Ocean it picked passengers from three ports Cherbourg, Queenstown, Southampton. The above plot shows that many passengeriTitanicic embarked from the port of Southampton.
+Titanic’s first voyage was to New York before sailing to the Atlantic Ocean it picked passengers from three ports Cherbourg, Queenstown, Southampton. The above plot shows that many passengeriTitanicic embarked from the port of Southampton.
 
 ### Fare distribution
 
@@ -284,6 +300,9 @@ g <-ggplot(titanic.df,aes(Fare,fill=Survived)) +
   theme_bw()
 g + geom_histogram(binwidth = 10)
 ```
+
+![](/images/eda_titanic/graph11.png)
+
  This plot shows the distribution of fare paid by the passengers. We can see that more than 600 passengers paid in the range of( 10 to 20) fare. We also see that many passengers paid in the range of (10 to 100) fare.
 
 ### Parch Distribution
@@ -293,6 +312,7 @@ g <-ggplot(titanic.df,aes(Parch,fill=Survived)) +
   theme_bw()
 g + geom_bar()
 ```
+![](/images/eda_titanic/graph12.png)
 
  This plot shows the distribution of parent and children in passengers of Titanic. We can see that around 1000 of passengers were traveling without any parents or children.
 
@@ -304,6 +324,8 @@ g <-ggplot(titanic.df,aes(SibSp,fill=Survived)) +
 
 g + geom_bar()
 ```
+![](/images/eda_titanic/graph13.png)
+
  This plot shows the distribution of Siblings and spouse of the passengers. More than 800 of people were traveling without siblings or spouse. This plot shows that SibSp was distributed from 0 to Eight sibling/spouse.
 
 ### Conclusion

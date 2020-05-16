@@ -7,13 +7,13 @@ featuredImage: /images/ml_on_iris/preview.png
 featuredImagePreview: /images/ml_on_iris/preview.png
 ---
 
-In this blog, we will use some machine learning concept with help of ScikitLearn a Machine Learning Package and Iris dataset which can be loaded from sci-kit learn. we will use numpy to work on the Iris dataset and Matplotlib for Visualization. Iris data set is a multivariate data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper. The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis. The data set consists of 50 samples from each of three species of Iris:
+In this blog, we will use some machine learning concept with help of [ScikitLearn](https://scikit-learn.org/stable/) a Machine Learning Package and Iris dataset which can be loaded from sci-kit learn. we will use numpy to work on the Iris dataset and Matplotlib for Visualization. Iris data set is a multivariate data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper. The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis. The data set consists of 50 samples from each of three species of Iris:
 
 * Iris setosa
 * Iris virginica
 * Iris versicolor
 
-![](/images/post3/pic1.jpg)
+![](/images/ml_on_iris/iris1.jpg)
 
 There are Four features or column about the flowe r.
 
@@ -22,13 +22,13 @@ There are Four features or column about the flowe r.
 * Petal Length(cm)
 * Petal Width(cm)
 
-![](/images/post3/pic2.jpg)
+![](/images/ml_on_iris/iris2.jpg)
 
 Iris datasets are the basic Machine Learning data. The objective of this post is to find the species of Iris flower of test data using the trained model. we are using the Sklearn python package’s Decision tree.
 
 ### Import Library and Module
 
-![](/images/post3/pic3.png)
+![](/images/ml_on_iris/iris3.png)
 
 First, we will import the required library and module in the python console. In this machine learning we will use:
 
@@ -93,7 +93,7 @@ The list of the features are :
 
 ### Split data into training and test sets
 
-![](/images/post3/pic4.png)
+![](/images/ml_on_iris/iris4.png)
 
 We split the data into training and test sets at the beginning of modelling workflow. Splitting is crucial for getting a realistic estimate of the model’s performance.
 
@@ -126,7 +126,7 @@ sns.pairplot(iris, hue="species",palette="bright")
 plt.show()
 ```
 
-![](/images/post3/pic5.png)
+![](/images/ml_on_iris/iris5.png)
 
 
 The above graph is scatterplot which is plotted between four features of iris in 12 different plots. In the above picture, we can see the samples formed clusters according to their species.
@@ -146,7 +146,7 @@ print(piris.head())
   setosa  sepal_length    4.6
   setosa  sepal_length    5.0
 ```
-![](/images/post3/pic6.png)
+![](/images/ml_on_iris/iris6.png)
 
 In the above code, we made a new variable piris to make the visualization easier. This picture shows how three species of iris differ on the basis of the four features.
 
@@ -179,7 +179,7 @@ out_file='iris.dot',  feature_names=iris.feature_names,
                          special_characters=True)
 ```
 
-![](/images/post3/pic7.png)
+![](/images/ml_on_iris/iris7.png)
 
 We are using the graphviz and dot module to create a dot file which can be visualized using graphviz application. The tree we got is below.
 
@@ -187,7 +187,7 @@ Using the above tree the classifier will classify our test data. Remember the ab
 
 ### Prediction
 
-![](/images/post3/pic8.jpg)
+![](/images/ml_on_iris/iris8.jpg)
 
 We will use the ML model to predict the iris species on the test data.
 

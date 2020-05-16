@@ -4,14 +4,14 @@ date: 2017-05-28T13:04:00+05:45
 author: false
 draft: false
 featuredImage: /images/usi-preview.png
-featuredImagePreview: /images/usi-preview.png
+featuredImagePreview: /images/us_immi/preview.png
 ---
 
 In this blog, I am going to read data about the no of migrants in the US from all around the globe from 1980 to 2013 taken from [esa.un.org](https://esa.un.org/unpd/wpp/Download/Standard/Migration/) and loaded in python. I am filtering data from given data and only using data of SAARC countries(Afganistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Srilanka). In this program, I am using matplotlib python package to visualize the given data. The data I will use is No of people moved to the US in given Years from their homeland.
 
-![SAARC](/images/saarc.jpg)
+![SAARC](/images/us_immi/saarc.jpg)
 
-I have used python to read data and took the data of only 8 SAARC country using function *country(C_name)*. I used matplotlib python package to visualize the extracted data to find out how was the no of migrants to the US from these * nations from 1980 to 2013.
+I have used python to read data and took the data of only 8 SAARC country using function *country(C_name)*. I used matplotlib python package to visualize the extracted data to find out how was the no of migrants to the US from these nations from 1980 to 2013.
 
 ```python
 #Importing packages
@@ -105,7 +105,7 @@ mode="expand", borderaxespad=0.)
 plt.show()
 ```
 
-![SAARC](/images/us1.png)
+![SAARC](/images/us_immi/us1.png)
 
 According to the US data:
 
@@ -127,11 +127,11 @@ plt.plot(year,nepal,c="black",marker='o')
 plt.show()
 ```
 
-![Nepal](/images/us2.png)
+![Nepal](/images/us_immi/us2.png)
 
 
 * Total Immigrants to US from Nepal from 1980 to 2013 were: 72408
-* Percentage of US immigration from Nepal: 0.2371 %
+* Percentage of US immigration from Nepal: 0.2371%
 
 ### India
 
@@ -148,10 +148,10 @@ plt.plot(year,india,c="white",marker='.')
 plt.show()
 ```
 
-![India](/images/us3.png)
+![India](/images/us_immi/us3.png)
 
 * Total Immigrants to US from India from 1980 to 2013 were: 1533776
-* Percentage of US immigration from India: 5.0227 %
+* Percentage of US immigration from India: 5.0227%
 
 
 ### Pakistan
@@ -169,11 +169,11 @@ plt.plot(year,pak,c="black",marker='*')
 plt.show()
 ```
 
-![Pakistan](/images/us4.png)
+![Pakistan](/images/us_immi/us4.png)
 
 
 * Total Immigrants to US from pakistan from 1980 to 2013 were: 390637
-* Percentage of US immigration from Pakistan: 1.2792 %
+* Percentage of US immigration from Pakistan: 1.2792%
 
 
 ### Bangladesh
@@ -192,7 +192,7 @@ plt.plot(year,bangladesh,c="black",marker='o')
 plt.show()
 ```
 
-![Bangladesh](/images/us5.png)
+![Bangladesh](/images/us_immi/us5.png)
 
 
 * Total Immigrants to US from Bangladesh from 1980 to 2013 were: 231946
@@ -213,7 +213,7 @@ plt.plot(year,srilanka,c="black",marker='o')
 plt.show()
 ```
 
-![Srilanka](/images/us6.png)
+![Srilanka](/images/us_immi/us6.png)
 
 * Total Immigrants to US from Srilanka from 1980 to 2013 were: 41403
 * Percentage of US immigration from Srilanka: 0.1356 %
@@ -233,10 +233,10 @@ plt.plot(year,afgan,c="red",marker='*')
 plt.show()
 ```
 
-![Afganistan](/images/us7.png)
+![Afganistan](/images/us_immi/us7.png)
 
 * Total Immigrants to US from Afganistan from 1980 to 2013 were: 74430
-* Percentage of US immigration from Afghanistan: 0.2437 %
+* Percentage of US immigration from Afghanistan: 0.2437%
 
 
 ### Bhutan
@@ -311,10 +311,10 @@ plt.plot(year,butan,c="black",marker='o')
 plt.show()
 ```
 
-![Bhutan](/images/us8.png)
+![Bhutan](/images/us_immi/us8.png)
 
 * Total Immigrants to US from Bhutan from 1980 to 2013 were: 231946
-* Percentage of US immigration from maldives: 0.7595 %
+* Percentage of US immigration from maldives: 0.7595%
 
 ### Maldives
 
@@ -331,9 +331,9 @@ plt.plot(year,maldives,c="black",marker='o')
 plt.show()
 ```
 
-![Maldives](/images/us9.png)
+![Maldives](/images/us_immi/us9.png)
 
 * Total Immigrants to US from Maldives from 1980 to 2013 were: 69
-* Percentage of US immigration from maldives: 0.00025 %
+* Percentage of US immigration from maldives: 0.00025%
 
 This was the analysis of immigration in the US from the SAARC region. Every year lots of people immigrate to the USA for education, prosperity or opportunity to make their American dream come true. SAARC is also one of the main regions where lots of people migrate to the USA.
