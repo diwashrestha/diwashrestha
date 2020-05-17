@@ -26,7 +26,7 @@ enableEmoji = true
       # URL of avatar shown in home page
       avatarURL = "/avatar.png"
       # subtitle shown in home page
-      subtitle = "This is My Personal Website"
+      subtitle = "Welcome to my personal website"
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
