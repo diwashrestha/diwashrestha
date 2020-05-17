@@ -93,7 +93,7 @@ enableEmoji = true
     pre = ""
     post = ""
     name = "Program & Talks"
-    url = "/program&talk/"
+    url = "/programstalks/"
     title = ""
     weight = 5
 

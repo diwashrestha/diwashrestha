@@ -1,6 +1,6 @@
 ---
 title: "Solveathon 2019: Nepal Tourism Dashboard"
-date: 2019-11-22T23:29:14+05:45
+date: 2019-11-28T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true

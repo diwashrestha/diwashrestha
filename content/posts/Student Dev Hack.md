@@ -1,6 +1,6 @@
 ---
 title: "Oragnized Student Dev Hack"
-date: 2019-11-22T23:29:14+05:45
+date: 2019-12-10T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true

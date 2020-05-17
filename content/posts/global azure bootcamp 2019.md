@@ -1,6 +1,6 @@
 ---
 title: "Oraganized Global Azure Bootcamp 2019"
-date: 2019-11-22T23:29:14+05:45
+date: 2019-05-27T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true
