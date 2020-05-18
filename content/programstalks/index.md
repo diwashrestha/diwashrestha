@@ -22,44 +22,61 @@ Diwash.Shrestha@outlook.com
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  Student Dev Day
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  Microsoft Student Partner 
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  TidyWeek: R Bootcamp
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  Kathfest Data Science with R
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  R ladies Kathmandu Data Analysis Workshop
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  Hacktoberfest
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Student Dev Hack
+#####  Global Azure Bootcamp
 
+* Dec 7, 2019 
+* ACHS College
+* [Learn more]
+
+#####  DataHackfest
+
+* Dec 7, 2019 
+* ACHS College
+* [Learn more]
+
+#####  Yanta 8.0 : Data Science Workshop
+
+* Dec 7, 2019 
+* ACHS College
+* [Learn more]
+
+##### Local Hack Day : 2018
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]

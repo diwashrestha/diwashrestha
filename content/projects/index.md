@@ -47,7 +47,7 @@ A Dashboard which classifiy the transactions as fraud and genuine and lists out 
 > Shiny, Highcharter,  H2O, R
 
  *[Project Demo](https://diwashrestha.shinyapps.io/credit-card-fraud-detector/)* 
-
+ *[Project Repo](https://github.com/diwashrestha/Credit-Card-Fraud-Detection)*
 </br>
 
 #### Nepal Provinical Dashboard
