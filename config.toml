@@ -85,7 +85,7 @@ enableEmoji = true
     pre = ""
     post = ""
     name = "About Me"
-    url = "/aboutme/"
+    url = "/me/"
     title = "About Me"
     weight = 4
   [[menu.main]]
