@@ -4,8 +4,8 @@ date: 2019-05-27T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true
-featuredImage: /images/tourism_in_nepal/preview.png
-featuredImagePreview: /images/tourism_in_nepal/preview.png
+featuredImage: /images/gab_2019/preview.png
+featuredImagePreview: /images/gab_2019/preview.png
 ---
 
 DataSansar also organized Global Azure Bootcamp 2019 at ACHS College.Global Azure Bootcamp is global event for learning about Microsoft Azure and Cloud Computing which is organized in multiple locations globally and anually. The event was supported by microsoft and github.

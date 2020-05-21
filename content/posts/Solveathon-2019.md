@@ -4,8 +4,8 @@ date: 2019-11-28T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true
-featuredImage: /images/tourism_in_nepal/preview.png
-featuredImagePreview: /images/tourism_in_nepal/preview.png
+featuredImage: /images/solveathon/preview.png
+featuredImagePreview: /images/solveathon/preview.png
 ---
 
 ### Introduction

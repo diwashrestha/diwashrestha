@@ -4,8 +4,8 @@ date: 2019-05-27T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true
-featuredImage: /images/tourism_in_nepal/preview.png
-featuredImagePreview: /images/tourism_in_nepal/preview.png
+featuredImage: /images/hacktober_2019/preview.png
+featuredImagePreview: /images/hacktober_2019/preview.png
 ---
 
 Last year I participated on the Hacktoberfest 2018 and learned about open source culture and community.

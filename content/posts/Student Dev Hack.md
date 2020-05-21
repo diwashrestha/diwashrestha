@@ -4,8 +4,8 @@ date: 2019-12-10T23:29:14+05:45
 author: false
 draft: false
 lightgallery: true
-featuredImage: /images/tourism_in_nepal/preview.png
-featuredImagePreview: /images/tourism_in_nepal/preview.png
+featuredImage: /images/student_dev_hack/preview.png
+featuredImagePreview: /images/student_dev_hack/preview.png
 ---
 
 DataSansar Organized Student Dev Hack on Dec 7 2019. It was a hackathon for students who want to learn by working on real projects. The hackathon was organized in ACHS College Hall.
