@@ -25,6 +25,7 @@ I gave a presentation about data analysis and machine learning. How it is done a
 
 {{< image src="/images/LHD_2018/data_hack6.jpg"caption="SlideShow Karaoke" >}}
 
+{{<tweet 1071235677403021313>}}
 {{< image src="/images/LHD_2018/data_hack7.jpg"caption="Local Hack Day 2018" >}}
 
 
@@ -33,3 +34,4 @@ There were 40 participants in the event and they worked in a group to solve the 
 
 
 {{< image src="/images/LHD_2018/preview1.jpg"caption="Group Photo" >}}
+{{<tweet 1069203779961131008>}}
