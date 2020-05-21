@@ -13,16 +13,16 @@ Diwash.Shrestha@outlook.com
 
 * Dec 14-15, 2019
 * Kathmandu University School of Management
-* [Learn more]()
+* [Learn more](/posts/solveathon-2019/)
  
 
-#####  Student Dev Hack
+##### Student Dev Hack
 
 * Dec 7, 2019 
 * ACHS College
-* [Learn more]
+* [Learn more](/posts/student-dev-hack/)
 
-#####  Student Dev Day
+##### Student Dev Day
 
 * Dec 7, 2019 
 * ACHS College
@@ -34,70 +34,71 @@ Diwash.Shrestha@outlook.com
 * ACHS College
 * [Learn more]
 
-#####  TidyWeek: R Bootcamp
+##### TidyWeek: R Bootcamp
+
+* Dec 7, 2019 
+* ACHS College
+* [Learn more](/posts/tidyweek/)
+
+##### Kathfest Data Science with R
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Kathfest Data Science with R
+##### RLadies Kathmandu Data Analysis Workshop
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  R ladies Kathmandu Data Analysis Workshop
+##### Hacktoberfest
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Hacktoberfest
+##### Global Azure Bootcamp
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  Global Azure Bootcamp
+##### DataHackfest
+
+* Oct 15, 2019 
+* ACHS College
+* [Learn more](https://www.facebook.com/pg/RUGNepal/photos/?tab=album&album_id=516968819083214)
+
+##### Yantra 8.0 : Data Science Workshop
 
 * Dec 7, 2019 
 * ACHS College
 * [Learn more]
 
-#####  DataHackfest
+##### "Roadshow" by Developer Circles : Data Science with R
 
-* Dec 7, 2019 
-* ACHS College
-* [Learn more]
+* Apr 7, 2019
+* [Patan Multiple Campus](https://pmc.edu.np/)
+* [Learn more](https://twitter.com/suvushrestha/status/1114768995473690624)
 
-#####  Yantra 8.0 : Data Science Workshop
-
-* Dec 7, 2019 
-* ACHS College
-* [Learn more]
 
 ##### Local Hack Day : 2018
 
-* Dec 7, 2019 
+* Dec 1, 2018 
 * ACHS College
-* [Learn more]
-
-#####  "Roadshow" by Developer Circles : Data Science with R
-
-* Apr 7, 2019
-* Patan Multiple College,Patan
-*[learn more](https://twitter.com/suvushrestha/status/1114768995473690624)
+* [Learn more](/posts/local_hack_day_2018/)
 
 ##### youTH 2018: Data Analysis with R Workshop
 
 * Oct 9, 2018
-* Unlimited Tech
+* [Unlimited Tech](http://www.unlimit.com/)
 * [Learn More](https://twitter.com/rugnepal/status/1049687857168871424)
 
 ##### Data Analysis with R Workshop
 
 * Sep 16, 2018
-* Ascol College
+* [Amrit Campus](https://amritcampus.edu.np/)
 * [Learn More](https://twitter.com/rugnepal/status/1041160640348520448)
 
 ##### Introduction to DataScience and R 
