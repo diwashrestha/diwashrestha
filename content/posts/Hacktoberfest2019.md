@@ -1,5 +1,5 @@
 ---
-title: "Oraganized HacktoberFest 2019"
+title: "Organized HacktoberFest 2019"
 date: 2019-05-27T23:29:14+05:45
 author: false
 draft: false
