@@ -5,7 +5,7 @@ draft: false
 lightgallery: true
 ---
 
-I love to meet fellow developers around the world and geek out about code, and I'd love to join you at your event!
+I love to organize and participate in tech events and I'd love to join you at your event!
 
 Diwash.Shrestha@outlook.com
 

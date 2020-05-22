@@ -11,7 +11,7 @@ lightgallery: true
 
 Hello, my name is Diwash Shrestha. 
 
-I am Software Developer, Data Analyst and Co-Founder of [RNepal](https://www.facebook.com/RUGNepal/). I am [Microsoft Student Partner](https://studentambassadors.microsoft.com/), Microsoft Innovative Educator and [Ambassador of AngelHack](https://angelhack.com/ambassadors/).
+I am Software Developer, Educator and Co-Founder of [RNepal](https://www.facebook.com/RUGNepal/). I am [Microsoft Student Partner](https://studentambassadors.microsoft.com/), Microsoft Innovative Educator and [Ambassador of AngelHack](https://angelhack.com/ambassadors/).
 
 <div style="text-align:center"> 
 <img src="/aboutme/MSP.png" /> 
