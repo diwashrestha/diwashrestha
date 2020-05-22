@@ -22,29 +22,44 @@ Diwash.Shrestha@outlook.com
 * ACHS College
 * [Learn more](/posts/student-dev-hack/)
 
+#####  MSP Workshop 
+
+* Nov 27, 2019 
+* ACHS College
+* [Learn more](https://twitter.com/diwastha/status/1199703167199371264)
+
+
 ##### Student Dev Day
 
-* Dec 7, 2019 
+* October  19, 2019 
 * ACHS College
-* [Learn more]
+* [Learn more](https://twitter.com/diwastha/status/1185709159703969792)
 
-#####  MSP, Git and GitHub  
+##### DataHackfest
 
-* Dec 7, 2019 
+* Oct 15, 2019 
 * ACHS College
-* [Learn more]
+* [Learn more](https://www.facebook.com/pg/RUGNepal/photos/?tab=album&album_id=516968819083214)
 
 ##### TidyWeek: R Bootcamp
 
-* Dec 7, 2019 
+* Sep 23, 2019 
 * ACHS College
 * [Learn more](/posts/tidyweek/)
 
+
+##### Git and GitHUb Workshop
+
+* Sep 5, 2019
+* ACHS College
+* [Learn more](https://twitter.com/diwastha/status/1169511791325351936)
+
+
 ##### Kathfest Data Science with R
 
-* Dec 7, 2019 
+* Dec 21, 201 
 * ACHS College
-* [Learn more]
+* [Learn more](/posts/data_science_rworkshop/)
 
 ##### RLadies Kathmandu Data Analysis Workshop
 
@@ -56,31 +71,26 @@ Diwash.Shrestha@outlook.com
 
 * Dec 7, 2019 
 * ACHS College
-* [Learn more]
+* [Learn more](/posts/hacktoberfest2019/)
 
 ##### Global Azure Bootcamp
 
-* Dec 7, 2019 
+* April 27, 2019 
 * ACHS College
-* [Learn more]
-
-##### DataHackfest
-
-* Oct 15, 2019 
-* ACHS College
-* [Learn more](https://www.facebook.com/pg/RUGNepal/photos/?tab=album&album_id=516968819083214)
-
-##### Yantra 8.0 : Data Science Workshop
-
-* Dec 7, 2019 
-* ACHS College
-* [Learn more]
+* [Learn more](/posts/global-azure-bootcamp-2019/)
 
 ##### "Roadshow" by Developer Circles : Data Science with R
 
 * Apr 7, 2019
 * [Patan Multiple Campus](https://pmc.edu.np/)
 * [Learn more](https://twitter.com/suvushrestha/status/1114768995473690624)
+
+
+##### Yantra 7.0 : Data Science Workshop
+
+* Dec 7, 2019 
+* ACHS College
+* [Learn more]
 
 
 ##### Local Hack Day : 2018
