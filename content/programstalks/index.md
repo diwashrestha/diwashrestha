@@ -93,9 +93,9 @@ Diwash.Shrestha@outlook.com
 
 ##### Yantra 7.0 : Data Science Workshop
 
-* Dec 7, 2019 
-* [ACHS College](https://achsnepal.edu.np/)
-* [Learn more]
+* Feb 20, 2019 
+* Vinchi College
+
 
 ##### Kathfest Data Science with R
 
