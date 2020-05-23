@@ -18,13 +18,13 @@ The hackathon's main focus was to solve problems related to tourism, education a
 
 Student Dev Hack was supported by Major League Hacking (MLH) and it was part of Local Hack Day Build.The event was also supported by Microsoft and Github.
 
-{{<image src="https://pbs.twimg.com/media/ELMiMr_U4AAo_fO?format=jpg&name=large">}}
+{{<image src="https://pbs.twimg.com/media/ELMiMr_U4AAo_fO?format=jpg&name=large"  caption="student developers">}}
 
 ### Opening
 
 I started the session by welcoming the participants, judges and speakers. There were 40 participants from 10 different groups. I spoke about the Local Hack Day and introduced participants about the rules and regulations of the hackathon. I gave a talk about the Microsoft Cognitive Services and shared the Azure Credit worth $100 which was provided by Microsoft.Then participants started working on defining the problem and designing their solutions.
 
-{{<image src="https://pbs.twimg.com/media/ELMiK2DUwAA3jnV?format=jpg&name=large">}}
+{{<image src="https://pbs.twimg.com/media/ELMiK2DUwAA3jnV?format=jpg&name=large" caption="hackers in the work">}}
 
 ### Keep on Hacking
 
@@ -48,7 +48,8 @@ We gave (T-Shirt and Bag) as a winning prize to Ascol Guys and shared lots of ot
 
 ### Conclusion
 
-{{<image src="https://pbs.twimg.com/media/ELMo_UOUUAAt7h4?format=jpg&name=medium">}}
+{{<image src="https://pbs.twimg.com/media/ELMo_UOUUAAt7h4?format=jpg&name=medium" caption="Student dev hack">}}
+
 Student Dev Hack was successfully organized by DataSansar team.I learned about technology and event management from this hackathon. It was wonderful experience to be part of this great event.
 
 > **Keep On Hacking**
