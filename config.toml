@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "http://diwashrestha.com.np/"
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # language code
@@ -97,6 +97,11 @@ enableEmoji = true
     title = ""
     weight = 5
 
+[languages.en.params]
+      # site description
+      description = "Diwash Shrestha Personal Website"
+      # site keywords
+      keywords = ["Theme", "Hugo"]
 
 # LoveIt NEW | 0.2.0 App icon config
   [params.app]
