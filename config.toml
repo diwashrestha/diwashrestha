@@ -13,7 +13,7 @@ enableEmoji = true
   # LoveIt theme version
   version = "0.2.X"
   dateFormat = "Monday, Jan 2, 2006"
-  images = ["logo.png"]
+  images = ["/images/logo.png"]
   
 [params.home]
     # LoveIt NEW | 0.2.0 amount of RSS pages
