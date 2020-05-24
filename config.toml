@@ -12,7 +12,7 @@ enableEmoji = true
 [params]
   # LoveIt theme version
   version = "0.2.X"
-  dateFormat = "2006-01-02"
+  dateFormat = "Monday, Jan 2, 2006"
   images = ["/aboutme/about.png"]
   
 [params.home]
@@ -64,6 +64,16 @@ enableEmoji = true
     # title will be shown when you hover on this menu link
     title = ""
     weight = 1
+    
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About Me"
+    url = "/me/"
+    title = "About Me"
+    weight = 2
+
   [[menu.main]]
     identifier = "projects"
     pre = ""
@@ -72,22 +82,8 @@ enableEmoji = true
     url = "/projects/"
     title = ""
     weight = 3
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-    weight = 2
-  [[menu.main]]
-    identifier = "about"
-    pre = ""
-    post = ""
-    name = "About Me"
-    url = "/me/"
-    title = "About Me"
-    weight = 4
+
+
   [[menu.main]]
     identifier = "Program"
     pre = ""
@@ -95,7 +91,7 @@ enableEmoji = true
     name = "Program & Talks"
     url = "/programstalks/"
     title = ""
-    weight = 5
+    weight = 4
 
 [languages.en.params]
       # site description
