@@ -3,7 +3,7 @@ title: "US Immigration"
 date: 2017-05-28T13:04:00+05:45
 author: false
 draft: false
-featuredImage: /images/usi-preview.png
+featuredImage: /images/us_immi/preview.png
 featuredImagePreview: /images/us_immi/preview.png
 ---
 
