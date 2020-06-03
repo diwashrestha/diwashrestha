@@ -9,6 +9,11 @@ I love to organize and participate in tech events and I'd love to join you at yo
 
 Diwash.Shrestha@outlook.com
 
+##### Working with Git and GitHub
+
+* May 30, 2020
+* [Slide](https://drive.google.com/file/d/1AbDlb6VvIoihQdYFJ3URyk2d2PWqI_B7/view?usp=sharing)
+
 ##### Solveathon 2019
 
 * Dec 14-15, 2019
