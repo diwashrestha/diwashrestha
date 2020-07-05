@@ -5,6 +5,22 @@ draft: false
 lightgallery: true
 ---
 
+#### कथाहरू (KathaHaru)
+
+{{< image src="/projects/kathaharu.png">}}
+
+This project is created to showcase the collection of Nepali children's stories. It is made with collaboration with my friend who translated the stories to the Nepali language. This project was aimed to help children learn through stories written in their mother tongue, especially when they are unable to go to school due to the Corona epidemic.
+
+
+##### :computer: *Technology Used*
+ 
+ > *html, css, javascript and bootstrap 4*
+
+ *[Project Demo](https://kathaharu.netlify.app/)*
+ *[Project Repo](https://github.com/diwashrestha/StoryBook)*
+
+</br>
+
 #### VIN Dashboard
 
 {{< image src="/projects/vin_dash.png">}}
