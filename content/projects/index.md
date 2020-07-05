@@ -14,7 +14,7 @@ This project is created to showcase the collection of Nepali children's stories.
 
 ##### :computer: *Technology Used*
  
- > *html, css, javascript and bootstrap 4*
+ > *HTML, CSS, JavaScript and Bootstrap 4*
 
  *[Project Demo](https://kathaharu.netlify.app/)*
  *[Project Repo](https://github.com/diwashrestha/StoryBook)*
@@ -30,7 +30,7 @@ The dashboard shows insights about the organization works like no.of volunteers,
 
 ##### :computer: *Technology Used*
  
- > *R, html, css, javascript and highcharter*
+ > *R, HTML, CSS, JavaScript and highcharter*
 
  *[Project Demo](https://vindash.netlify.app/)*
 
@@ -44,7 +44,7 @@ This is a interactive visualization of the SDG 2019 report. It shows the levels 
 
 ##### :computer: *Technology Used*
 
-> html, css, R and Shiny framework.
+> HTML, CSS, R and Shiny framework.
 
  *[Project Demo](https://diwashrestha.shinyapps.io/SDG_Report_2019/)* 
  *[Project Repo](https://github.com/diwashrestha/SDGs_Dashboard)*
@@ -105,5 +105,5 @@ This interactive visualizations shows insight about the production, revenue of e
 > Highcharter, R, TidyVerse, Flexdashboard
 
  *[Project Repo](https://github.com/diwashrestha/Electric-Dashboard)* 
-  *[Project Demo](https://diwashrestha.github.io/Project/Electricity_Dashboard.html)* 
+  *[Project Demo](https://diwashrestha.github.io/Project/Electricity_Dashboard.HTML)* 
 
