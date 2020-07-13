@@ -169,7 +169,8 @@ enableEmoji = true
     Twitter = "diwastha"
     Instagram = "shrestha__diwash/"
     Facebook = "shrestha.diwash.50"
-    Stackoverflow = "9717032/diwash-shrestha"
+    StackOverflow = "9717032/diwash-shrestha"
+    Medium = "@diwashrestha"
     
    # LoveIt NEW | 0.2.0 Code config
     [params.page.code]
