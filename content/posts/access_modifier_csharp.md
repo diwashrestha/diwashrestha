@@ -1,5 +1,5 @@
 ---
-title: "Access Modifier in csharp"
+title: "Access Modifier in C#"
 date: 2019-11-22T23:29:14+05:45
 author: false
 draft: false
