@@ -5,6 +5,38 @@ draft: false
 lightgallery: true
 ---
 
+#### BakeShop
+
+{{< image src="/projects/bakeshop.png">}}
+
+BakeShop is Online store for Bakery Products. In BakeShop, customer can select a different type of bakery products to your cart like cake, doughnuts, pie etc. Customer need to register/login to checkout from the store.
+
+
+##### :computer: *Technology Used*
+ 
+ > *ASP.Net Core, Azure Sql, Azure Web Service, Bootstrap 4*
+
+ *[Project Demo](https://bakeshop20200903003834.azurewebsites.net/)*
+ *[Project Repo](https://github.com/diwashrestha/BakeShop/)*
+
+</br>
+
+#### Readabli
+
+{{< image src="/projects/readabli.png">}}
+
+Readabli is a text readability tool. User can give input to the application and it provides readability score, grade and age required to understand the given text. It also gives detail about the number of characters, words, sentences etc. User can Directly enter the text or upload a text file to check readability score. 
+
+
+##### :computer: *Technology Used*
+ 
+ > *C# , Blazor Webassembly, HTML, CSS ,Github Page*
+
+ *[Project Demo](https://diwashrestha.github.io/Readability_Check/)*
+ *[Project Repo](https://github.com/diwashrestha/Readability_Check/)*
+
+</br>
+
 #### कथाहरू (KathaHaru)
 
 {{< image src="/projects/kathaharu.png">}}
