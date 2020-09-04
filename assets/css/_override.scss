@@ -74,3 +74,36 @@ $font-single_title: Roboto;
 p {
     text-align: justify;
 }
+
+.single-title.animated.flipInX{
+    font-size: 2.6rem;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 0px;
+    margin-bottom: .2rem;
+}
+
+.featured-image {
+    margin: .5rem 0px 2rem;
+}
+
+
+.single .content blockquote {
+    border-left: none;
+    text-justify: auto;
+    background: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    height: max-content;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.single .content p{
+    margin: 1rem 0 1.5rem;
+}
+
+.single .content > h3{
+    margin: 2.5rem 0 1rem;
+    font-size: 1.8rem;
+}
