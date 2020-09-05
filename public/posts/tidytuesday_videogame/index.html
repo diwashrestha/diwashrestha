@@ -1,0 +1,475 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>TidyTuesday:VideoGame - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="TidyTuesday:VideoGame"><meta property="og:description" content="In this post, I will analyse the Tidytuesday Dataset about a video game from the Steam store using R and Rstudio.
+Load the packages 1 2 3 4 5 6  library(tidyverse) library(lubridate) library(magrittr) library(ggthemr) library(RColorBrewer) library(gganimate)   Load the data 1 2  video_game <- read_csv(&#34;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv&#34;)   Data Transformation Lets take a look at our dataframe.
+1  head(video_game)   1 2 3 4 5 6 7 8 9 10 11 12  # A tibble: 6 x 10 number game release_date price owners developer publisher <dbl> <chr> <chr> <dbl> <chr> <chr> <chr> 1 1 Half… Nov 16, 2004 9."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/tidytuesday_videogame/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2019-08-06T23:19:55+05:45"><meta property="article:modified_time" content="2019-08-06T23:19:55+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="TidyTuesday:VideoGame"><meta name=twitter:description content="In this post, I will analyse the Tidytuesday Dataset about a video game from the Steam store using R and Rstudio.
+Load the packages 1 2 3 4 5 6  library(tidyverse) library(lubridate) library(magrittr) library(ggthemr) library(RColorBrewer) library(gganimate)   Load the data 1 2  video_game <- read_csv(&#34;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv&#34;)   Data Transformation Lets take a look at our dataframe.
+1  head(video_game)   1 2 3 4 5 6 7 8 9 10 11 12  # A tibble: 6 x 10 number game release_date price owners developer publisher <dbl> <chr> <chr> <dbl> <chr> <chr> <chr> 1 1 Half… Nov 16, 2004 9."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/tidytuesday_videogame/><link rel=prev href=http://diwashrestha.com.np/posts/visualize_earthquake/><link rel=next href=http://diwashrestha.com.np/posts/tidyweek/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"TidyTuesday:VideoGame","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/tidytuesday_videogame\/"},"genre":"posts","wordcount":1737,"url":"http:\/\/diwashrestha.com.np\/posts\/tidytuesday_videogame\/","datePublished":"2019-08-06T23:19:55+05:45","dateModified":"2019-08-06T23:19:55+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">TidyTuesday:VideoGame</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Tuesday, Aug 6, 2019">Tuesday, Aug 6, 2019</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1737 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;9 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/preview.png data-srcset="/images/tidytuesday/preview.png, /images/tidytuesday/preview.png 1.5x, /images/tidytuesday/preview.png 2x" data-sizes=auto alt=/images/tidytuesday/preview.png title=/images/tidytuesday/preview.png></div><div class=content id=content><p>In this post, I will analyse the <a href=https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-30 target=_blank rel="noopener noreffer">Tidytuesday</a> Dataset about a video game from the <a href=https://store.steampowered.com/ target=_blank rel="noopener noreffer">Steam</a> store using R and <a href=https://rstudio.com/ target=_blank rel="noopener noreffer">Rstudio</a>.</p><h3 id=load-the-packages>Load the packages</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>library</span><span class=p>(</span><span class=n>tidyverse</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>lubridate</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>magrittr</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>ggthemr</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>RColorBrewer</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>gganimate</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=load-the-data>Load the data</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>video_game</span> <span class=o>&lt;-</span>
+  <span class=nf>read_csv</span><span class=p>(</span><span class=s>&#34;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=data-transformation>Data Transformation</h3><p>Lets take a look at our dataframe.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>head</span><span class=p>(</span><span class=n>video_game</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># A tibble: 6 x 10
+  number game  release_date price owners developer publisher
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    
+1      1 Half… Nov 16, 2004  9.99 10,00… Valve     Valve    
+2      3 Coun… Nov 1, 2004   9.99 10,00… Valve     Valve    
+3     21 Coun… Mar 1, 2004   9.99 10,00… Valve     Valve    
+4     47 Half… Nov 1, 2004   4.99 5,000… Valve     Valve    
+5     36 Half… Jun 1, 2004   9.99 2,000… Valve     Valve    
+6     52 CS2D  Dec 24, 2004 NA    1,000… Unreal S… Unreal S…
+# … with 3 more variables: average_playtime &lt;dbl&gt;,
+#   median_playtime &lt;dbl&gt;, metascore &lt;dbl&gt;
+
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>summary</span><span class=p>(</span><span class=n>video_game</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>     number         game           release_date      
+ Min.   :   1   Length:26688       Length:26688      
+ 1st Qu.: 821   Class :character   Class :character  
+ Median :2356   Mode  :character   Mode  :character  
+ Mean   :2904                                        
+ 3rd Qu.:4523                                        
+ Max.   :8846                                        
+                                                     
+     price            owners           developer        
+ Min.   :  0.490   Length:26688       Length:26688      
+ 1st Qu.:  2.990   Class :character   Class :character  
+ Median :  5.990   Mode  :character   Mode  :character  
+ Mean   :  8.947                                        
+ 3rd Qu.:  9.990                                        
+ Max.   :595.990                                        
+ NA&#39;s   :3095                                           
+  publisher         average_playtime   median_playtime  
+ Length:26688       Min.   :   0.000   Min.   :   0.00  
+ Class :character   1st Qu.:   0.000   1st Qu.:   0.00  
+ Mode  :character   Median :   0.000   Median :   0.00  
+                    Mean   :   9.057   Mean   :   5.16  
+                    3rd Qu.:   0.000   3rd Qu.:   0.00  
+                    Max.   :5670.000   Max.   :3293.00  
+                    NA&#39;s   :9          NA&#39;s   :12       
+   metascore    
+ Min.   :20.00  
+ 1st Qu.:66.00  
+ Median :73.00  
+ Mean   :71.89  
+ 3rd Qu.:80.00  
+ Max.   :98.00  
+ NA&#39;s   :23838  
+</code></pre></td></tr></table></div></div><p>video_game dataframe has 26688 rows and 10 columns.</p><h3 id=missing-value>Missing value</h3><p>Lets check for the missing value in the dataframe.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>colSums</span><span class=p>(</span><span class=nf>is.na</span><span class=p>(</span><span class=n>video_game</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>          number             game     release_date            price 
+               0                3                0             3095 
+          owners        developer        publisher average_playtime 
+               0              151               95                9 
+ median_playtime        metascore 
+              12            23838 
+</code></pre></td></tr></table></div></div><p>Above output shows that We have missing value in this data frame. We will use the median value to replace the missing value of numerical columns.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>video_game</span> <span class=o>&lt;-</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span><span class=n>metascore</span> <span class=o>=</span> <span class=nf>replace</span><span class=p>(</span>
+  <span class=n>metascore</span><span class=p>,</span>
+  <span class=nf>is.na</span><span class=p>(</span><span class=n>metascore</span><span class=p>),</span>
+  <span class=nf>median</span><span class=p>(</span><span class=n>metascore</span><span class=p>,</span> <span class=n>na.rm</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=p>))</span>
+
+<span class=n>video_game</span> <span class=o>&lt;-</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span><span class=n>price</span> <span class=o>=</span> <span class=nf>replace</span><span class=p>(</span>
+  <span class=n>price</span><span class=p>,</span>
+  <span class=nf>is.na</span><span class=p>(</span><span class=n>price</span><span class=p>),</span>
+  <span class=nf>median</span><span class=p>(</span><span class=n>price</span><span class=p>,</span> <span class=n>na.rm</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=p>))</span>
+
+<span class=n>video_game</span> <span class=o>&lt;-</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span><span class=n>average_playtime</span> <span class=o>=</span> <span class=nf>replace</span><span class=p>(</span>
+  <span class=n>average_playtime</span><span class=p>,</span>
+  <span class=nf>is.na</span><span class=p>(</span><span class=n>average_playtime</span><span class=p>),</span>
+  <span class=nf>median</span><span class=p>(</span><span class=n>average_playtime</span><span class=p>,</span> <span class=n>na.rm</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=p>))</span>
+
+<span class=n>video_game</span> <span class=o>&lt;-</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span><span class=n>median_playtime</span> <span class=o>=</span> <span class=nf>replace</span><span class=p>(</span>
+  <span class=n>median_playtime</span><span class=p>,</span>
+  <span class=nf>is.na</span><span class=p>(</span><span class=n>median_playtime</span><span class=p>),</span>
+  <span class=nf>median</span><span class=p>(</span><span class=n>median_playtime</span><span class=p>,</span> <span class=n>na.rm</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=p>))</span>
+<span class=n>video_game</span> <span class=o>&lt;-</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span>
+  <span class=n>year</span> <span class=o>=</span> <span class=nf>year</span><span class=p>(</span><span class=nf>mdy</span><span class=p>(</span><span class=n>release_date</span><span class=p>)),</span>
+  <span class=n>month</span> <span class=o>=</span> <span class=nf>month</span><span class=p>(</span><span class=nf>mdy</span><span class=p>(</span><span class=n>release_date</span><span class=p>),</span> <span class=n>label</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>),</span>
+  <span class=n>weekday</span> <span class=o>=</span> <span class=nf>wday</span><span class=p>(</span><span class=nf>mdy</span><span class=p>(</span><span class=n>release_date</span><span class=p>),</span> <span class=n>label</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=p>)</span>
+<span class=n>video_game</span> <span class=o>&lt;-</span> <span class=nf>na.omit</span><span class=p>(</span><span class=n>video_game</span><span class=p>)</span>
+<span class=nf>colSums</span><span class=p>(</span><span class=nf>is.na</span><span class=p>(</span><span class=n>video_game</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>
+             number                game        release_date 
+                  0                   0                   0 
+              price              owners           developer 
+                  0                   0                   0 
+          publisher    average_playtime     median_playtime 
+                  0                   0                   0 
+          metascore                year               month 
+                  0                   0                   0 
+            weekday release_date_pretty                 age 
+                  0                   0                   0 
+         max_owners          min_owners 
+                  0                   0 
+</code></pre></td></tr></table></div></div><p>We replaced the numerical values with the median of the respective values and dropped the missing rows in publisher and developer column.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>video_game</span> <span class=o>%&lt;&gt;%</span>
+  <span class=nf>mutate</span><span class=p>(</span>
+    <span class=n>max_owners</span> <span class=o>=</span> <span class=nf>str_trim</span><span class=p>(</span><span class=nf>word</span><span class=p>(</span><span class=n>owners</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=n>sep</span> <span class=o>=</span> <span class=s>&#34;\\..&#34;</span><span class=p>)),</span>
+    <span class=n>max_owners</span> <span class=o>=</span> <span class=nf>as.numeric</span><span class=p>(</span><span class=nf>str_replace_all</span><span class=p>(</span><span class=n>max_owners</span><span class=p>,</span> <span class=s>&#34;,&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>)),</span>
+    <span class=n>min_owners</span> <span class=o>=</span> <span class=nf>str_trim</span><span class=p>(</span><span class=nf>word</span><span class=p>(</span><span class=n>owners</span><span class=p>,</span> <span class=m>1</span><span class=p>,</span> <span class=n>sep</span> <span class=o>=</span> <span class=s>&#34;\\..&#34;</span><span class=p>)),</span>
+    <span class=n>min_owners</span> <span class=o>=</span> <span class=nf>as.numeric</span><span class=p>(</span><span class=nf>str_replace_all</span><span class=p>(</span><span class=n>min_owners</span><span class=p>,</span> <span class=s>&#34;,&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>))</span>
+  <span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>The owner column has the range of owner of games and the code create max and min owner of the games.</p><p>Let’s see the final data frame:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>head</span><span class=p>(</span><span class=n>video_game</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># A tibble: 6 x 17
+  number game  release_date price owners developer publisher
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    
+1      1 Half… Nov 16, 2004  9.99 10,00… Valve     Valve    
+2      3 Coun… Nov 1, 2004   9.99 10,00… Valve     Valve    
+3     21 Coun… Mar 1, 2004   9.99 10,00… Valve     Valve    
+4     47 Half… Nov 1, 2004   4.99 5,000… Valve     Valve    
+5     36 Half… Jun 1, 2004   9.99 2,000… Valve     Valve    
+6     52 CS2D  Dec 24, 2004  5.99 1,000… Unreal S… Unreal S…
+# … with 10 more variables: average_playtime &lt;dbl&gt;,
+#   median_playtime &lt;dbl&gt;, metascore &lt;dbl&gt;, year &lt;dbl&gt;, month &lt;ord&gt;,
+#   weekday &lt;ord&gt;, release_date_pretty &lt;date&gt;, age &lt;dbl&gt;,
+#   max_owners &lt;dbl&gt;, min_owners &lt;dbl&gt;
+</code></pre></td></tr></table></div></div><h3 id=visualization-of-data>Visualization of Data</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>discrete_pal</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+  <span class=s>&#34;#fa4234&#34;</span><span class=p>,</span> <span class=s>&#34;#f5b951&#34;</span><span class=p>,</span> <span class=s>&#34;#e8f538&#34;</span><span class=p>,</span> <span class=s>&#34;#52b0f7&#34;</span><span class=p>,</span>
+  <span class=s>&#34;#b84ef5&#34;</span><span class=p>,</span> <span class=s>&#34;#4ed1f5&#34;</span><span class=p>,</span> <span class=s>&#34;#45b58e&#34;</span><span class=p>,</span> <span class=s>&#34;#1a1612&#34;</span><span class=p>,</span>
+  <span class=s>&#34;#474ccc&#34;</span><span class=p>,</span> <span class=s>&#34;#47cc92&#34;</span><span class=p>,</span> <span class=s>&#34;#a0cc47&#34;</span><span class=p>,</span> <span class=s>&#34;#c96f32&#34;</span>
+<span class=p>)</span>
+<span class=nf>ggthemr</span><span class=p>(</span><span class=s>&#34;flat&#34;</span><span class=p>)</span>
+<span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>group_by</span><span class=p>(</span><span class=n>developer</span><span class=p>)</span> <span class=o>%&gt;%</span>
+         <span class=nf>tally</span><span class=p>(</span><span class=n>sort</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span> <span class=o>%&gt;%</span> <span class=nf>head</span><span class=p>(</span><span class=m>10</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_col</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=nf>reorder</span><span class=p>(</span><span class=n>developer</span><span class=p>,</span> <span class=n>n</span><span class=p>),</span> <span class=n>y</span> <span class=o>=</span> <span class=n>n</span><span class=p>,</span> <span class=n>fill</span> <span class=o>=</span> <span class=n>n</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Developer with most Games&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Game Count&#34;</span><span class=p>,</span>
+    <span class=n>fill</span> <span class=o>=</span> <span class=s>&#34;Game Count&#34;</span><span class=p>,</span> <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game1.png title=/images/tidytuesday/game1.png data-thumbnail=/images/tidytuesday/game1.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game1.png data-srcset="/images/tidytuesday/game1.png, /images/tidytuesday/game1.png 1.5x, /images/tidytuesday/game1.png 2x" data-sizes=auto alt=/images/tidytuesday/game1.png></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>group_by</span><span class=p>(</span><span class=n>publisher</span><span class=p>)</span> <span class=o>%&gt;%</span>
+  <span class=nf>tally</span><span class=p>(</span><span class=n>sort</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span> <span class=o>%&gt;%</span> <span class=nf>head</span><span class=p>(</span><span class=m>10</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_col</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=nf>reorder</span><span class=p>(</span><span class=n>publisher</span><span class=p>,</span> <span class=n>n</span><span class=p>),</span> <span class=n>y</span> <span class=o>=</span> <span class=n>n</span><span class=p>,</span> <span class=n>fill</span> <span class=o>=</span> <span class=n>n</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Publisher with most Games&#34;</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Game Count&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span>
+    <span class=n>fill</span> <span class=o>=</span> <span class=s>&#34;Game Count&#34;</span><span class=p>,</span> <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game2.png title=/images/tidytuesday/game2.png data-thumbnail=/images/tidytuesday/game2.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game2.png data-srcset="/images/tidytuesday/game2.png, /images/tidytuesday/game2.png 1.5x, /images/tidytuesday/game2.png 2x" data-sizes=auto alt=/images/tidytuesday/game2.png></a><p>Big Fish Games is the biggest publisher by the game count as it publishes lots of free to play and casual games. Sega which is the second-largest publisher has less than half of the game published by the Big Fish Games.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>video_game</span> <span class=o>%&gt;%</span>
+  <span class=nf>select</span><span class=p>(</span><span class=o>-</span><span class=n>number</span><span class=p>)</span> <span class=o>%&gt;%</span>
+  <span class=nf>mutate</span><span class=p>(</span><span class=n>max_owners</span> <span class=o>=</span> <span class=nf>as.factor</span><span class=p>(</span><span class=n>max_owners</span> <span class=o>/</span> <span class=m>1000000</span><span class=p>))</span> <span class=o>%&gt;%</span>
+  <span class=nf>group_by</span><span class=p>(</span><span class=n>publisher</span><span class=p>)</span> <span class=o>%&gt;%</span>
+  <span class=nf>mutate</span><span class=p>(</span><span class=n>n</span> <span class=o>=</span> <span class=nf>n</span><span class=p>())</span> <span class=o>%&gt;%</span>
+  <span class=nf>ungroup</span><span class=p>()</span> <span class=o>%&gt;%</span>
+  <span class=nf>filter</span><span class=p>(</span><span class=n>n</span> <span class=o>&gt;=</span> <span class=m>80</span><span class=p>)</span> <span class=o>%&gt;%</span>
+  <span class=nf>ggplot</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>publisher</span><span class=p>,</span> <span class=n>max_owners</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=n>publisher</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_jitter</span><span class=p>(</span><span class=n>show.legend</span> <span class=o>=</span> <span class=kc>FALSE</span><span class=p>,</span> <span class=n>size</span> <span class=o>=</span> <span class=m>2</span><span class=p>,</span> <span class=n>alpha</span> <span class=o>=</span> <span class=m>0.5</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Distribution of ownership of top publishers&#34;</span><span class=p>,</span>
+    <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Estimated Game Ownership per Million&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span> <span class=nf>scale_color_manual</span><span class=p>(</span><span class=n>values</span> <span class=o>=</span> <span class=n>discrete_pal</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>45</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>stat_summary</span><span class=p>(</span>
+    <span class=n>fun.y</span> <span class=o>=</span> <span class=n>mean</span><span class=p>,</span> <span class=n>geom</span> <span class=o>=</span> <span class=s>&#34;line&#34;</span><span class=p>,</span> <span class=n>shape</span> <span class=o>=</span> <span class=m>20</span><span class=p>,</span>
+    <span class=n>size</span> <span class=o>=</span> <span class=m>5</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s>&#34;#555555&#34;</span>
+  <span class=p>)</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game3.png title=/images/tidytuesday/game3.png data-thumbnail=/images/tidytuesday/game3.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game3.png data-srcset="/images/tidytuesday/game3.png, /images/tidytuesday/game3.png 1.5x, /images/tidytuesday/game3.png 2x" data-sizes=auto alt=/images/tidytuesday/game3.png></a><p>The Big Fish Games has released 265 games but the player base of their games is very small. Other publishers in this group have a much larger player base like Ubisoft, Square Enix, SEGA has much larger player base for their games.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>arrange</span><span class=p>(</span><span class=nf>desc</span><span class=p>(</span><span class=n>average_playtime</span><span class=p>))</span> <span class=o>%&gt;%</span> <span class=nf>head</span><span class=p>(</span><span class=m>20</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_col</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=nf>reorder</span><span class=p>(</span><span class=n>game</span><span class=p>,</span> <span class=n>average_playtime</span><span class=p>),</span> <span class=n>y</span> <span class=o>=</span> <span class=n>average_playtime</span><span class=p>,</span> <span class=n>fill</span> <span class=o>=</span> <span class=n>metascore</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Games with most metascore&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Average Playtime&#34;</span><span class=p>,</span>
+    <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>45</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game4.png title=/images/tidytuesday/game4.png data-thumbnail=/images/tidytuesday/game4.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game4.png data-srcset="/images/tidytuesday/game4.png, /images/tidytuesday/game4.png 1.5x, /images/tidytuesday/game4.png 2x" data-sizes=auto alt=/images/tidytuesday/game4.png></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>group_by</span><span class=p>(</span><span class=n>max_owners</span><span class=p>)</span> <span class=o>%&gt;%</span> 
+         <span class=nf>arrange</span><span class=p>(</span><span class=nf>desc</span><span class=p>(</span><span class=n>max_owners</span><span class=p>))</span> <span class=o>%&gt;%</span> <span class=nf>head</span><span class=p>(</span><span class=m>10</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_col</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=nf>reorder</span><span class=p>(</span><span class=n>game</span><span class=p>,</span> <span class=n>max_owners</span><span class=p>),</span> <span class=n>y</span> <span class=o>=</span> <span class=n>max_owners</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Most Sold Video Games&#34;</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Number of copies sold&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span>
+    <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>45</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game5.png title=/images/tidytuesday/game5.png data-thumbnail=/images/tidytuesday/game5.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game5.png data-srcset="/images/tidytuesday/game5.png, /images/tidytuesday/game5.png 1.5x, /images/tidytuesday/game5.png 2x" data-sizes=auto alt=/images/tidytuesday/game5.png></a><p>Dota2, Team Fortress 2 is free to play multiplayer games released on 2013 and 2007 respectively. The Player Unknown BattleGround <em>(PUBG)</em> is also a multiplayer battle royale shooter which is a huge hit. Counter-Strike is currently available free in steam which may have increased the owner count. All Top five games are multiplayer games with a strong player base and metascore.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>group_by</span><span class=p>(</span><span class=n>max_owners</span><span class=p>)</span> <span class=o>%&gt;%</span> 
+         <span class=nf>arrange</span><span class=p>(</span><span class=nf>desc</span><span class=p>(</span><span class=n>max_owners</span><span class=p>))</span> <span class=o>%&gt;%</span> <span class=nf>head</span><span class=p>(</span><span class=m>10</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_col</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=nf>reorder</span><span class=p>(</span><span class=n>game</span><span class=p>,</span> <span class=n>price</span><span class=p>),</span> <span class=n>y</span> <span class=o>=</span> <span class=n>price</span><span class=p>,</span> <span class=n>fill</span> <span class=o>=</span> <span class=n>price</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Price of most sold games&#34;</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Price in $&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span>
+    <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>theme</span><span class=p>(</span><span class=n>axis.text.x</span> <span class=o>=</span> <span class=nf>element_text</span><span class=p>(</span><span class=n>angle</span> <span class=o>=</span> <span class=m>45</span><span class=p>,</span> <span class=n>hjust</span> <span class=o>=</span> <span class=m>1</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game6.png title=/images/tidytuesday/game6.png data-thumbnail=/images/tidytuesday/game6.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game6.png data-srcset="/images/tidytuesday/game6.png, /images/tidytuesday/game6.png 1.5x, /images/tidytuesday/game6.png 2x" data-sizes=auto alt=/images/tidytuesday/game6.png></a><p>PUBG is currently one of the most popular games in the steam store and huge player base. Other games in this group have a very low price or currently free in the Steam store.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggthemr</span><span class=p>(</span><span class=s>&#34;flat&#34;</span><span class=p>)</span>
+<span class=nf>ggplot</span><span class=p>(</span>
+  <span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>group_by</span><span class=p>(</span><span class=n>year</span><span class=p>)</span> <span class=o>%&gt;%</span>
+    <span class=nf>summarise</span><span class=p>(</span><span class=n>avg_price</span> <span class=o>=</span> <span class=nf>mean</span><span class=p>(</span><span class=n>price</span><span class=p>)),</span>
+  <span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=n>year</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=n>avg_price</span><span class=p>)</span>
+<span class=p>)</span> <span class=o>+</span>
+  <span class=nf>geom_line</span><span class=p>()</span> <span class=o>+</span> <span class=nf>geom_point</span><span class=p>(</span><span class=n>color</span> <span class=o>=</span> <span class=s>&#34;red&#34;</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Average Price of the Game over the year&#34;</span><span class=p>,</span>
+    <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;price in $&#34;</span><span class=p>,</span> <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game7.png title=/images/tidytuesday/game7.png data-thumbnail=/images/tidytuesday/game7.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game7.png data-srcset="/images/tidytuesday/game7.png, /images/tidytuesday/game7.png 1.5x, /images/tidytuesday/game7.png 2x" data-sizes=auto alt=/images/tidytuesday/game7.png></a><p>The average game price was rising up to the year 2013 then it started to decrease. It may be due to the increment in the release of the game with a very low price or freemium model.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span><span class=p>)</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=n>year</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Number of active games since release year&#34;</span><span class=p>,</span>
+    <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Number of Game&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span> <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game8.png title=/images/tidytuesday/game8.png data-thumbnail=/images/tidytuesday/game8.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game8.png data-srcset="/images/tidytuesday/game8.png, /images/tidytuesday/game8.png 1.5x, /images/tidytuesday/game8.png 2x" data-sizes=auto alt=/images/tidytuesday/game8.png></a><p>There is growth in the release of the games from the year 2015 onward.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span><span class=p>)</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=n>month</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>transition_time</span><span class=p>(</span><span class=n>year</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Games released in each month&#34;</span><span class=p>,</span>
+    <span class=n>subtitle</span> <span class=o>=</span> <span class=s>&#34;Year: {frame_time}&#34;</span><span class=p>,</span>
+    <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Number of Game&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>,</span> <span class=n>caption</span> <span class=o>=</span> <span class=s>&#34;by: @diwastha&#34;</span>
+  <span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game9.gif title=/images/tidytuesday/game9.gif data-thumbnail=/images/tidytuesday/game9.gif><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game9.gif data-srcset="/images/tidytuesday/game9.gif, /images/tidytuesday/game9.gif 1.5x, /images/tidytuesday/game9.gif 2x" data-sizes=auto alt=/images/tidytuesday/game9.gif></a><p>The above animation shows the number of games released on each month of the year.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>ggplot</span><span class=p>(</span><span class=n>data</span> <span class=o>=</span> <span class=n>video_game</span> <span class=o>%&gt;%</span> <span class=nf>mutate</span><span class=p>(</span><span class=n>release_date</span> <span class=o>=</span> <span class=nf>mdy</span><span class=p>(</span><span class=n>release_date</span><span class=p>))</span> <span class=o>%&gt;%</span>
+  <span class=nf>group_by</span><span class=p>(</span><span class=n>release_date</span><span class=p>)</span> <span class=o>%&gt;%</span>
+  <span class=nf>summarise</span><span class=p>(</span><span class=n>count_games</span> <span class=o>=</span> <span class=nf>n</span><span class=p>())</span> <span class=o>%&gt;%</span>
+  <span class=nf>mutate</span><span class=p>(</span>
+    <span class=n>day_of_week</span> <span class=o>=</span> <span class=nf>weekdays</span><span class=p>(</span><span class=n>release_date</span><span class=p>),</span>
+    <span class=n>weekend</span> <span class=o>=</span> <span class=nf>ifelse</span><span class=p>(</span><span class=n>day_of_week</span> <span class=o>%in%</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;Saturday&#34;</span><span class=p>,</span> <span class=s>&#34;Sunday&#34;</span><span class=p>),</span>
+      <span class=s>&#34;yes&#34;</span><span class=p>,</span>
+      <span class=s>&#34;no&#34;</span>
+    <span class=p>)</span>
+  <span class=p>))</span> <span class=o>+</span>
+  <span class=nf>geom_jitter</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>x</span> <span class=o>=</span> <span class=n>release_date</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=n>count_games</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=n>weekend</span><span class=p>),</span> <span class=n>alpha</span> <span class=o>=</span> <span class=m>0.4</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span><span class=n>title</span> <span class=o>=</span> <span class=s>&#34;Games released on weekend&#34;</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=s>&#34;Number of Games&#34;</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=kc>NULL</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>theme_minimal</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><a class=lightgallery href=/images/tidytuesday/game10.png title=/images/tidytuesday/game10.png data-thumbnail=/images/tidytuesday/game10.png><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/tidytuesday/game10.png data-srcset="/images/tidytuesday/game10.png, /images/tidytuesday/game10.png 1.5x, /images/tidytuesday/game10.png 2x" data-sizes=auto alt=/images/tidytuesday/game10.png></a><p>There is a rise in the release of games since 2015 and much of the games are released on workdays than the weekend days.</p><h3 id=wrapping-up>Wrapping up</h3><p>Tidytuesday repo has a great dataset for analysis and visualization. You can also extract other data from the repo and work on it. I have taken some references from the work of other people while working on this data and they are:</p><ul><li><a href=https://twitter.com/Kuprinasha target=_blank rel="noopener noreffer">Anasthsia Kuprina</a></li><li><a href=https://www.christopheryee.org/blog/tidytuesday-steam-games/ target=_blank rel="noopener noreffer">CHRISTOPHER YEE</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Tuesday, Aug 6, 2019</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/visualize_earthquake/ class=prev rel=prev title="Visualizing Earthquake"><i class="fas fa-angle-left fa-fw"></i>Visualizing Earthquake</a>
+<a href=/posts/tidyweek/ class=next rel=next title="Tidyweek - Data Analysis Bootcamp">Tidyweek - Data Analysis Bootcamp<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

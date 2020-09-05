@@ -2,3 +2,117 @@
 // Custom style
 // 自定义样式
 // ==============================
+.post-info-mod {
+    display: none;
+}
+
+p {
+    text-align: justify;
+    font-size: 1.10em;
+    margin-bottom: 1.5em;
+}
+
+.single .content p {
+    margin-bottom: 1.5em;
+    margin-top: 0em;
+}
+
+.single .content>h2 {
+    font-size: 1.375rem;
+}
+
+.single .content>h3 {
+    font-size: 1.375rem;
+}
+
+.single .content>h4 {
+    font-size: 1.375rem;
+}
+
+.single .content>h5 {
+    font-size: 1.375rem;
+}
+
+.single .content>h6 {
+    font-size: 1.375rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+    font-size: 1.5em;
+}
+
+.home[posts] .summary .single-title {
+    font-size: 1.35rem;
+    line-height: 140%;
+    margin: 0.4rem 0;
+}
+
+.home[posts] .summary {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    color: #161209;
+    border-bottom: 1px dashed #f0f0f0;
+}
+
+.single .content img {
+    max-width: 100%;
+    min-height: 1em;
+    padding-bottom: 1em;
+}
+
+.single .post-meta .author {
+    display: none;
+}
+
+.single .post-meta {
+    font-size: .875rem;
+    color: #a9a9b3;
+    text-align: center;
+}
+
+.page.home{
+    width: auto;
+}
+
+article.page.single{
+    width: auto;
+}
+
+.single-title.animated.flipInX{
+    font-size: 2.6rem;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 0px;
+    margin-bottom: .2rem;
+}
+
+.featured-image {
+    margin: .5rem 0px 2rem;
+}
+
+
+.single .content blockquote {
+    border-left: none;
+    text-justify: auto;
+    background: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    height: max-content;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.single .content p{
+    margin: 1rem 0 1.5rem;
+}
+
+.single .content > h3{
+    margin: 2.5rem 0 1rem;
+    font-size: 1.8rem;
+}

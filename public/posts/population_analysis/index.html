@@ -1,0 +1,376 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Population Analysis - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="Population Analysis"><meta property="og:description" content="Today I am writing about Population though my last two posts were also about population.But, today in this post I will analyse the data and make some visuals using the data and find some answers. In this blog, I am going to use the dataset from the UN databank (Link:http://data.un.org/). This dataset is about the world population from 1950 to 2015. It has the population data of all the Continents, Country."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/population_analysis/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2017-06-23T12:59:22+05:45"><meta property="article:modified_time" content="2017-06-23T12:59:22+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="Population Analysis"><meta name=twitter:description content="Today I am writing about Population though my last two posts were also about population.But, today in this post I will analyse the data and make some visuals using the data and find some answers. In this blog, I am going to use the dataset from the UN databank (Link:http://data.un.org/). This dataset is about the world population from 1950 to 2015. It has the population data of all the Continents, Country."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/population_analysis/><link rel=prev href=http://diwashrestha.com.np/posts/us_immigration/><link rel=next href=http://diwashrestha.com.np/posts/machine_learning_iris/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Population Analysis","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/population_analysis\/"},"genre":"posts","wordcount":1578,"url":"http:\/\/diwashrestha.com.np\/posts\/population_analysis\/","datePublished":"2017-06-23T12:59:22+05:45","dateModified":"2017-06-23T12:59:22+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Population Analysis</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Friday, Jun 23, 2017">Friday, Jun 23, 2017</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1578 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;8 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/pop_analysis/preview.png data-srcset="/images/pop_analysis/preview.png, /images/pop_analysis/preview.png 1.5x, /images/pop_analysis/preview.png 2x" data-sizes=auto alt=/images/pop_analysis/preview.png title=/images/pop_analysis/preview.png></div><div class=content id=content><p>Today I am writing about Population though my last two posts were also about population.But, today in this post I will analyse the data and make some visuals using the data and find some answers. In this blog, I am going to use the dataset from the UN databank (Link:http://data.un.org/). This dataset is about the world population from 1950 to 2015. It has the population data of all the Continents, Country. I am using python to read this dataset and have a look in the CSV file. I am using Numpy for analysis or for arithmetic and Matplotlib for visualization of data and Jupyter Notebook as my Python workspace. I am using only the contents of 6 Continents(<strong>Note</strong>: <em>exclude Antarctica there is no permanent settlement</em>) and population of the world for analysis and following are the code I wrote for it.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#Importing required python packages NUMPY and MATPLOTLIB</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=kn>as</span> <span class=nn>plt</span>
+
+<span class=c1>#using python to load the csv file</span>
+<span class=n>f</span><span class=o>=</span><span class=nb>open</span><span class=p>(</span><span class=s2>&#34;population data.csv&#34;</span><span class=p>,</span><span class=s2>&#34;r&#34;</span><span class=p>)</span>
+<span class=n>data</span> <span class=o>=</span><span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+<span class=n>rows</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+<span class=n>final_data</span> <span class=o>=</span><span class=p>[]</span>
+</code></pre></td></tr></table></div></div><p>In the following code, I used the function “region” to get the data of continent according to their name by searching in the list called “rows” and another function “Interize” to convert the string value in the list to Integer.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#Function to get the data from CSV file using the parameter name to search data using loop in given list of data</span>
+
+<span class=k>def</span> <span class=nf>region</span><span class=p>(</span><span class=n>R_name</span><span class=p>):</span>
+    <span class=n>final_data</span> <span class=o>=</span> <span class=p>[]</span> <span class=c1># a list which will hold the data taken from rows list for some time</span>
+    <span class=k>for</span> <span class=n>pop_data</span> <span class=ow>in</span> <span class=n>rows</span><span class=p>:</span> <span class=c1># loop to search the row in list rows, we split the data after &#34;,&#34;  and append in final_data</span>
+        <span class=n>pop</span> <span class=o>=</span> <span class=n>pop_data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+        <span class=n>final_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>pop</span><span class=p>)</span>   
+    <span class=n>Region_data</span> <span class=o>=</span> <span class=p>[]</span> <span class=c1># Declaring new list which will </span>
+    <span class=k>for</span> <span class=n>datum</span> <span class=ow>in</span> <span class=n>final_data</span><span class=p>:</span>
+         <span class=k>if</span> <span class=n>R_name</span> <span class=ow>in</span> <span class=n>datum</span><span class=p>:</span>
+                <span class=n>Region_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>datum</span><span class=p>)</span>
+    <span class=n>Region_data</span> <span class=o>=</span> <span class=n>Region_data</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>:]</span> <span class=c1># Region_data has list in list so to have only one list data</span>
+    <span class=k>return</span> <span class=n>Region_data</span>
+<span class=n>World</span> <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;WORLD&#34;</span><span class=p>)</span>
+<span class=n>Africa</span> <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;AFRICA&#34;</span><span class=p>)</span>
+<span class=n>Asia</span>  <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;ASIA&#34;</span><span class=p>)</span>
+<span class=n>Europe</span> <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;EUROPE&#34;</span><span class=p>)</span>
+<span class=n>Latinamerica</span>  <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;LATIN AMERICA AND THE CARIBBEAN&#34;</span><span class=p>)</span>
+<span class=n>NorthAmerica</span> <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;NORTHERN AMERICA&#34;</span><span class=p>)</span>
+<span class=n>Oceania</span>  <span class=o>=</span> <span class=n>region</span><span class=p>(</span><span class=n>R_name</span><span class=o>=</span><span class=s2>&#34;OCEANIA&#34;</span><span class=p>)</span>
+
+
+<span class=c1>#function to make the string data in list to Integer</span>
+<span class=k>def</span> <span class=nf>Interize</span><span class=p>(</span><span class=n>List</span><span class=p>):</span>
+    <span class=n>lone_list</span> <span class=o>=</span><span class=p>[]</span>
+    <span class=k>for</span> <span class=n>data</span> <span class=ow>in</span> <span class=n>List</span><span class=p>:</span>
+        <span class=n>lone_list</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
+    <span class=k>return</span> <span class=n>lone_list</span>
+<span class=n>Africa</span> <span class=o>=</span> <span class=n>Interize</span><span class=p>(</span><span class=n>Africa</span><span class=p>)</span>
+<span class=n>Asia</span> <span class=o>=</span> <span class=n>Interize</span><span class=p>(</span><span class=n>Asia</span><span class=p>)</span>
+<span class=n>Europe</span> <span class=o>=</span><span class=n>Interize</span><span class=p>(</span><span class=n>Europe</span><span class=p>)</span>
+<span class=n>Latinamerica</span> <span class=o>=</span><span class=n>Interize</span><span class=p>(</span><span class=n>Latinamerica</span><span class=p>)</span>
+<span class=n>NorthAmerica</span> <span class=o>=</span><span class=n>Interize</span><span class=p>(</span><span class=n>NorthAmerica</span><span class=p>)</span>
+<span class=n>Oceania</span> <span class=o>=</span><span class=n>Interize</span><span class=p>(</span><span class=n>Oceania</span><span class=p>)</span>
+<span class=n>World</span> <span class=o>=</span> <span class=n>Interize</span><span class=p>(</span><span class=n>World</span><span class=p>)</span>
+
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;----World-----&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>World</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;-----AFRICA------&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>Africa</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;----ASIA-----&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>Asia</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;----Europe----&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>Europe</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;----Latin America-----&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>Latinamerica</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;----North America-----&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>NorthAmerica</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;-----Oceania------&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>Oceania</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>----World-----
+[2525779, 2761651, 3026003, 3329122, 3691173, 4071020, 4449049, 4863602, 5320817, 5741822, 6127700, 6514095, 6916183, 7324782]
+-----AFRICA------
+[228827, 253988, 285270, 322581, 366475, 417413, 478459, 549846, 629987, 716505, 808304, 911528, 1031084, 1166239]
+----ASIA-----
+[1395749, 1537568, 1694650, 1881423, 2128631, 2387024, 2634161, 2907535, 3213123, 3482719, 3717372, 3942882, 4165440, 4384844]
+----Europe----
+[549043, 576912, 605517, 635004, 657369, 677662, 694510, 709189, 723248, 729743, 729105, 732970, 740308, 743123]
+----Latin America-----
+[167869, 192271, 220439, 253153, 287588, 324746, 364150, 404329, 445203, 486345, 526278, 562546, 596191, 630089]
+----North America-----
+[171615, 186744, 204352, 219467, 231429, 242685, 254800, 267831, 282286, 297458, 315417, 330546, 346501, 361128]
+-----Oceania------
+[12675, 14167, 15775, 17494, 19681, 21492, 22968, 24872, 26969, 29052, 31224, 33623, 36659, 39359]
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#making a Year list which will be used to visualize in graphs  </span>
+<span class=n>year</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>1950</span><span class=p>,</span><span class=mi>2020</span><span class=p>,</span><span class=mi>5</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;year&#34;</span><span class=p>),</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>year</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>year
+[1950 1955 1960 1965 1970 1975 1980 1985 1990 1995 2000 2005 2010 2015]
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#using .plot to plot a graph using the population value and year value</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span><span class=mf>8.5</span><span class=p>))</span>
+<span class=c1>#a function to plot the graph which has two argument time_line as x and region as y </span>
+<span class=k>def</span> <span class=nf>ploting</span><span class=p>(</span><span class=n>time_line</span><span class=p>,</span><span class=n>Region_name</span><span class=p>,</span><span class=n>mark</span><span class=p>):</span>
+    <span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>time_line</span><span class=p>,</span><span class=n>Region_name</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=n>mark</span><span class=p>)</span>
+    
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>Asia</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>    
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>Africa</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>Europe</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>NorthAmerica</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>Latinamerica</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>Oceania</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>labels</span> <span class=o>=</span> <span class=s1>&#39;Asia&#39;</span><span class=p>,</span><span class=s1>&#39;Africa&#39;</span><span class=p>,</span> <span class=s1>&#39;Europe&#39;</span><span class=p>,</span><span class=s1>&#39;NorthAmerica&#39;</span> <span class=p>,</span><span class=s1>&#39;Latinamerica&#39;</span><span class=p>,</span><span class=s1>&#39;Oceania&#39;</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Year&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Population in thousand&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>labels</span><span class=p>,</span> <span class=n>loc</span><span class=o>=</span><span class=s2>&#34;best&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Population Distribution Acc. to Continents over period of time&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic1.png data-srcset="/images/pop_analysis/pic1.png, /images/pop_analysis/pic1.png 1.5x, /images/pop_analysis/pic1.png 2x" data-sizes=auto alt="Population Distribution Acc to Continents over period of time" title="Population Distribution Acc to Continents over period of time"></p><p>In the above plot, we can see the size of the population of continents from 1950 to 2015 using the legend and graphs plot. This plot is using Year as X-axis and Population in Thousand as Y-axis. We can see all the continent’s population is increasing but Europe’s is starting to decrease from the year 1995. It may seem the population of Oceania region is Zero but not as the population of Australia is very small and this graph is using population in thousand bases so it seems Oceania is zero.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#Making pizza chart or pac_man chart</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mf>7.5</span><span class=p>))</span>
+<span class=n>labels</span> <span class=o>=</span> <span class=s1>&#39;Asia&#39;</span><span class=p>,</span> <span class=s1>&#39;Africa&#39;</span><span class=p>,</span> <span class=s1>&#39;Europe&#39;</span><span class=p>,</span> <span class=s1>&#39;Latinamerica&#39;</span><span class=p>,</span><span class=s1>&#39;NorthAmerica&#39;</span><span class=p>,</span><span class=s1>&#39;Oceania&#39;</span>
+<span class=n>pop_sizes_2015</span> <span class=o>=</span> <span class=p>[</span><span class=mi>4384844</span><span class=p>,</span><span class=mi>1166239</span><span class=p>,</span> <span class=mi>743123</span><span class=p>,</span> <span class=mi>630089</span><span class=p>,</span><span class=mi>361128</span><span class=p>,</span><span class=mi>39359</span> <span class=p>]</span>
+<span class=n>colors</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;brown&#39;</span><span class=p>,</span><span class=s1>&#39;yellow&#39;</span> <span class=p>,</span> <span class=s1>&#39;coral&#39;</span><span class=p>,</span> <span class=s1>&#39;lightskyblue&#39;</span><span class=p>,</span><span class=s1>&#39;green&#39;</span><span class=p>,</span><span class=s1>&#39;red&#39;</span><span class=p>]</span>
+<span class=n>explode</span> <span class=o>=</span> <span class=p>(</span><span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>,</span><span class=mf>0.1</span><span class=p>,</span><span class=mf>0.2</span><span class=p>)</span>  <span class=c1>#exploding the slice of pizza</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>pie</span><span class=p>(</span><span class=n>pop_sizes_2015</span><span class=p>,</span> <span class=n>colors</span><span class=o>=</span><span class=n>colors</span><span class=p>,</span> <span class=n>autopct</span><span class=o>=</span><span class=s1>&#39;</span><span class=si>%1.1f%%</span><span class=s1>&#39;</span><span class=p>,</span><span class=n>shadow</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>startangle</span><span class=o>=</span><span class=mi>80</span><span class=p>,</span><span class=n>explode</span><span class=o>=</span><span class=n>explode</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>labels</span><span class=p>,</span> <span class=n>loc</span><span class=o>=</span><span class=s2>&#34;best&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>axis</span><span class=p>(</span><span class=s1>&#39;equal&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Pie-Chart for the world population distribution 2015 Acc. Continent&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span> <span class=mi>15</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic2.png data-srcset="/images/pop_analysis/pic2.png, /images/pop_analysis/pic2.png 1.5x, /images/pop_analysis/pic2.png 2x" data-sizes=auto alt="Pie Chart for the world population distribution 2015 Acc. Continent" title="Pie Chart for the world population distribution 2015 Acc. Continent"></p><p>This Pie-Chart shows us the population size of every continent in the year 2015. It shows us the population of “Asia” is more than double combining all the remaining continents. This graph looks like a pizza where Asia has the biggest share of pizza.“Oceania” has only 0.5% of the whole world population.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># rate of increase in population in 5 yrs</span>
+<span class=k>def</span> <span class=nf>inc_pop_rate</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>):</span>
+    <span class=n>rate</span> <span class=o>=</span> <span class=p>((</span><span class=n>a</span><span class=o>-</span><span class=n>b</span><span class=p>)</span><span class=o>/</span><span class=n>a</span><span class=p>)</span><span class=o>*</span><span class=mi>100</span>
+    <span class=k>return</span> <span class=n>rate</span>
+
+<span class=k>def</span> <span class=nf>rate_find</span><span class=p>(</span><span class=n>Conti</span><span class=p>):</span>
+    <span class=n>lists</span><span class=o>=</span><span class=p>[]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>13</span><span class=p>):</span>
+        <span class=n>lists</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>inc_pop_rate</span><span class=p>(</span><span class=n>Conti</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>],</span><span class=n>Conti</span><span class=p>[</span><span class=n>i</span><span class=p>]))</span>
+    <span class=k>return</span> <span class=n>lists</span> 
+<span class=n>Africa_list</span><span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>Africa</span><span class=p>)</span>
+<span class=n>Asia_list</span> <span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>Asia</span><span class=p>)</span>
+<span class=n>Europe_list</span> <span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>Europe</span><span class=p>)</span>
+<span class=n>Latinamerica_list</span> <span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>Latinamerica</span><span class=p>)</span>
+<span class=n>NorthAmerica_list</span> <span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>NorthAmerica</span><span class=p>)</span>
+<span class=n>Oceania_list</span> <span class=o>=</span><span class=n>rate_find</span><span class=p>(</span><span class=n>Oceania</span><span class=p>)</span>
+<span class=n>World_list</span> <span class=o>=</span> <span class=n>rate_find</span><span class=p>(</span><span class=n>World</span><span class=p>)</span>
+<span class=n>year_new</span><span class=o>=</span><span class=n>year</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>14</span><span class=p>]</span>
+<span class=k>print</span> <span class=p>(</span><span class=s2>&#34;year 1955-2015&#34;</span><span class=p>)</span>
+<span class=k>print</span> <span class=p>(</span><span class=n>year_new</span><span class=p>)</span>
+<span class=n>year</span> <span class=mi>1955</span><span class=o>-</span><span class=mi>2015</span>
+<span class=p>[</span><span class=mi>1955</span> <span class=mi>1960</span> <span class=mi>1965</span> <span class=mi>1970</span> <span class=mi>1975</span> <span class=mi>1980</span> <span class=mi>1985</span> <span class=mi>1990</span> <span class=mi>1995</span> <span class=mi>2000</span> <span class=mi>2005</span> <span class=mi>2010</span> <span class=mi>2015</span><span class=p>]</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>16</span><span class=p>,</span><span class=mi>8</span><span class=p>))</span>
+<span class=n>labels</span> <span class=o>=</span> <span class=s1>&#39;Asia&#39;</span><span class=p>,</span><span class=s1>&#39;Africa&#39;</span><span class=p>,</span> <span class=s1>&#39;Europe&#39;</span><span class=p>,</span><span class=s1>&#39;Latinamerica&#39;</span><span class=p>,</span><span class=s1>&#39;NorthAmerica&#39;</span><span class=p>,</span><span class=s1>&#39;Oceania&#39;</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>Asia_list</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>Africa_list</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>Europe_list</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>Latinamerica_list</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>NorthAmerica_list</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>Oceania_list</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>labels</span><span class=p>,</span> <span class=n>loc</span><span class=o>=</span><span class=s2>&#34;best&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Population increasing rate per five year from 1955 to 2015&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Year&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=s2>&#34;12&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Pop. Growth rate in %&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=s2>&#34;12&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic3.png data-srcset="/images/pop_analysis/pic3.png, /images/pop_analysis/pic3.png 1.5x, /images/pop_analysis/pic3.png 2x" data-sizes=auto alt="Population increasing rate per five year from 1955 to 2015" title="Population increasing rate per five year from 1955 to 2015"></p><p>This graph plot is about the population growth rate per five years of continents. The population growth rate in Europe is decreasing over the year slowly. The population increase rate is high for Africa and it will increase Africa’s population. Though Oceania has the Smallest population it has the second highest increasing rate. The high population increase rate of Asia is slowing down it seems the effect of economic boom in some Asian country.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># for density of population in continents we are taking the area in km.Sq </span>
+<span class=c1># in list according to the population increasing order</span>
+
+<span class=n>Area_km</span> <span class=o>=</span><span class=p>{</span><span class=s2>&#34;Asia&#34;</span><span class=p>:</span><span class=mi>43820000</span><span class=p>,</span><span class=s2>&#34;Africa&#34;</span><span class=p>:</span><span class=mi>30370000</span><span class=p>,</span><span class=s2>&#34;Europe&#34;</span><span class=p>:</span><span class=mi>10180000</span><span class=p>,</span><span class=s2>&#34;Latinamerica&#34;</span><span class=p>:</span><span class=mi>17840000</span><span class=p>,</span><span class=s2>&#34;Northamerica&#34;</span><span class=p>:</span><span class=mi>24490000</span><span class=p>,</span><span class=s2>&#34;Oceania&#34;</span><span class=p>:</span><span class=mi>9008500</span><span class=p>}</span>
+<span class=k>def</span> <span class=nf>density</span><span class=p>(</span><span class=n>pop</span><span class=p>,</span><span class=n>area</span><span class=p>):</span>
+    <span class=n>dense</span><span class=o>=</span><span class=p>[]</span>
+    <span class=k>for</span> <span class=n>pops</span> <span class=ow>in</span> <span class=n>pop</span><span class=p>:</span>
+        <span class=n>dense</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>pops</span><span class=o>/</span><span class=n>area</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>dense</span>
+<span class=n>Asia_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>Asia</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Asia&#34;</span><span class=p>])</span>
+<span class=n>Africa_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>Africa</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Africa&#34;</span><span class=p>])</span>
+<span class=n>Europe_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>Europe</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Europe&#34;</span><span class=p>])</span>
+<span class=n>LatinAmerica_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>Latinamerica</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Latinamerica&#34;</span><span class=p>])</span>
+<span class=n>NorthAmerica_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>NorthAmerica</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Northamerica&#34;</span><span class=p>])</span>
+<span class=n>Oceania_den</span><span class=o>=</span><span class=n>density</span><span class=p>(</span><span class=n>Oceania</span><span class=p>,</span><span class=n>Area_km</span><span class=p>[</span><span class=s2>&#34;Oceania&#34;</span><span class=p>])</span>
+</code></pre></td></tr></table></div></div><p>In the following code, we are plotting a bar diagram with 6 multiple data. In the plt.bar() I used the year as X-axis and to print Six data in that one x-axis point it is needed to move the bar so all 6 bar can be shown. To show all bar I added 0.6 to every bar to print the bar in a new position so it will disturb other bars.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>18</span><span class=p>,</span><span class=mi>9</span><span class=p>))</span><span class=c1># size of plotting field</span>
+<span class=n>X</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>1950</span><span class=p>,</span><span class=mi>2020</span><span class=p>,</span><span class=mi>5</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mf>0.0</span><span class=p>,</span> <span class=n>Asia_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;blue&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mf>0.6</span><span class=p>,</span> <span class=n>Africa_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;brown&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mf>1.2</span><span class=p>,</span> <span class=n>Europe_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;orange&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mf>1.8</span><span class=p>,</span> <span class=n>LatinAmerica_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;green&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mf>2.4</span><span class=p>,</span> <span class=n>NorthAmerica_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;gold&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>X</span> <span class=o>+</span> <span class=mi>3</span><span class=p>,</span> <span class=n>Oceania_den</span><span class=p>,</span> <span class=n>color</span> <span class=o>=</span> <span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=mf>0.6</span><span class=p>)</span>
+<span class=n>labels</span><span class=o>=</span><span class=s1>&#39;Asia&#39;</span><span class=p>,</span><span class=s1>&#39;Africa&#39;</span><span class=p>,</span><span class=s1>&#39;Europe&#39;</span><span class=p>,</span><span class=s1>&#39;LatinAmerica&#39;</span><span class=p>,</span><span class=s1>&#39;NorthAmerica&#39;</span><span class=p>,</span><span class=s1>&#39;Oceania&#39;</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Population Density in Continents&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Thousand/KM.Sq&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>labels</span><span class=p>,</span> <span class=n>loc</span><span class=o>=</span><span class=s2>&#34;best&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic4.png data-srcset="/images/pop_analysis/pic4.png, /images/pop_analysis/pic4.png 1.5x, /images/pop_analysis/pic4.png 2x" data-sizes=auto alt="Population Density in Continents" title="Population Density in Continents"></p><p>In the above plot, we can see the density of the population over a period of time in Continents. In today’s time, the dense continent is Asia it left Europe behind in 1990 and Europe is 2nd dense continent. Oceania is the least dense country as its land area is big compared to Europe but the population is very small.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span><span class=mi>7</span><span class=p>))</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Population of Earth from 1950 to 2015&#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>,</span><span class=n>size</span> <span class=o>=</span> <span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Population in Thousand &#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>World</span><span class=p>,</span><span class=s2>&#34;o&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic5.png data-srcset="/images/pop_analysis/pic5.png, /images/pop_analysis/pic5.png 1.5x, /images/pop_analysis/pic5.png 2x" data-sizes=auto alt="Population of Earth from 1950 to 2015" title="Population of Earth from 1950 to 2015"></p><p>The above plot is about the population of the whole world. The graph shows that the population of the world increased in very high rate over the last 50 years. The population of the world was 2525779 thousand in 1950 and it became more than double i.e 7324782 thousand over a period of 65 years in 2015.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span><span class=mi>7</span><span class=p>))</span>
+<span class=n>ploting</span><span class=p>(</span><span class=n>year_new</span><span class=p>,</span><span class=n>World_list</span><span class=p>,</span><span class=s2>&#34;*&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Population growth rate &#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>,</span><span class=n>size</span> <span class=o>=</span> <span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Population Growth rate (%) &#34;</span><span class=p>,</span><span class=n>size</span><span class=o>=</span><span class=mi>12</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/pop_analysis/pic6.png data-srcset="/images/pop_analysis/pic6.png, /images/pop_analysis/pic6.png 1.5x, /images/pop_analysis/pic6.png 2x" data-sizes=auto alt="Population growth rate" title="Population growth rate">
+The above plot shows the population Growth rate of the world on the basis of 5 years. This plot shows the Population growth rate from 1955 to 2015. The Growth rate started to decrease from 1970 when the rate was 9.80856% and it is 5.5783% for 2015. Though it seems rate is decreasing but the growth of population is fast as Population is large small growth rate also add a large number of new people to the population.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Friday, Jun 23, 2017</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/us_immigration/ class=prev rel=prev title="US Immigration"><i class="fas fa-angle-left fa-fw"></i>US Immigration</a>
+<a href=/posts/machine_learning_iris/ class=next rel=next title="Machine Learning Iris">Machine Learning Iris<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

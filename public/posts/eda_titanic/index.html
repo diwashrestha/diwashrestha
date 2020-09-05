@@ -1,0 +1,338 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>EDA on Titanic - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="EDA on Titanic"><meta property="og:description" content="In this post, I am going to do Exploratory Data Analysis(EDA) on Titanic disaster datasets from kaggle Titanic: Machine Learning Disaster Competition. Before building machine learning model, I want to do EDA on this dataset find some idea about the features and structure of the dataset.
+ RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/eda_titanic/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2018-05-17T23:08:21+05:45"><meta property="article:modified_time" content="2018-05-17T23:08:21+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="EDA on Titanic"><meta name=twitter:description content="In this post, I am going to do Exploratory Data Analysis(EDA) on Titanic disaster datasets from kaggle Titanic: Machine Learning Disaster Competition. Before building machine learning model, I want to do EDA on this dataset find some idea about the features and structure of the dataset.
+ RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/eda_titanic/><link rel=prev href=http://diwashrestha.com.np/posts/machine_learning_iris/><link rel=next href=http://diwashrestha.com.np/posts/data_visualization_ggplot2/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"EDA on Titanic","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/eda_titanic\/"},"genre":"posts","wordcount":2092,"url":"http:\/\/diwashrestha.com.np\/posts\/eda_titanic\/","datePublished":"2018-05-17T23:08:21+05:45","dateModified":"2018-05-17T23:08:21+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">EDA on Titanic</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Thursday, May 17, 2018">Thursday, May 17, 2018</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 2092 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;10 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/eda_titanic/preview.png data-srcset="/images/eda_titanic/preview.png, /images/eda_titanic/preview.png 1.5x, /images/eda_titanic/preview.png 2x" data-sizes=auto alt=/images/eda_titanic/preview.png title=/images/eda_titanic/preview.png></div><div class=content id=content><p>In this post, I am going to do Exploratory Data Analysis(EDA) on Titanic disaster datasets from kaggle Titanic: Machine Learning Disaster Competition. Before building machine learning model, I want to do EDA on this dataset find some idea about the features and structure of the dataset.</p><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/titanic.jpg data-srcset="/images/eda_titanic/titanic.jpg, /images/eda_titanic/titanic.jpg 1.5x, /images/eda_titanic/titanic.jpg 2x" data-sizes=auto alt=/images/eda_titanic/titanic.jpg title=/images/eda_titanic/titanic.jpg></p><blockquote><p>RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City. There were an estimated 2,224 passengers and crew aboard, and more than 1,500 died, making it one of the deadliest commercial peacetime maritime disasters in modern history. RMS Titanic was the largest ship afloat at the time it entered service.
+&ndash; <a href=https://en.wikipedia.org/wiki/RMS_Titanic target=_blank rel="noopener noreffer">Wikipedia</a>.</p></blockquote><h3 id=import-and-clean-data>Import and clean data</h3><p>In this project we will use ggplot2,dplyr,VIM,mice packages of R.The kaggle dataset has three .csv file test,train,gender_submission.This is good for Machine Learning but not for EDA so I will create a single data frame joining 3 data frames.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>library</span><span class=p>(</span><span class=n>ggplot2</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>dplyr</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>VIM</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>mice</span><span class=p>)</span>
+<span class=n>train.df</span> <span class=o>&lt;-</span> <span class=nf>read.csv</span><span class=p>(</span><span class=s>&#34;train.csv&#34;</span><span class=p>)</span>
+<span class=n>test.df</span>  <span class=o>&lt;-</span> <span class=nf>read.csv</span><span class=p>(</span><span class=s>&#34;test.csv&#34;</span><span class=p>)</span>
+<span class=n>target.df</span>   <span class=o>&lt;-</span> <span class=nf>read.csv</span><span class=p>(</span><span class=s>&#34;gender_submission.csv&#34;</span><span class=p>)</span>
+ 
+<span class=c1>##creating dataframe</span>
+<span class=n>titanic.df</span> <span class=o>&lt;-</span> <span class=nf>cbind</span><span class=p>(</span><span class=n>test.df</span><span class=p>,</span><span class=n>target.df</span><span class=o>$</span><span class=n>Survived</span><span class=p>)</span>
+<span class=nf>colnames</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>)</span><span class=n>[12]</span><span class=o>&lt;-</span> <span class=s>&#34;Survived&#34;</span>
+<span class=n>train.df</span><span class=o>&lt;-</span> <span class=n>train.df</span><span class=nf>[c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span><span class=m>3</span><span class=p>,</span><span class=m>4</span><span class=p>,</span><span class=m>5</span><span class=p>,</span><span class=m>6</span><span class=p>,</span><span class=m>7</span><span class=p>,</span><span class=m>8</span><span class=p>,</span><span class=m>9</span><span class=p>,</span><span class=m>10</span><span class=p>,</span><span class=m>11</span><span class=p>,</span><span class=m>12</span><span class=p>,</span><span class=m>2</span><span class=p>)</span><span class=n>]</span>
+<span class=n>titanic.df</span> <span class=o>&lt;-</span> <span class=nf>rbind</span><span class=p>(</span><span class=n>train.df</span><span class=p>,</span><span class=n>titanic.df</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>I loaded three .csv and joined to form titanic.df.Heres how the titanic.df looks like.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>  PassengerId Pclass                                                Name
+## 1           1      3                             Braund, Mr. Owen Harris
+## 2           2      1 Cumings, Mrs. John Bradley (Florence Briggs Thayer)
+## 3           3      3                              Heikkinen, Miss. Laina
+## 4           4      1        Futrelle, Mrs. Jacques Heath (Lily May Peel)
+## 5           5      3                            Allen, Mr. William Henry
+## 6           6      3                                    Moran, Mr. James
+##      Sex Age SibSp Parch           Ticket    Fare Cabin Embarked Survived
+## 1   male  22     1     0        A/5 21171  7.2500              S        0
+## 2 female  38     1     0         PC 17599 71.2833   C85        C        1
+## 3 female  26     0     0 STON/O2. 3101282  7.9250              S        1
+## 4 female  35     1     0           113803 53.1000  C123        S        1
+## 5   male  35     0     0           373450  8.0500              S        0
+## 6   male  NA     0     0           330877  8.4583              Q        0
+</code></pre></td></tr></table></div></div><p>Let’s see the structure of titanic.df.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>## &#39;data.frame&#39;:    1309 obs. of  12 variables:
+##  $ PassengerId: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Pclass     : int  3 1 3 1 3 3 1 3 3 2 ...
+##  $ Name       : Factor w/ 1307 levels &#34;Abbing, Mr. Anthony&#34;,..: 109 191 358 277 16 559 520 629 417 581 ...
+##  $ Sex        : Factor w/ 2 levels &#34;female&#34;,&#34;male&#34;: 2 1 1 1 2 2 2 2 1 1 ...
+##  $ Age        : num  22 38 26 35 35 NA 54 2 27 14 ...
+##  $ SibSp      : int  1 1 0 1 0 0 0 3 0 1 ...
+##  $ Parch      : int  0 0 0 0 0 0 0 1 2 0 ...
+##  $ Ticket     : Factor w/ 929 levels &#34;110152&#34;,&#34;110413&#34;,..: 524 597 670 50 473 276 86 396 345 133 ...
+##  $ Fare       : num  7.25 71.28 7.92 53.1 8.05 ...
+##  $ Cabin      : Factor w/ 187 levels &#34;&#34;,&#34;A10&#34;,&#34;A14&#34;,..: 1 83 1 57 1 1 131 1 1 1 ...
+##  $ Embarked   : Factor w/ 4 levels &#34;&#34;,&#34;C&#34;,&#34;Q&#34;,&#34;S&#34;: 4 2 4 4 4 3 4 4 4 2 ...
+##  $ Survived   : int  0 1 1 1 0 0 0 0 1 1 ...
+</code></pre></td></tr></table></div></div><p>I found titanic.df has 1309 rows and 12 columns and The 12 variables in titanic.df is:</p><ul><li>Survived: Survival 0 = No, 1 = Yes</li><li>Pclass: Ticket class 1 = 1st, 2 = 2nd, 3 = 3rd</li><li>Sex: Sex Age: Age in years</li><li>Sibsp: No of siblings/spouses aboard the Titanic</li><li>Parch: of parents/children aboard the Titanic</li><li>Ticket: Ticket number</li><li>Fare: Passenger fare</li><li>Cabin: Cabin number</li><li>Embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton</li></ul><h3 id=missing-data>Missing Data</h3><p>I want to find is there any missing value in “titanic.df”.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>sum</span><span class=p>(</span><span class=nf>is.na</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>))</span>
+<span class=c1>## [1] 264</span>
+</code></pre></td></tr></table></div></div><p>Out of 1309 observations, titanic.df has 264 missing value. I want to find the distribution of missing value in our data frame. I am going to use the VIM and mice package to show the pattern of missing value in titanic.df.</p><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph1.png data-srcset="/images/eda_titanic/graph1.png, /images/eda_titanic/graph1.png 1.5x, /images/eda_titanic/graph1.png 2x" data-sizes=auto alt=/images/eda_titanic/graph1.png title=/images/eda_titanic/graph1.png></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>##finding any missing value in dataframe</span>
+<span class=n>mice_plot</span> <span class=o>&lt;-</span> <span class=nf>aggr</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span> <span class=n>col</span><span class=o>=</span><span class=nf>c</span><span class=p>(</span><span class=s>&#39;green&#39;</span><span class=p>,</span><span class=s>&#39;red&#39;</span><span class=p>),</span>
+                  <span class=n>numbers</span><span class=o>=</span><span class=kc>TRUE</span><span class=p>,</span> <span class=n>sortVars</span><span class=o>=</span><span class=kc>TRUE</span><span class=p>,</span>
+                  <span class=n>labels</span><span class=o>=</span><span class=nf>names</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>),</span> <span class=n>cex.axis</span><span class=o>=</span><span class=m>.7</span><span class=p>,</span>
+                  <span class=n>gap</span><span class=o>=</span><span class=m>3</span><span class=p>,</span> <span class=n>ylab</span><span class=o>=</span><span class=nf>c</span><span class=p>(</span><span class=s>&#34;Missing data&#34;</span><span class=p>,</span><span class=s>&#34;Pattern&#34;</span><span class=p>))</span>
+<span class=c1>## </span>
+<span class=c1>##  Variables sorted by number of missings: </span>
+<span class=c1>##     Variable        Count</span>
+<span class=c1>##          Age 0.2009167303</span>
+<span class=c1>##         Fare 0.0007639419</span>
+<span class=c1>##  PassengerId 0.0000000000</span>
+<span class=c1>##       Pclass 0.0000000000</span>
+<span class=c1>##         Name 0.0000000000</span>
+<span class=c1>##          Sex 0.0000000000</span>
+<span class=c1>##        SibSp 0.0000000000</span>
+<span class=c1>##        Parch 0.0000000000</span>
+<span class=c1>##       Ticket 0.0000000000</span>
+<span class=c1>##        Cabin 0.0000000000</span>
+<span class=c1>##     Embarked 0.0000000000</span>
+<span class=c1>##     Survived 0.0000000000</span>
+</code></pre></td></tr></table></div></div><p>From above code, I got a figure and a table showing pattern of missing value distribution. The red denotes missing value and green denote normal value. From the figure, we can see Fare and Age only has missing values. Age has more than 20% missing values and Fare has less than 1% missing value. We cant drop 264 rows with the missing value that may not give us valuable result after analysis. We also cant drop Age column due to missing value so we need to put some value in place of missing value. In this dataset, we will put mean of Age in the missing value. We will drop the row with missing fare as it has only one missing value.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>titanic.df</span><span class=o>$</span><span class=n>Age</span><span class=nf>[is.na</span><span class=p>(</span><span class=n>titanic.df</span><span class=o>$</span><span class=n>Age</span><span class=p>)</span><span class=n>]</span> <span class=o>=</span> <span class=nf>mean</span><span class=p>(</span><span class=n>titanic.df</span><span class=o>$</span><span class=n>Age</span><span class=p>,</span> <span class=n>na.rm</span> <span class=o>=</span> <span class=kc>TRUE</span><span class=p>)</span>
+<span class=n>titanic.df</span> <span class=o>&lt;-</span> <span class=nf>na.omit</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>)</span>
+<span class=c1>#missing values</span>
+<span class=nf>sum</span><span class=p>(</span><span class=nf>is.na</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>))</span>
+<span class=c1>## [1] 0</span>
+<span class=nf>str</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>)</span>
+<span class=c1>## &#39;data.frame&#39;:    1308 obs. of  12 variables:</span>
+<span class=c1>##  $ PassengerId: int  1 2 3 4 5 6 7 8 9 10 ...</span>
+<span class=c1>##  $ Pclass     : int  3 1 3 1 3 3 1 3 3 2 ...</span>
+<span class=c1>##  $ Name       : Factor w/ 1307 levels &#34;Abbing, Mr. Anthony&#34;,..: 109 191 358 277 16 559 520 629 417 581 ...</span>
+<span class=c1>##  $ Sex        : Factor w/ 2 levels &#34;female&#34;,&#34;male&#34;: 2 1 1 1 2 2 2 2 1 1 ...</span>
+<span class=c1>##  $ Age        : num  22 38 26 35 35 ...</span>
+<span class=c1>##  $ SibSp      : int  1 1 0 1 0 0 0 3 0 1 ...</span>
+<span class=c1>##  $ Parch      : int  0 0 0 0 0 0 0 1 2 0 ...</span>
+<span class=c1>##  $ Ticket     : Factor w/ 929 levels &#34;110152&#34;,&#34;110413&#34;,..: 524 597 670 50 473 276 86 396 345 133 ...</span>
+<span class=c1>##  $ Fare       : num  7.25 71.28 7.92 53.1 8.05 ...</span>
+<span class=c1>##  $ Cabin      : Factor w/ 187 levels &#34;&#34;,&#34;A10&#34;,&#34;A14&#34;,..: 1 83 1 57 1 1 131 1 1 1 ...</span>
+<span class=c1>##  $ Embarked   : Factor w/ 4 levels &#34;&#34;,&#34;C&#34;,&#34;Q&#34;,&#34;S&#34;: 4 2 4 4 4 3 4 4 4 2 ...</span>
+<span class=c1>##  $ Survived   : int  0 1 1 1 0 0 0 0 1 1 ...</span>
+<span class=c1>##  - attr(*, &#34;na.action&#34;)=Class &#39;omit&#39;  Named int 1044</span>
+<span class=c1>##   .. ..- attr(*, &#34;names&#34;)= chr &#34;1044&#34;</span>
+</code></pre></td></tr></table></div></div><h3 id=summary-of-data>Summary of data</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>summary</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>##   PassengerId         Pclass                                    Name     
+##  Min.   :   1.0   Min.   :1.000   Connolly, Miss. Kate            :   2  
+##  1st Qu.: 327.8   1st Qu.:2.000   Kelly, Mr. James                :   2  
+##  Median : 654.5   Median :3.000   Abbing, Mr. Anthony             :   1  
+##  Mean   : 654.7   Mean   :2.294   Abbott, Mr. Rossmore Edward     :   1  
+##  3rd Qu.: 981.2   3rd Qu.:3.000   Abbott, Mrs. Stanton (Rosa Hunt):   1  
+##  Max.   :1309.0   Max.   :3.000   Abelson, Mr. Samuel             :   1  
+##                                   (Other)                         :1300  
+##      Sex           Age            SibSp            Parch       
+##  female:466   Min.   : 0.17   Min.   :0.0000   Min.   :0.0000  
+##  male  :842   1st Qu.:22.00   1st Qu.:0.0000   1st Qu.:0.0000  
+##               Median :29.88   Median :0.0000   Median :0.0000  
+##               Mean   :29.86   Mean   :0.4992   Mean   :0.3853  
+##               3rd Qu.:35.00   3rd Qu.:1.0000   3rd Qu.:0.0000  
+##               Max.   :80.00   Max.   :8.0000   Max.   :9.0000  
+##                                                                
+##       Ticket          Fare                     Cabin      Embarked
+##  CA. 2343:  11   Min.   :  0.000                  :1013    :  2   
+##  1601    :   8   1st Qu.:  7.896   C23 C25 C27    :   6   C:270   
+##  CA 2144 :   8   Median : 14.454   B57 B59 B63 B66:   5   Q:123   
+##  3101295 :   7   Mean   : 33.295   G6             :   5   S:913   
+##  347077  :   7   3rd Qu.: 31.275   B96 B98        :   4           
+##  347082  :   7   Max.   :512.329   C22 C26        :   4           
+##  (Other) :1260                     (Other)        : 271           
+##     Survived     
+##  Min.   :0.0000  
+##  1st Qu.:0.0000  
+##  Median :0.0000  
+##  Mean   :0.3777  
+##  3rd Qu.:1.0000  
+##  Max.   :1.0000  
+</code></pre></td></tr></table></div></div><p>We cleaned the missing value of titanic.df and now we can do further analysis on the variables of the data frame.</p><h3 id=survival>Survival</h3><p>We will look at Survived variable to find the survival of people.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>#distribution of survival</span>
+<span class=n>g</span> <span class=o>&lt;-</span> <span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Survived</span><span class=p>))</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span> <span class=o>=</span> <span class=p>(</span><span class=n>..count..</span><span class=p>)</span><span class=o>/</span><span class=nf>sum</span><span class=p>(</span><span class=n>..count..</span><span class=p>)))</span> <span class=o>+</span> 
+          <span class=nf>scale_y_continuous</span><span class=p>(</span><span class=n>labels</span><span class=o>=</span><span class=n>scales</span><span class=o>::</span><span class=n>percent</span><span class=p>)</span><span class=o>+</span>
+          <span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=nf>ylab</span><span class=p>(</span><span class=s>&#34;Percent&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph2.png data-srcset="/images/eda_titanic/graph2.png, /images/eda_titanic/graph2.png 1.5x, /images/eda_titanic/graph2.png 2x" data-sizes=auto alt=/images/eda_titanic/graph2.png title=/images/eda_titanic/graph2.png></p><p>In above figure, 0 means not Survived and 1 mins survived. We can see in the figure that more than 60% people were not able to survive the disaster.</p><h3 id=age-distribution>Age Distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>#Age distribution</span>
+<span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Age</span><span class=p>))</span><span class=o>+</span><span class=nf>theme_minimal</span><span class=p>()</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_density</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph3.png data-srcset="/images/eda_titanic/graph3.png, /images/eda_titanic/graph3.png 1.5x, /images/eda_titanic/graph3.png 2x" data-sizes=auto alt=/images/eda_titanic/graph3.png title=/images/eda_titanic/graph3.png></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>+</span> <span class=nf>geom_histogram</span><span class=p>(</span><span class=n>binwidth</span> <span class=o>=</span> <span class=m>5</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph4.png data-srcset="/images/eda_titanic/graph4.png, /images/eda_titanic/graph4.png 1.5x, /images/eda_titanic/graph4.png 2x" data-sizes=auto alt=/images/eda_titanic/graph4.png title=/images/eda_titanic/graph4.png></p><p>Two figure of Age distribution shows that Titanic was filled with the passenger aged 80 years to infants. The peak in above plot shows that the maximum number of people were from (25- 35) age group.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Age</span><span class=p>))</span><span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span><span class=o>+</span>
+  <span class=nf>facet_wrap</span><span class=p>(</span><span class=o>~</span><span class=n>Survived</span><span class=p>)</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_density</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph5.png data-srcset="/images/eda_titanic/graph5.png, /images/eda_titanic/graph5.png 1.5x, /images/eda_titanic/graph5.png 2x" data-sizes=auto alt=/images/eda_titanic/graph5.png title=/images/eda_titanic/graph5.png></p><p>This density plot shows us the distribution of age of passenger on basis of their survival. The plot shows that kids were likely to survive the disaster.</p><h3 id=sex-distribution>Sex Distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>#Sex Distribution</span>
+<span class=n>titanic.df</span><span class=o>$</span><span class=n>Survived</span> <span class=o>&lt;-</span> <span class=nf>as.factor</span><span class=p>(</span><span class=n>titanic.df</span><span class=o>$</span><span class=n>Survived</span><span class=p>)</span>
+<span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Sex</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Sex</span><span class=p>))</span><span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span>
+<span class=n>g</span><span class=o>+</span><span class=nf>geom_bar</span><span class=p>(</span><span class=nf>aes</span><span class=p>(</span><span class=n>y</span> <span class=o>=</span> <span class=p>(</span><span class=n>..count..</span><span class=p>)</span><span class=o>/</span><span class=nf>sum</span><span class=p>(</span><span class=n>..count..</span><span class=p>)))</span> <span class=o>+</span> 
+          <span class=nf>scale_y_continuous</span><span class=p>(</span><span class=n>labels</span><span class=o>=</span><span class=n>scales</span><span class=o>::</span><span class=n>percent</span><span class=p>)</span> <span class=o>+</span>
+          <span class=nf>theme_minimal</span><span class=p>()</span><span class=o>+</span><span class=nf>ylab</span><span class=p>(</span><span class=s>&#34;Percent&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph6.png data-srcset="/images/eda_titanic/graph6.png, /images/eda_titanic/graph6.png 1.5x, /images/eda_titanic/graph6.png 2x" data-sizes=auto alt=/images/eda_titanic/graph6.png title=/images/eda_titanic/graph6.png></p><p>This plot shows more than 60% of Titanic passenger were Male.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Sex</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Sex</span><span class=p>))</span><span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>facet_wrap</span><span class=p>(</span><span class=o>~</span><span class=n>Survived</span><span class=p>)</span> <span class=o>+</span>
+  <span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>,</span><span class=n>y</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>)</span>
+
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph7.png data-srcset="/images/eda_titanic/graph7.png, /images/eda_titanic/graph7.png 1.5x, /images/eda_titanic/graph7.png 2x" data-sizes=auto alt=/images/eda_titanic/graph7.png title=/images/eda_titanic/graph7.png></p><p>This plot shows that more female survived the Titanic disaster than the male even though the population of the male was bigger than female in Titanic.</p><h3 id=pclass-distribution>Pclass Distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Pclass</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Sex</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph8.png data-srcset="/images/eda_titanic/graph8.png, /images/eda_titanic/graph8.png 1.5x, /images/eda_titanic/graph8.png 2x" data-sizes=auto alt=/images/eda_titanic/graph8.png title=/images/eda_titanic/graph8.png></p><p>The passenger of Titanic was categorized into three classes. From above figure, we can see that 3rd class passengers were more than half of the Titanic passengers.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Survived</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Survived</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>facet_wrap</span><span class=p>(</span><span class=o>~</span><span class=n>Pclass</span><span class=p>)</span>
+
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph9.png data-srcset="/images/eda_titanic/graph9.png, /images/eda_titanic/graph9.png 1.5x, /images/eda_titanic/graph9.png 2x" data-sizes=auto alt=/images/eda_titanic/graph9.png title=/images/eda_titanic/graph9.png></p><p>This plot shows the survival of passenger on basis of Passenger class. We can see that 3rd and 2nd class passengers were not likely to survive the disaster while 1st class passengers were more likely to survive the disaster.</p><h3 id=embark>Embark</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>titanic.df</span><span class=o>$</span><span class=n>Embarked</span> <span class=o>&lt;-</span> <span class=nf>as.factor</span><span class=p>(</span><span class=n>titanic.df</span><span class=o>$</span><span class=n>Embarked</span><span class=p>)</span>
+<span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Survived</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Survived</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span> <span class=o>+</span>
+  <span class=nf>facet_wrap</span><span class=p>(</span><span class=o>~</span><span class=n>Embarked</span><span class=p>)</span>
+
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph10.png data-srcset="/images/eda_titanic/graph10.png, /images/eda_titanic/graph10.png 1.5x, /images/eda_titanic/graph10.png 2x" data-sizes=auto alt=/images/eda_titanic/graph10.png title=/images/eda_titanic/graph10.png></p><p>Titanic’s first voyage was to New York before sailing to the Atlantic Ocean it picked passengers from three ports Cherbourg, Queenstown, Southampton. The above plot shows that many passengeriTitanicic embarked from the port of Southampton.</p><h3 id=fare-distribution>Fare distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Fare</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Survived</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_histogram</span><span class=p>(</span><span class=n>binwidth</span> <span class=o>=</span> <span class=m>10</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph11.png data-srcset="/images/eda_titanic/graph11.png, /images/eda_titanic/graph11.png 1.5x, /images/eda_titanic/graph11.png 2x" data-sizes=auto alt=/images/eda_titanic/graph11.png title=/images/eda_titanic/graph11.png></p><p>This plot shows the distribution of fare paid by the passengers. We can see that more than 600 passengers paid in the range of( 10 to 20) fare. We also see that many passengers paid in the range of (10 to 100) fare.</p><h3 id=parch-distribution>Parch Distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>Parch</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Survived</span><span class=p>))</span> <span class=o>+</span>
+  <span class=nf>theme_bw</span><span class=p>()</span>
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph12.png data-srcset="/images/eda_titanic/graph12.png, /images/eda_titanic/graph12.png 1.5x, /images/eda_titanic/graph12.png 2x" data-sizes=auto alt=/images/eda_titanic/graph12.png title=/images/eda_titanic/graph12.png></p><p>This plot shows the distribution of parent and children in passengers of Titanic. We can see that around 1000 of passengers were traveling without any parents or children.</p><h3 id=sibsp-distribution>SibSp Distribution</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>g</span> <span class=o>&lt;-</span><span class=nf>ggplot</span><span class=p>(</span><span class=n>titanic.df</span><span class=p>,</span><span class=nf>aes</span><span class=p>(</span><span class=n>SibSp</span><span class=p>,</span><span class=n>fill</span><span class=o>=</span><span class=n>Survived</span><span class=p>))</span> <span class=o>+</span> 
+  <span class=nf>theme_bw</span><span class=p>()</span> <span class=o>+</span> <span class=nf>labs</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>,</span><span class=n>y</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>)</span>
+
+<span class=n>g</span> <span class=o>+</span> <span class=nf>geom_bar</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/eda_titanic/graph13.png data-srcset="/images/eda_titanic/graph13.png, /images/eda_titanic/graph13.png 1.5x, /images/eda_titanic/graph13.png 2x" data-sizes=auto alt=/images/eda_titanic/graph13.png title=/images/eda_titanic/graph13.png></p><p>This plot shows the distribution of Siblings and spouse of the passengers. More than 800 of people were traveling without siblings or spouse. This plot shows that SibSp was distributed from 0 to Eight sibling/spouse.</p><h3 id=conclusion>Conclusion</h3><p>This was all about the EDA on Titanic Dataset. We looked at variables Age, Sex, Fare, Parch, SibSp, Embark, Pclass , Survived of the Titanic disaster dataset. We didn’t look on name, passengerId and cabin variable of data because the name and passengerId are just for identity purpose and they don’t have any relation to the survival of people.</p><p>I will use the idea I got from this analysis project on building Machine Learning models for this same dataset which is in Kaggle.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Thursday, May 17, 2018</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/machine_learning_iris/ class=prev rel=prev title="Machine Learning Iris"><i class="fas fa-angle-left fa-fw"></i>Machine Learning Iris</a>
+<a href=/posts/data_visualization_ggplot2/ class=next rel=next title="Data Visualization with ggplot2">Data Visualization with ggplot2<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

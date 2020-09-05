@@ -1,0 +1,164 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Classification of Survival in Titanic - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="Classification of Survival in Titanic"><meta property="og:description" content="In this blog, I will create a machine learning model which will predict the survival of the people in the Titanic accident. I will use titanic survival dataset and use the knn algorithm to find the survival of the people in the dataset.
+ RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/classification_survival_titanic/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2018-08-27T23:11:19+05:45"><meta property="article:modified_time" content="2018-08-27T23:11:19+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="Classification of Survival in Titanic"><meta name=twitter:description content="In this blog, I will create a machine learning model which will predict the survival of the people in the Titanic accident. I will use titanic survival dataset and use the knn algorithm to find the survival of the people in the dataset.
+ RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/classification_survival_titanic/><link rel=prev href=http://diwashrestha.com.np/posts/data_visualization_ggplot2/><link rel=next href=http://diwashrestha.com.np/posts/local_hack_day_2018/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Classification of Survival in Titanic","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/classification_survival_titanic\/"},"genre":"posts","wordcount":1209,"url":"http:\/\/diwashrestha.com.np\/posts\/classification_survival_titanic\/","datePublished":"2018-08-27T23:11:19+05:45","dateModified":"2018-08-27T23:11:19+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Classification of Survival in Titanic</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Monday, Aug 27, 2018">Monday, Aug 27, 2018</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1209 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;6 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/survival_classify/preview.png data-srcset="/images/survival_classify/preview.png, /images/survival_classify/preview.png 1.5x, /images/survival_classify/preview.png 2x" data-sizes=auto alt=/images/survival_classify/preview.png title=/images/survival_classify/preview.png></div><div class=content id=content><p>In this blog, I will create a machine learning model which will predict the survival of the people in the Titanic accident. I will use titanic survival dataset and use the knn algorithm to find the survival of the people in the dataset.</p><blockquote><p>RMS Titanic was a British passenger liner that sank in the North Atlantic Ocean in the early hours of 15 April 1912, after colliding with an iceberg during its maiden voyage from Southampton to New York City. The data is taken from data.world. I have also done exploratory analysis in my previous blog on this data I will not work on EDA in this blog on the same data.</p></blockquote><p>Lets start with loading the packages and dataset.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>library</span><span class=p>(</span><span class=n>dplyr</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>caret</span><span class=p>)</span>
+<span class=nf>library</span><span class=p>(</span><span class=n>MASS</span><span class=p>)</span>
+<span class=c1>## importing data</span>
+<span class=n>titanic_df</span> <span class=o>&lt;-</span> <span class=nf>read.csv</span><span class=p>(</span><span class=s>&#34;titanic.csv&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h3 id=dataset>Dataset</h3><p>The titanic datasets has 1309 rows and 14 columns. Lets know about the features or column of this datasets:</p><p>*survival - Survival (0 = No; 1 = Yes)
+*class - Passenger Class (1 = 1st; 2 = 2nd; 3 = 3rd)
+*name - Name
+*sex - Sex
+*age - Age
+*sibsp - Number of Siblings/Spouses Aboard
+*parch - Number of Parents/Children Aboard
+*ticket - Ticket Number
+*fare - Passenger Fare
+*cabin - Cabin
+*embarked - Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)
+*boat - Lifeboat (if survived)
+*body - Body number (if did not survive and body was recovered)
+*homedest - destination</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>head</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>pclass	survived	name	sex	age	sibsp	parch	ticket	fare	cabin	embarked	boat	cabin_1	embarked_1	boat_1	body	home_dest
+1	TRUE	Allen, Miss. Elisabeth Walton	female	29.0000	0	0	24160	211.3375	B5	S	2	B5	S	2	NA	St Louis, MO
+1	TRUE	Allison, Master. Hudson Trevor	male	0.9167	1	2	113781	151.5500	C22 C26	S	11	C22 C26	S	11	NA	Montreal, PQ / Chesterville, ON
+1	FALSE	Allison, Miss. Helen Loraine	female	2.0000	1	2	113781	151.5500	C22 C26	S	NA	C22 C26	S	NA	NA	Montreal, PQ / Chesterville, ON
+1	FALSE	Allison, Mr. Hudson Joshua Creighton	male	30.0000	1	2	113781	151.5500	C22 C26	S	NA	C22 C26	S	NA	135	Montreal, PQ / Chesterville, ON
+1	FALSE	Allison, Mrs. Hudson J C (Bessie Waldo Daniels)	female	25.0000	1	2	113781	151.5500	C22 C26	S	NA	C22 C26	S	NA	NA	Montreal, PQ / Chesterville, ON
+1	TRUE	Anderson, Mr. Harry	male	48.0000	0	0	19952	26.5500	E12	S	3	E12	S	3	NA	New York, NY
+</code></pre></td></tr></table></div></div><h3 id=cleaning-data>Cleaning Data</h3><p>I will clean the data before training the model with it. Let’s start with finding any missing values.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>pclass  survived      name       sex       age     sibsp     parch    ticket  
+ 0         0            0         0        263       0         0         0          
+fare    cabin  embarked      boat      body   home_dest 
+  1      0         0           0      1188         0
+</code></pre></td></tr></table></div></div><p>We can see that the body column has 1188 missing value whereas age has 263 and fare has 1 missing value. I will remove body column from the data frame as it has around 90% missing value.</p><p>I use the median value of the age column to fill up the missing value and remove the row where the fare is missing.</p><p>Lets check again is there any missing values.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>pclass  survived      name       sex       age     sibsp     parch    ticket   0         0          0          0         0        0         0         0          
+fare    cabin  embarked      boat      body   home_dest 
+  0      0         0           0         0       0
+</code></pre></td></tr></table></div></div><p>The name column holds the name of each person which is a string and it cant be used in KNN. The titanic_df data frame has the home_dest column which is the destination of the people and it’s in the string. The boat column has only that number of boats which had people who were alive otherwise it’s blank. The cabin column has a cabin of the people which was provided for the rich people only and other cabin is unknown. The ticket column gives the ticket number of each person which is different for each person. I will drop these five columns from the data frame.</p><p>The embarked column gives Port of Embarkation:</p><ul><li>C = Cherbourg</li><li>Q = Queenstown</li><li>S = Southampton I will create three new features using the emarked data .</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>library</span><span class=p>(</span><span class=n>dummies</span><span class=p>)</span>
+<span class=n>titanic_df</span> <span class=o>&lt;-</span> <span class=nf>cbind</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>,</span><span class=nf>dummy</span><span class=p>(</span><span class=n>titanic_df</span><span class=o>$</span><span class=n>embarked</span><span class=p>))</span>
+<span class=nf>head</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>pclass	survived	sex	age	sibsp	parch	fare	embarked	fare_1	embarked_1	titanic_df	titanic_dfC	titanic_dfQ	titanic_dfS
+1	TRUE	female	29.0000	0	0	211.3375	S	211.3375	S	0	0	0	1
+1	TRUE	male	0.9167	1	2	151.5500	S	151.5500	S	0	0	0	1
+1	FALSE	female	2.0000	1	2	151.5500	S	151.5500	S	0	0	0	1
+1	FALSE	male	30.0000	1	2	151.5500	S	151.5500	S	0	0	0	1
+1	FALSE	female	25.0000	1	2	151.5500	S	151.5500	S	0	0	0	1
+1	TRUE	male	48.0000	0	0	26.5500	S	26.5500	S	0	0	0	1
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>titanic_df</span> <span class=o>&lt;-</span> <span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>,</span><span class=o>-</span><span class=n>embarked</span><span class=p>)</span>
+<span class=n>titanic_df</span> <span class=o>&lt;-</span> <span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>,</span><span class=o>-</span><span class=n>titanic_df</span><span class=p>)</span>
+<span class=n>titanic_df</span> <span class=o>&lt;-</span> <span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>,</span><span class=o>-</span><span class=n>sex</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>The sex column provides the gender of the person I will denote 1 as female and 0 as male which makes it easy to implement in the model.</p><p>After cleaning and some manipulation, we have a dataset that is applicable for modelling or classification purpose. Let’s look at the structure of the data.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>pclass	survived	age	sibsp	parch	fare	embark_C	embark_Q	embark_S	gender
+1	TRUE	29.0000	0	0	211.3375	0	0	1	1
+1	TRUE	0.9167	1	2	151.5500	0	0	1	0
+1	FALSE	2.0000	1	2	151.5500	0	0	1	1
+1	FALSE	30.0000	1	2	151.5500	0	0	1	0
+1	FALSE	25.0000	1	2	151.5500	0	0	1	1
+1	TRUE	48.0000	0	0	26.5500	0	0	1	0
+</code></pre></td></tr></table></div></div><h3 id=split-the-data>Split the Data</h3><p>Usually, in Machine Learning Data is divided into two parts, training and testing data. I will divide the data into 70% training and 30% testing data.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>set.seed</span><span class=p>(</span><span class=m>123</span><span class=p>)</span>
+<span class=n>data</span> <span class=o>&lt;-</span> <span class=n>titanic_df[base</span><span class=o>::</span><span class=nf>sample</span><span class=p>(</span><span class=nf>nrow</span><span class=p>(</span><span class=n>titanic_df</span><span class=p>)),</span><span class=n>]</span> <span class=c1># suffling the data</span>
+<span class=n>bound</span> <span class=o>&lt;-</span> <span class=nf>floor</span><span class=p>(</span><span class=m>0.7</span> <span class=o>*</span> <span class=nf>nrow</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
+<span class=n>df_train</span> <span class=o>&lt;-</span> <span class=n>data[1</span><span class=o>:</span><span class=n>bound</span><span class=p>,</span><span class=n>]</span>
+<span class=n>df_test</span> <span class=o>&lt;-</span> <span class=n>data</span><span class=nf>[</span><span class=p>(</span><span class=n>bound</span><span class=m>+1</span><span class=p>)</span><span class=o>:</span> <span class=nf>nrow</span><span class=p>(</span><span class=n>data</span><span class=p>),</span><span class=n>]</span>
+<span class=nf>cat</span><span class=p>(</span><span class=s>&#34;number of training and test samples are&#34;</span><span class=p>,</span><span class=nf>nrow</span><span class=p>(</span><span class=n>df_train</span><span class=p>),</span> <span class=nf>nrow</span><span class=p>(</span><span class=n>df_test</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><ul><li>number of training and test samples are 914 392</li></ul><h3 id=train-the-model-on-data>Train the Model on Data</h3><p>I will use K- Nearest Neighbour (knn) algorithm to train our classification model. I will start with k = 1.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>y_test
+knn.pred1 false true
+    false   210   60
+    true     41   81
+Accuracy: 0.7423469
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>knn.pred3</span><span class=o>&lt;-</span><span class=nf>knn</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span><span class=n>X_test</span><span class=p>,</span><span class=n>y_train</span><span class=p>,</span><span class=n>k</span> <span class=o>=</span><span class=m>3</span><span class=p>)</span>
+<span class=nf>table</span><span class=p>(</span><span class=n>knn.pred3</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>  y_test
+knn.pred3 false true
+    false   212   57
+    true     39   84
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>cat</span><span class=p>(</span><span class=s>&#34;Accuracy:&#34;</span><span class=p>,</span><span class=nf>mean</span><span class=p>(</span><span class=n>y_test</span><span class=o>==</span><span class=n>knn.pred3</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><p>Accuracy: 0.755102</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>knn.pred5</span> <span class=o>&lt;-</span> <span class=nf>knn</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span><span class=n>X_test</span><span class=p>,</span><span class=n>y_train</span><span class=p>,</span><span class=n>k</span> <span class=o>=</span> <span class=m>5</span><span class=p>)</span>
+<span class=nf>table</span><span class=p>(</span><span class=n>knn.pred5</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>y_test
+knn.pred5 false true
+    false   204   56
+    true     47   85
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>cat</span><span class=p>(</span><span class=s>&#34;Accuracy:&#34;</span><span class=p>,</span><span class=nf>mean</span><span class=p>(</span><span class=n>y_test</span><span class=o>==</span><span class=n>knn.pred5</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><p>Accuracy: 0.7372449</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>knn.pred7</span> <span class=o>&lt;-</span> <span class=nf>knn</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span><span class=n>X_test</span><span class=p>,</span><span class=n>y_train</span><span class=p>,</span><span class=n>k</span> <span class=o>=</span> <span class=m>20</span><span class=p>)</span>
+<span class=nf>table</span><span class=p>(</span><span class=n>knn.pred7</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback> y_test
+knn.pred7 false true
+    false   222   57
+    true     29   84
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>cat</span><span class=p>(</span><span class=s>&#34;Accuracy:&#34;</span><span class=p>,</span><span class=nf>mean</span><span class=p>(</span><span class=n>y_test</span><span class=o>==</span><span class=n>knn.pred7</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div><p>Accuracy: 0.7806122</p><p>I kept on increasing the value of k and the best result I found was with K = 20. Further increase in K didn’t improve the performance of the model. So, I got 78% accuracy using the K nearest Neighbour algorithm with k = 20. You can use other algorithms on this problem to get better accuracy.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Monday, Aug 27, 2018</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/data_visualization_ggplot2/ class=prev rel=prev title="Data Visualization with ggplot2"><i class="fas fa-angle-left fa-fw"></i>Data Visualization with ggplot2</a>
+<a href=/posts/local_hack_day_2018/ class=next rel=next title="Local Hack Day 2018">Local Hack Day 2018<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

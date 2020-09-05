@@ -1,0 +1,309 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Access Modifier in C# - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="Access Modifier in C#"><meta property="og:description" content="Access Modifier is the keyword which decide who can access resource or object in a C# program. We can control the access level of class, method , variables in a program using a access modifier.
+ There are six Access Modifiers in C# which have different features and which give different levels of access to the object(class/method/variable) with which it is used.
+Public Access Modifier The objects(methods/properties) with public access modifiers can be accessed from anywhere in a project."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/access_modifier_csharp/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2020-08-25T07:46:58+05:45"><meta property="article:modified_time" content="2020-08-25T07:46:58+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="Access Modifier in C#"><meta name=twitter:description content="Access Modifier is the keyword which decide who can access resource or object in a C# program. We can control the access level of class, method , variables in a program using a access modifier.
+ There are six Access Modifiers in C# which have different features and which give different levels of access to the object(class/method/variable) with which it is used.
+Public Access Modifier The objects(methods/properties) with public access modifiers can be accessed from anywhere in a project."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/access_modifier_csharp/><link rel=prev href=http://diwashrestha.com.np/posts/interactive_visualization_plotly_ggplot/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Access Modifier in C#","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/access_modifier_csharp\/"},"genre":"posts","wordcount":1041,"url":"http:\/\/diwashrestha.com.np\/posts\/access_modifier_csharp\/","datePublished":"2020-08-25T07:46:58+05:45","dateModified":"2020-08-25T07:46:58+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Access Modifier in C#</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Tuesday, Aug 25, 2020">Tuesday, Aug 25, 2020</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1041 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;5 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/access_modifier_csharp/preview.png data-srcset="/images/access_modifier_csharp/preview.png, /images/access_modifier_csharp/preview.png 1.5x, /images/access_modifier_csharp/preview.png 2x" data-sizes=auto alt=/images/access_modifier_csharp/preview.png title=/images/access_modifier_csharp/preview.png></div><div class=content id=content><blockquote><p><em>Access Modifier is the keyword which decide who can access resource or object in a C# program. We can control the access level of class, method , variables in a program using a access modifier.</em></p></blockquote><p>There are six Access Modifiers in C# which have different features and which give different levels of access to the object(class/method/variable) with which it is used.</p><h3 id=public-access-modifier>Public Access Modifier</h3><p>The objects(methods/properties) with public access modifiers can be accessed from anywhere in a project. There is no accessibility restriction for public access modifiers.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-CSharp data-lang=CSharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>PublicMsg</span>
+    <span class=p>{</span>
+        <span class=c1>// Accessible anywhere in program.
+</span><span class=c1></span>        <span class=k>public</span> <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is public message.&#34;</span><span class=p>;</span> 
+    <span class=p>}</span>
+
+    <span class=k>class</span> <span class=nc>Program</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>pMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>PublicMsg</span><span class=p>();</span>
+            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>pMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is public message.
+</code></pre></td></tr></table></div></div><p>In the above program we declared <em>msg</em> variable <em>public</em> and accessed from another class <em>Program</em>. As public access modifier has no restriction in its access level it can be accessed from anywhere in program i.e from another class, another assembly/namespace.</p><h3 id=internal-access-modifier>Internal Access Modifier</h3><p>The objects with internal access modifiers can be accessed from anywhere within the same assembly or namespaces.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>InternalMsg</span>
+    <span class=p>{</span>
+        <span class=k>internal</span> <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is internal message.&#34;</span><span class=p>;</span> 
+    <span class=p>}</span>
+
+    <span class=k>class</span> <span class=nc>Program</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>interMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>InternalMsg</span><span class=p>();</span>
+            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>interMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is internal message.
+</code></pre></td></tr></table></div></div><p>In the above code we declared msg variable internal and used in another class Program. As the object with internal access modifier can be accessed in anywhere in same assembly we got output without any error.</p><h3 id=protected--access-modifier>Protected Access Modifier</h3><p>Protected access modifier limits the accessibility of objects within the class in which it is created or in the derived class.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>ProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>protected</span> <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is protected message.&#34;</span><span class=p>;</span> 
+    <span class=p>}</span>
+
+    <span class=k>class</span> <span class=nc>Program</span><span class=p>:</span><span class=n>ProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>proMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Program</span><span class=p>();</span>
+            <span class=c1>// Accessible from derived class.
+</span><span class=c1></span>            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>proMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span> 
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is protected message.
+</code></pre></td></tr></table></div></div><p>In the above code, we derived <em>Program</em> class from <em>ProtectedMsg</em> class and as <em>msg</em> variable is within its access level we got output.
+Object with protected access modifier can also be accessed from another assembly from a derived class.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+     <span class=k>public</span> <span class=k>class</span> <span class=nc>ProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>protected</span>  <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is protected  message.&#34;</span><span class=p>;</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>// Another Assembly
+</span><span class=c1></span><span class=k>using</span> <span class=nn>CSharp_Access_Modifiers</span><span class=p>;</span>
+<span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>AnotherAssembly</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>Program</span> <span class=p>:</span> <span class=n>ProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>anotherMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Program</span><span class=p>();</span>
+            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>anotherMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is protected  message.
+</code></pre></td></tr></table></div></div><h3 id=private-access-modifier>Private Access Modifier</h3><p>The objects with private access modifiers can only be accessed by code in the same class so It is not accessible outside the class they are created. It is used to ensure <em>encapsulation</em> in the program i.e process of hiding sensitive items from the user.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>PrivateMsg</span>
+    <span class=p>{</span>
+        <span class=k>private</span> <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is private message.&#34;</span><span class=p>;</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>prMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>PrivateMsg</span><span class=p>();</span> 
+            <span class=c1>//accessing the variable with in the class 
+</span><span class=c1></span>            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>prMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is private message.
+</code></pre></td></tr></table></div></div><p>Private access modifier has the least access level among all the six access modifier.</p><p><em>In C# access modifiers can be combined like combining protected and internal forms protected internal access modifier and likewise combining private protected form private protected access modifier.</em></p><h3 id=protected-internal-access-modifier>Protected Internal Access Modifier</h3><p>The objects with protected internal access modifiers can only be accessed within the same assembly or from within derived classes from another assembly.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>class</span> <span class=nc>ProtectedInternalMsg</span>
+    <span class=p>{</span>
+        <span class=k>protected</span> <span class=k>internal</span> <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is protected internal message.&#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>// Another assembly 
+</span><span class=c1></span><span class=k>using</span> <span class=nn>CSharp_Access_Modifiers</span><span class=p>;</span>
+<span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>AnotherAssembly</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>Program</span> <span class=p>:</span> <span class=n>ProtectedInternalMsg</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>anotherMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Program</span><span class=p>();</span>
+            <span class=c1>// Accessible from derived class in another assembly
+</span><span class=c1></span>            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>anotherMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span> 
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is protected internal message.
+</code></pre></td></tr></table></div></div><h3 id=private-protected-access-modifier>Private protected Access Modifier</h3><p>The objects with private protected access modifiers can only be accessed from the same class or the derived class.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>System</span><span class=p>;</span>
+<span class=k>namespace</span> <span class=nn>CSharp_Access_Modifiers</span>
+<span class=p>{</span>
+    <span class=k>class</span> <span class=nc>PrivateProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>private</span> <span class=k>protected</span>  <span class=kt>string</span> <span class=n>msg</span> <span class=p>=</span> <span class=s>&#34;This is private protected  message.&#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+
+    <span class=k>class</span> <span class=nc>Program</span><span class=p>:</span><span class=n>PrivateProtectedMsg</span>
+    <span class=p>{</span>
+        <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=kt>var</span> <span class=n>prproMsg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Program</span><span class=p>();</span>
+            <span class=c1>// accessible from base class or derived class only.
+</span><span class=c1></span>            <span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=n>prproMsg</span><span class=p>.</span><span class=n>msg</span><span class=p>);</span> 
+
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Output:
+This is private protected  message.
+</code></pre></td></tr></table></div></div><p>Private Protected access modifier allows an object to be accessed from derived class in the same assembly. In the above code, <em>msg</em> variable is accessed from <em>Program</em> class which is derived from the <em>PrivateProtectedMsg</em> class.</p><h3 id=default-access-modifier>Default Access Modifier</h3><p>When there is no access modifier is set , then a default access modifier will be used. Default Access Modifier is different for the<br>Default access modifier for <em>namespace, enum, interface</em> is <strong>public</strong> and their access modifier can&rsquo;t be changed or set. The default access level for <em>class, struct, method, variable</em> is <strong>private</strong>.</p><p>Here is the summary of accessibility level of the Access Modifier in C#:</p><table><thead><tr><th>Access Modifier</th><th>Entire Program</th><th>Base Class</th><th>Current Assembly</th><th>Derived Class in another assembly</th><th>Derived Class in current assembly</th></tr></thead><tbody><tr><td>Public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Protected</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Internal</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td></tr><tr><td>Protected Internal</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Private</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr><tr><td>Private Protected</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td></tr></tbody></table><p>So , that was all about the access modifiers in C#.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Tuesday, Aug 25, 2020</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/interactive_visualization_plotly_ggplot/ class=prev rel=prev title="Interactive Visualization with ggplot2 and Plotly"><i class="fas fa-angle-left fa-fw"></i>Interactive Visualization with ggplot2 and Plotly</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><style>.lg-toolbar .lg-icon::after{color:#999}</style><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

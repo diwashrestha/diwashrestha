@@ -1,14 +1,41 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Diwashrestha</title>
-        <link>http://example.org/</link>
-        <description>Diwashrestha</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 30 Apr 2020 23:25:01 &#43;0545</lastBuildDate><atom:link href="http://example.org/" rel="self" type="application/rss+xml" /><item>
-                <title>First_post</title>
-                <link>http://example.org/posts/first_post/</link>
-                <pubDate>Thu, 30 Apr 2020 23:25:01 &#43;0545</pubDate>
-                <author>Author</author>
-                <guid>http://example.org/posts/first_post/</guid>
-                <description>This is website .</description>
-            </item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Diwashrestha</title><link>http://diwashrestha.com.np/</link><description>Diwash Shrestha Personal Website</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 02 Aug 2019 11:04:49 +0800</lastBuildDate><atom:link href="http://diwashrestha.com.np/" rel="self" type="application/rss+xml"/><item><title>Access Modifier in C#</title><link>http://diwashrestha.com.np/posts/access_modifier_csharp/</link><pubDate>Tue, 25 Aug 2020 07:46:58 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/access_modifier_csharp/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/access_modifier_csharp/preview.png" referrerpolicy="no-referrer">
+&lt;/div>Access Modifier is the keyword which decide who can access resource or object in a C# program. We can control the access level of class, method , variables in a program using a access modifier.
+There are six Access Modifiers in C# which have different features and which give different levels of access to the object(class/method/variable) with which it is used.
+Public Access Modifier The objects(methods/properties) with public access modifiers can be accessed from anywhere in a project.</description></item><item><title>Interactive Visualization with ggplot2 and Plotly</title><link>http://diwashrestha.com.np/posts/interactive_visualization_plotly_ggplot/</link><pubDate>Sun, 15 Dec 2019 23:30:16 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/interactive_visualization_plotly_ggplot/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/ggplot_plotly/preview.png" referrerpolicy="no-referrer">
+&lt;/div>I love to work with data and while analyzing the data visualization helps a lot to show the result of analysis. In this blog i will show how to create interactive visualization with ggplot2 and plotly package in Rstudio Environment.
+GGplot2 is powerfull visualization package based on The grammar of graphics and part of Tidyverse. It is easy to use and powerful to create any type of visualization. The problem is it can only make beautiful static visualization.</description></item><item><title>Organized Student Dev Hack</title><link>http://diwashrestha.com.np/posts/student-dev-hack/</link><pubDate>Tue, 10 Dec 2019 23:29:14 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/student-dev-hack/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/images/student_dev_hack/preview.png" referrerpolicy="no-referrer">
+            </div>DataSansar Organized Student Dev Hack on Dec 7 2019. It was a hackathon for students who want to learn by working on real projects. The hackathon was organized in ACHS College Hall.
+Student Dev Hack was an event for beginner coders/students who want to learn new things and create solutions for problems working in a team. The hackathon moto was:
+ Learn Build Share
+ The hackathon&rsquo;s main focus was to solve problems related to tourism, education and health sector of Nepal.]]></description></item><item><title>Solveathon 2019: Nepal Tourism Dashboard</title><link>http://diwashrestha.com.np/posts/solveathon-2019/</link><pubDate>Thu, 28 Nov 2019 23:29:14 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/solveathon-2019/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/images/solveathon/preview.png" referrerpolicy="no-referrer">
+            </div>Introduction Closing ceremony of #solveathon2019 is happening now. Open data expo is happening. We @datasansar team are showcasing NepalTourism Dashboard Project made with #rstats.#hackathon #VisitNepal2020 #Nepal #Kathmandu pic.twitter.com/LrD2wIJDBn
+&mdash; Diwash Shrestha 🇳🇵 👨🏽‍💻 (@diwastha) December 15, 2019  We from DataSansar Team attended the Solveathon 2019 for solving social problems with data driven solutions. Solveathon 2019 was a two-day event, organized by the World Bank, The Asia Foundation and supported by the UKaid at the Kathmandu University School of Management on 14-15 December.]]></description></item><item><title>Tourism in Nepal</title><link>http://diwashrestha.com.np/posts/tourism_nepal/</link><pubDate>Fri, 22 Nov 2019 23:29:14 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/tourism_nepal/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/tourism_in_nepal/preview.png" referrerpolicy="no-referrer">
+&lt;/div>Introduction Nepal is celebrating year 2020 as “Tourism Year” targeting 2 million international tourist arrivals. You can learn more about the #VisitNepal2020. I want to see the trend/history of nepal tourism and extracted the data from the Wikipedia in Scraping Data with R blog post.
+Visit Nepal 2020"
+Visit Nepal 2020
+In this section, we will work on the scrapped data from the Scraping Data with R blog post and perform analysis, create some visualization and understand the trend of Tourism in Nepal.</description></item><item><title>Scraping Data with R</title><link>http://diwashrestha.com.np/posts/scraping_data_with_r/</link><pubDate>Tue, 05 Nov 2019 23:23:51 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/scraping_data_with_r/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/scrap_data/preview.png" referrerpolicy="no-referrer">
+&lt;/div>In Data Analysis require a data on which we can perform analysis and find insights. We always don’t get clean open data for our analysis so we need to create, find our data. In this post, I describe how to extract data from a website using R.
+Nepal is a Himalayan nation with beautiful mountains, ancient cultures, traditions and rich history. Nepal is celebrating year 2020 as “Tourism Year” targeting 2 million international tourist arrivals.</description></item><item><title>Tidyweek - Data Analysis Bootcamp</title><link>http://diwashrestha.com.np/posts/tidyweek/</link><pubDate>Wed, 25 Sep 2019 23:29:14 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/tidyweek/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/tidyweek/preview.png" referrerpolicy="no-referrer">
+&lt;/div>Introduction R Nepal organized Tidyweek - Data Analysis with R Bootcamp. The Bootcamp was organized in ACHS college between Sep 20th-23rd, 2019.
+There were 25 participants from various backgrounds (health, business, agriculture, academia). I and Binod Jung Bogati were the educator for the event.
+Day 1 Binod spoke about the data analysis and process of data analysis. After that he taught the basic R and Rstudio.
+Day 2 Binod ran the Data import session where he taught participants to import different form of data in R.</description></item><item><title>TidyTuesday:VideoGame</title><link>http://diwashrestha.com.np/posts/tidytuesday_videogame/</link><pubDate>Tue, 06 Aug 2019 23:19:55 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/tidytuesday_videogame/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/images/tidytuesday/preview.png" referrerpolicy="no-referrer">
+            </div>In this post, I will analyse the Tidytuesday Dataset about a video game from the Steam store using R and Rstudio.
+Load the packages 1 2 3 4 5 6  library(tidyverse) library(lubridate) library(magrittr) library(ggthemr) library(RColorBrewer) library(gganimate)   Load the data 1 2  video_game &lt;- read_csv(&#34;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv&#34;)   Data Transformation Lets take a look at our dataframe.
+1  head(video_game)   1 2 3 4 5 6 7 8 9 10 11 12  # A tibble: 6 x 10 number game release_date price owners developer publisher &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; 1 1 Half… Nov 16, 2004 9.]]></description></item><item><title>Visualizing Earthquake</title><link>http://diwashrestha.com.np/posts/visualize_earthquake/</link><pubDate>Fri, 19 Jul 2019 23:19:18 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/visualize_earthquake/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/images/visual_earthquake/preview.png" referrerpolicy="no-referrer">
+            </div>According to USGS:
+ An earthquake is caused by a sudden slip on a fault. The tectonic plates are always slowly moving, but they get stuck at their edges due to friction. When the stress on the edge overcomes the friction, there is an earthquake that releases energy in waves that travel through the earth&rsquo;s crust and cause the shaking that we feel.
+ Earthquake size can be very weak which can’t be felt to those which can destroy cities.]]></description></item><item><title>Organized Global Azure Bootcamp 2019</title><link>http://diwashrestha.com.np/posts/global-azure-bootcamp-2019/</link><pubDate>Mon, 27 May 2019 23:29:14 +0545</pubDate><author>Author</author><guid>http://diwashrestha.com.np/posts/global-azure-bootcamp-2019/</guid><description>&lt;div class="featured-image">
+&lt;img src="/images/gab_2019/preview.png" referrerpolicy="no-referrer">
+&lt;/div>DataSansar also organized Global Azure Bootcamp 2019 at ACHS College.Global Azure Bootcamp is global event for learning about Microsoft Azure and Cloud Computing which is organized in multiple locations globally and anually. The event was supported by microsoft and github.
+The Bootcamp ran into three session by different speakers:
+Cloud Computing Power BI Cognitive Services The event was started by learning about the Cloud Computing from Binod Jung Bogati.</description></item></channel></rss>

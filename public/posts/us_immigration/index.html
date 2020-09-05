@@ -1,0 +1,456 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>US Immigration - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="US Immigration"><meta property="og:description" content="In this blog, I am going to read data about the no of migrants in the US from all around the globe from 1980 to 2013 taken from esa.un.org and loaded in python. I am filtering data from given data and only using data of SAARC countries(Afganistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Srilanka). In this program, I am using matplotlib python package to visualize the given data. The data I will use is No of people moved to the US in given Years from their homeland."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/us_immigration/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2017-05-28T13:04:00+05:45"><meta property="article:modified_time" content="2017-05-28T13:04:00+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="US Immigration"><meta name=twitter:description content="In this blog, I am going to read data about the no of migrants in the US from all around the globe from 1980 to 2013 taken from esa.un.org and loaded in python. I am filtering data from given data and only using data of SAARC countries(Afganistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Srilanka). In this program, I am using matplotlib python package to visualize the given data. The data I will use is No of people moved to the US in given Years from their homeland."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/us_immigration/><link rel=next href=http://diwashrestha.com.np/posts/population_analysis/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"US Immigration","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/us_immigration\/"},"genre":"posts","wordcount":1122,"url":"http:\/\/diwashrestha.com.np\/posts\/us_immigration\/","datePublished":"2017-05-28T13:04:00+05:45","dateModified":"2017-05-28T13:04:00+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">US Immigration</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Sunday, May 28, 2017">Sunday, May 28, 2017</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1122 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;6 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/us_immi/preview.png data-srcset="/images/us_immi/preview.png, /images/us_immi/preview.png 1.5x, /images/us_immi/preview.png 2x" data-sizes=auto alt=/images/us_immi/preview.png title=/images/us_immi/preview.png></div><div class=content id=content><p>In this blog, I am going to read data about the no of migrants in the US from all around the globe from 1980 to 2013 taken from <a href=https://esa.un.org/unpd/wpp/Download/Standard/Migration/ target=_blank rel="noopener noreffer">esa.un.org</a> and loaded in python. I am filtering data from given data and only using data of SAARC countries(Afganistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Srilanka). In this program, I am using matplotlib python package to visualize the given data. The data I will use is No of people moved to the US in given Years from their homeland.</p><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/saarc.jpg data-srcset="/images/us_immi/saarc.jpg, /images/us_immi/saarc.jpg 1.5x, /images/us_immi/saarc.jpg 2x" data-sizes=auto alt=SAARC title=SAARC></p><p>I have used python to read data and took the data of only 8 SAARC country using function <em>country(C_name)</em>. I used matplotlib python package to visualize the extracted data to find out how was the no of migrants to the US from these nations from 1980 to 2013.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1>#Importing packages</span>
+<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=kn>as</span> <span class=nn>plt</span>
+
+<span class=c1>#using python to load the csv file</span>
+<span class=n>f</span><span class=o>=</span><span class=nb>open</span><span class=p>(</span><span class=s2>&#34;C:/Users/Diwash/Desktop/United States of Americ.csv&#34;</span><span class=p>,</span><span class=s2>&#34;r&#34;</span><span class=p>)</span>
+<span class=n>data</span> <span class=o>=</span><span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+<span class=n>rows</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+<span class=n>final_data</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>imi_data</span> <span class=ow>in</span> <span class=n>rows</span><span class=p>:</span>
+    <span class=n>imig</span> <span class=o>=</span> <span class=n>imi_data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+    <span class=n>final_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>imig</span><span class=p>)</span>
+    
+<span class=c1>#function to find the data for required country </span>
+<span class=c1>#from the file.using this function we will get no. of  </span>
+<span class=c1>#immigrants from 1980 to 2013 from that country and </span>
+<span class=c1>#will be saved as full_data and return to function caller</span>
+<span class=k>def</span> <span class=nf>country</span><span class=p>(</span><span class=n>C_name</span><span class=p>):</span>
+    <span class=n>final_data</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>imi_data</span> <span class=ow>in</span> <span class=n>rows</span><span class=p>:</span>
+        <span class=n>imig</span> <span class=o>=</span> <span class=n>imi_data</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+        <span class=n>final_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>imig</span><span class=p>)</span>    
+    <span class=n>Country_data</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>datum</span> <span class=ow>in</span> <span class=n>final_data</span><span class=p>:</span>
+         <span class=k>if</span> <span class=n>C_name</span> <span class=ow>in</span> <span class=n>datum</span><span class=p>:</span>
+             <span class=n>Country_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>datum</span><span class=p>)</span>
+    <span class=n>Country_data</span> <span class=o>=</span> <span class=n>Country_data</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>9</span><span class=p>:]</span>
+    <span class=n>full_data</span><span class=o>=</span><span class=p>[]</span>
+    <span class=k>for</span> <span class=n>ndatas</span> <span class=ow>in</span> <span class=n>Country_data</span><span class=p>:</span>
+        <span class=n>full_data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>ndatas</span><span class=p>))</span>
+    <span class=k>return</span> <span class=p>(</span><span class=n>full_data</span><span class=p>)</span>    
+
+
+<span class=c1># we are getting the years 1980 to 2013 and appending in variable which is list</span>
+<span class=n>years_data</span> <span class=o>=</span><span class=n>final_data</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>9</span><span class=p>:]</span>
+<span class=n>year</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=k>for</span> <span class=n>years</span> <span class=ow>in</span> <span class=n>years_data</span><span class=p>:</span>
+    <span class=n>year</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>years</span><span class=p>))</span>
+       
+<span class=c1>#calling the function for country data and saving in their respective name</span>
+<span class=n>nepal</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Nepal&#34;</span><span class=p>)</span>
+<span class=n>india</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;India&#34;</span><span class=p>)</span>
+<span class=n>afgan</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Afghanistan&#34;</span><span class=p>)</span>
+<span class=n>pak</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Pakistan&#34;</span><span class=p>)</span>
+<span class=n>bangladesh</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Bangladesh&#34;</span><span class=p>)</span>
+<span class=n>butan</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Bhutan&#34;</span><span class=p>)</span>
+<span class=n>srilanka</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Sri Lanka&#34;</span><span class=p>)</span>
+<span class=n>maldives</span><span class=o>=</span><span class=n>country</span><span class=p>(</span><span class=n>C_name</span><span class=o>=</span><span class=s2>&#34;Maldives&#34;</span><span class=p>)</span>
+
+<span class=c1>#increasing the size of chart</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=c1>#Below code will make the chart of the given data where</span>
+<span class=c1>#x-axis will be years and y axis will be no of immigrants</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>    
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>india</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;orange&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;India&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> 
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>pak</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Pakistan&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> 
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>bangladesh</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Bangladesh&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span>
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>nepal</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Nepal&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> 
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>afgan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Afganistan&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span>
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>srilanka</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;cyan&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Srilanka&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> 
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>butan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;pink&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Bhutan&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span> 
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>maldives</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;brown&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s2>&#34;.&#34;</span><span class=p>,</span><span class=n>label</span><span class=o>=</span><span class=s2>&#34;Maldives&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=mf>0.</span><span class=p>,</span> <span class=mf>1.02</span><span class=p>,</span> <span class=mf>1.</span><span class=p>,</span> <span class=o>.</span><span class=mi>102</span><span class=p>),</span> <span class=n>loc</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span><span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span>
+<span class=n>mode</span><span class=o>=</span><span class=s2>&#34;expand&#34;</span><span class=p>,</span> <span class=n>borderaxespad</span><span class=o>=</span><span class=mf>0.</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us1.png data-srcset="/images/us_immi/us1.png, /images/us_immi/us1.png 1.5x, /images/us_immi/us1.png 2x" data-sizes=auto alt=SAARC title=SAARC></p><p>According to the US data:</p><ul><li>Total Immigrants to US up to 2013 were: 30536689</li><li>Total Immigrants to US from SAARC from 1980 to 2013 were: 2348624</li></ul><h3 id=nepal>Nepal</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Nepal data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>nepal</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>nepal</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>nepal</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us2.png data-srcset="/images/us_immi/us2.png, /images/us_immi/us2.png 1.5x, /images/us_immi/us2.png 2x" data-sizes=auto alt=Nepal title=Nepal></p><ul><li>Total Immigrants to US from Nepal from 1980 to 2013 were: 72408</li><li>Percentage of US immigration from Nepal: 0.2371%</li></ul><h3 id=india>India</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;India&#39;s Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>india</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>india</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;orange&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>india</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;white&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;.&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us3.png data-srcset="/images/us_immi/us3.png, /images/us_immi/us3.png 1.5x, /images/us_immi/us3.png 2x" data-sizes=auto alt=India title=India></p><ul><li>Total Immigrants to US from India from 1980 to 2013 were: 1533776</li><li>Percentage of US immigration from India: 5.0227%</li></ul><h3 id=pakistan>Pakistan</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Pakistan Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>pak</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>pak</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;green&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>pak</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;*&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us4.png data-srcset="/images/us_immi/us4.png, /images/us_immi/us4.png 1.5x, /images/us_immi/us4.png 2x" data-sizes=auto alt=Pakistan title=Pakistan></p><ul><li>Total Immigrants to US from pakistan from 1980 to 2013 were: 390637</li><li>Percentage of US immigration from Pakistan: 1.2792%</li></ul><h3 id=bangladesh>Bangladesh</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Bangladesh Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>bangladesh</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>bangladesh</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>bangladesh</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us5.png data-srcset="/images/us_immi/us5.png, /images/us_immi/us5.png 1.5x, /images/us_immi/us5.png 2x" data-sizes=auto alt=Bangladesh title=Bangladesh></p><ul><li>Total Immigrants to US from Bangladesh from 1980 to 2013 were: 231946</li><li>Percentage of US immigration from Bangladesh: 0.7596%</li></ul><h3 id=srilanka>Srilanka</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Srilanka Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>srilanka</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>srilanka</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;cyan&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>srilanka</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us6.png data-srcset="/images/us_immi/us6.png, /images/us_immi/us6.png 1.5x, /images/us_immi/us6.png 2x" data-sizes=auto alt=Srilanka title=Srilanka></p><ul><li>Total Immigrants to US from Srilanka from 1980 to 2013 were: 41403</li><li>Percentage of US immigration from Srilanka: 0.1356 %</li></ul><h3 id=afganistan>Afganistan</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Afganistan Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>afgan</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>afgan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>afgan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;*&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us7.png data-srcset="/images/us_immi/us7.png, /images/us_immi/us7.png 1.5x, /images/us_immi/us7.png 2x" data-sizes=auto alt=Afganistan title=Afganistan></p><ul><li>Total Immigrants to US from Afganistan from 1980 to 2013 were: 74430</li><li>Percentage of US immigration from Afghanistan: 0.2437%</li></ul><h3 id=bhutan>Bhutan</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=c1># below annotate code show us the value or</span>
+<span class=c1>#it is shown to show the data are not zero as it seem </span>
+<span class=c1>#in graph other remaining near to zero are zero</span>
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;13&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1980</span><span class=p>,</span><span class=mi>13</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1980</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;8&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1981</span><span class=p>,</span><span class=mi>8</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1981</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;14&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1982</span><span class=p>,</span><span class=mi>14</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1982</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;10&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1983</span><span class=p>,</span><span class=mi>10</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1983</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1986</span><span class=p>,</span><span class=mi>1</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1986</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1988</span><span class=p>,</span><span class=mi>2</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1988</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;8&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1996</span><span class=p>,</span><span class=mi>8</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1996</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;6&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1997</span><span class=p>,</span><span class=mi>6</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1997</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;6&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1998</span><span class=p>,</span><span class=mi>6</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1998</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;4&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>1999</span><span class=p>,</span><span class=mi>4</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>1999</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;5&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2001</span><span class=p>,</span><span class=mi>5</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2001</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;14&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2002</span><span class=p>,</span><span class=mi>14</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2002</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;15&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2003</span><span class=p>,</span><span class=mi>15</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2003</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;17&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2004</span><span class=p>,</span><span class=mi>17</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2004</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;30&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2005</span><span class=p>,</span><span class=mi>30</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2005</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;78&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2006</span><span class=p>,</span><span class=mi>78</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2006</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;52&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2007</span><span class=p>,</span><span class=mi>52</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2007</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>ax</span><span class=o>.</span><span class=n>annotate</span><span class=p>(</span><span class=s1>&#39;42&#39;</span><span class=p>,</span> <span class=n>xy</span><span class=o>=</span><span class=p>(</span><span class=mi>2008</span><span class=p>,</span><span class=mi>42</span><span class=p>),</span> <span class=n>xytext</span><span class=o>=</span><span class=p>(</span><span class=mi>2008</span><span class=p>,</span> <span class=mi>2000</span><span class=p>),</span>
+<span class=n>arrowprops</span><span class=o>=</span><span class=nb>dict</span><span class=p>(</span><span class=n>facecolor</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>shrink</span><span class=o>=</span><span class=mf>0.005</span><span class=p>))</span>
+
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Bhutan&#39;s Data&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>butan</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>butan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;pink&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>butan</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us8.png data-srcset="/images/us_immi/us8.png, /images/us_immi/us8.png 1.5x, /images/us_immi/us8.png 2x" data-sizes=auto alt=Bhutan title=Bhutan></p><ul><li>Total Immigrants to US from Bhutan from 1980 to 2013 were: 231946</li><li>Percentage of US immigration from maldives: 0.7595%</li></ul><h3 id=maldives>Maldives</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>7</span><span class=p>))</span>
+<span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplot</span><span class=p>(</span><span class=mi>111</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Years&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;brown&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;No of immigrants&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;brown&#34;</span><span class=p>)</span>   
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;top&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>      
+<span class=n>ax</span><span class=o>.</span><span class=n>spines</span><span class=p>[</span><span class=s2>&#34;right&#34;</span><span class=p>]</span><span class=o>.</span><span class=n>set_visible</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span> 
+<span class=n>plt</span><span class=o>.</span><span class=n>suptitle</span><span class=p>(</span><span class=s2>&#34;Maldives Data&#34;</span><span class=p>,</span><span class=n>color</span><span class=o>=</span><span class=s2>&#34;brown&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>maldives</span><span class=p>,</span><span class=n>s</span><span class=o>=</span><span class=n>maldives</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;brown&#34;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>year</span><span class=p>,</span><span class=n>maldives</span><span class=p>,</span><span class=n>c</span><span class=o>=</span><span class=s2>&#34;black&#34;</span><span class=p>,</span><span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>)</span>
+<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/us_immi/us9.png data-srcset="/images/us_immi/us9.png, /images/us_immi/us9.png 1.5x, /images/us_immi/us9.png 2x" data-sizes=auto alt=Maldives title=Maldives></p><ul><li>Total Immigrants to US from Maldives from 1980 to 2013 were: 69</li><li>Percentage of US immigration from maldives: 0.00025%</li></ul><p>This was the analysis of immigration in the US from the SAARC region. Every year lots of people immigrate to the USA for education, prosperity or opportunity to make their American dream come true. SAARC is also one of the main regions where lots of people migrate to the USA.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Sunday, May 28, 2017</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/population_analysis/ class=next rel=next title="Population Analysis">Population Analysis<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

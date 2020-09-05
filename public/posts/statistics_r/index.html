@@ -1,0 +1,167 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Statistics with R - Diwashrestha</title><meta name=Description content="Diwash Shrestha Personal Website"><meta property="og:title" content="Statistics with R"><meta property="og:description" content="In this post we will discuss about the statistics with R.
+Introduction Statistics is a branch of mathematics working with data collection, organization, analysis, interpretation and presentation.Statistics is very important in Data Analysis ,Data Science and AI.
+In this post we will learn about the descriptive statistics with R.
+Descriptive Statistics Descriptive Statistics is used to summarize the data and it focuses on Distribution , the central tendancy and dispersion of the data ."><meta property="og:type" content="article"><meta property="og:url" content="http://diwashrestha.com.np/posts/statistics_r/"><meta property="og:image" content="http://diwashrestha.com.np/images/bloglogo.png"><meta property="article:published_time" content="2019-04-20T23:18:51+05:45"><meta property="article:modified_time" content="2019-04-20T23:18:51+05:45"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://diwashrestha.com.np/images/bloglogo.png"><meta name=twitter:title content="Statistics with R"><meta name=twitter:description content="In this post we will discuss about the statistics with R.
+Introduction Statistics is a branch of mathematics working with data collection, organization, analysis, interpretation and presentation.Statistics is very important in Data Analysis ,Data Science and AI.
+In this post we will learn about the descriptive statistics with R.
+Descriptive Statistics Descriptive Statistics is used to summarize the data and it focuses on Distribution , the central tendancy and dispersion of the data ."><meta name=application-name content="diwashrestha"><meta name=apple-mobile-web-app-title content="diwashrestha"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://diwashrestha.com.np/posts/statistics_r/><link rel=prev href=http://diwashrestha.com.np/posts/data_science_rworkshop/><link rel=next href=http://diwashrestha.com.np/posts/hacktoberfest2019/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Statistics with R","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/diwashrestha.com.np\/posts\/statistics_r\/"},"genre":"posts","wordcount":1213,"url":"http:\/\/diwashrestha.com.np\/posts\/statistics_r\/","datePublished":"2019-04-20T23:18:51+05:45","dateModified":"2019-04-20T23:18:51+05:45","description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/me/ title="About Me">About Me </a><a class=menu-item href=/projects/>Projects </a><a class=menu-item href=/programstalks/>Program & Talks </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Diwashrestha>DiwAsh ShresthA</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/me/ title="About Me">About Me</a><a class=menu-item href=/projects/>Projects</a><a class=menu-item href=/programstalks/>Program & Talks</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Statistics with R</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i></a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Saturday, Apr 20, 2019">Saturday, Apr 20, 2019</time>&nbsp;
+<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 1213 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;6 min&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading/normal.min.svg data-src=/images/stats_R/preview.png data-srcset="/images/stats_R/preview.png, /images/stats_R/preview.png 1.5x, /images/stats_R/preview.png 2x" data-sizes=auto alt=/images/stats_R/preview.png title=/images/stats_R/preview.png></div><div class=content id=content><p>In this post we will discuss about the statistics with R.</p><h3 id=introduction>Introduction</h3><p>Statistics is a branch of mathematics working with data collection, organization, analysis, interpretation and presentation.Statistics is very important in Data Analysis ,Data Science and AI.</p><p>In this post we will learn about the descriptive statistics with R.</p><h3 id=descriptive-statistics>Descriptive Statistics</h3><p>Descriptive Statistics is used to summarize the data and it focuses on Distribution , the central tendancy and dispersion of the data . In this section we will learn to work on</p><ul><li>Distribution</li><li>Central tendancy</li><li>Dispersion</li></ul><h3 id=measures-for-central-tendency>Measures for central tendency</h3><p>Central tendency is a measure that best summarizes the data and is a measure that is related to the center of the data set. Mean, median, and mode are the most common measures for central tendency.</p><p>We will use mtcars dataset from the datasets package in R.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>head</span><span class=p>(</span><span class=n>mtcars</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+</code></pre></td></tr></table></div></div><h3 id=mean>Mean</h3><p>The mean is the average of the data. It is the sum of all data divided by the number of data points. <strong>mean()</strong> function gives the mean of the data.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## mean of the mpg column</span>
+<span class=nf>mean</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 20.09062</p><h3 id=median>Median</h3><p>The median is the Middle or midpoint of the data and is also the 50 percentile of the data. The median is not affected by the outliers and skewness of the data. <strong>median()</strong> function is used to get Median.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## median of the cyl</span>
+<span class=nf>median</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>cyl</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 6</p><h3 id=mode>Mode</h3><p>Mode is a value in data that that is repeated more often than any other.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>y</span> <span class=o>&lt;-</span> <span class=nf>table</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>gear</span><span class=p>)</span>
+<span class=nf>names</span><span class=p>(</span><span class=n>y</span><span class=p>)</span><span class=nf>[which</span><span class=p>(</span><span class=n>y</span> <span class=o>==</span><span class=nf>max</span><span class=p>(</span><span class=n>y</span><span class=p>))</span><span class=n>]</span>
+</code></pre></td></tr></table></div></div><p>[1] &ldquo;3&rdquo;</p><p>“3” is the mode of the gear column.</p><h3 id=measures-of-variability>Measures of variability</h3><p>Measures of variability is the measures of the spread of the data. It can be range ,interquartile range, variance, standard deviation.</p><h3 id=range>Range</h3><p>Range is the difference between the largest and smallest points in the data. <strong>range()</strong> function is used to find the range in R.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>range</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>disp</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 71.1 472.0</p><h3 id=interquartile-range>Interquartile Range</h3><p>The interquartile range is the measure of the difference between the 75 percentile or third quartile and the 25 percentile or first quartile. <strong>IQR()</strong> function is used to get interquartile Range in R.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## IQR of sugar </span>
+<span class=nf>IQR</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>wt</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 1.02875</p><p><strong>quantile()</strong> function is used to get quartiles in R.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## quartile of the sugar</span>
+<span class=nf>quantile</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>am</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>  0%  25%  50%  75% 100% 
+   0    0    0    1    1 
+</code></pre></td></tr></table></div></div><p>We can get the 25 and 75 percentiles of sugar in data.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>quantile</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>,</span> <span class=m>0.25</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>   25% 
+15.425 
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>quantile</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>,</span> <span class=m>0.75</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback> 75% 
+22.8 
+</code></pre></td></tr></table></div></div><h3 id=variance>Variance</h3><p>The variance is the average of squared differences from the mean and it is used to measure the spreadness of the data. <strong>var()</strong> function is used to find the sample variance in R.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>var</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 36.3241</p><p><strong>var()</strong> and (N-1)/N is used to find the population variance.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=n>N</span> <span class=o>&lt;-</span> <span class=nf>nrow</span><span class=p>(</span><span class=n>mtcars</span><span class=p>)</span>
+<span class=nf>var</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span> <span class=o>*</span> <span class=p>(</span><span class=n>N</span> <span class=m>-1</span><span class=p>)</span> <span class=o>/</span> <span class=n>N</span>
+</code></pre></td></tr></table></div></div><p>[1] 35.18897</p><h3 id=standard-deviation>Standard Deviation</h3><p>The standard deviation is the square root of a variance and it measures the spread of the data.</p><p><strong>sd()</strong> is used to find the sample standard deviation of a dataset.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## standard deviation of the calcium</span>
+<span class=nf>sd</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 6.026948</p><h3 id=normal-distribution>Normal Distribution</h3><p>Normal distribution is one of the most important theories because nearly all statistical tests require the data to be distributed normally. We can plot a distribution in R using <strong>hist()</strong> function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>hist</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>,</span> <span class=n>breaks</span> <span class=o>=</span> <span class=m>15</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/stats_R/histo.png data-srcset="/images/stats_R/histo.png, /images/stats_R/histo.png 1.5x, /images/stats_R/histo.png 2x" data-sizes=auto alt="Normal Distribution" title="Normal Distribution"></p><p><strong>qqnorm()</strong> and <strong>qqline</strong> functions are used to find whether data is normally distributed.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>qqnorm</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+<span class=nf>qqline</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/stats_R/normal.png data-srcset="/images/stats_R/normal.png, /images/stats_R/normal.png 1.5x, /images/stats_R/normal.png 2x" data-sizes=auto alt=qqnorm() title=qqnorm()></p><p>If the points do not deviate away from the line , the data is normally distributed.</p><h3 id=modality>Modality</h3><p>The modality of a distribution is determined by the number of peaks it contains.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>hist</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>,</span> <span class=n>breaks</span> <span class=o>=</span> <span class=m>15</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p><img class=lazyload src=/svg/loading/small.min.svg data-src=/images/stats_R/modality.png data-srcset="/images/stats_R/modality.png, /images/stats_R/modality.png 1.5x, /images/stats_R/modality.png 2x" data-sizes=auto alt=Modality title=Modality></p><h3 id=skewness-and-kurtosis>Skewness and Kurtosis</h3><p>Skewness is a measurement of the symmetry of a distribution and how much the distribution is different from the normal distribution. Negative Skew is alos known as left skewed and positive skew is also known as right skewed. Th histogram from the previous section has a positive skew.</p><p>Kurtosis measures whether your dataset is heavy-tailed or light-tailed compared to a normal distribution. High Kurtosis means heavy tailed , so there are more outliers in the data. To find the kurtosis and skewness in R , we need moments package.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>library</span><span class=p>(</span><span class=n>moments</span><span class=p>)</span>
+
+<span class=c1>## skewness of the total_fat</span>
+<span class=nf>skewness</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 0.6404399</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=c1>## Kurtosis of the total fat</span>
+<span class=nf>kurtosis</span><span class=p>(</span><span class=n>mtcars</span><span class=o>$</span><span class=n>mpg</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>[1] 2.799467</p><h3 id=summary-and-str-function>summary() and str() function</h3><p>The <strong>summary()</strong> and <strong>str()</strong> function are the fastest ways to get descriptive statistics of the data. We can get the basic descriptive statistics using the summary() function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>summary</span><span class=p>(</span><span class=n>mtcars</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>      mpg             cyl             disp             hp       
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+      drat             wt             qsec             vs        
+ Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+ 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+ Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+ Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+ 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+ Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+       am              gear            carb      
+ Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+ 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+ Median :0.0000   Median :4.000   Median :2.000  
+ Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+ 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :1.0000   Max.   :5.000   Max.   :8.000  
+</code></pre></td></tr></table></div></div><p>We can get the structure of the data using the str() function.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-R data-lang=R><span class=nf>str</span><span class=p>(</span><span class=n>mtcars</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&#39;data.frame&#39;:   32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+
+</code></pre></td></tr></table></div></div><p>This all about the basic or descriptive statistics with R.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on Saturday, Apr 20, 2019</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/data_science_rworkshop/ class=prev rel=prev title="Data Science with R Workshop"><i class="fas fa-angle-left fa-fw"></i>Data Science with R Workshop</a>
+<a href=/posts/hacktoberfest2019/ class=next rel=next title="Organized HacktoberFest 2019">Organized HacktoberFest 2019<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.8"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2017 - 2020</span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp>Diwash Shrestha</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
