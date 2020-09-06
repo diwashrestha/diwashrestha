@@ -84,6 +84,12 @@ article.page.single{
     width: auto;
 }
 
+.page {
+    position: relative;
+    max-width: 1000px;
+    width: 60%;
+    margin: 0 auto;
+}
 .single-title.animated.flipInX{
     font-size: 2.6rem;
     text-align: center;
@@ -116,3 +122,4 @@ article.page.single{
     margin: 2.5rem 0 1rem;
     font-size: 1.8rem;
 }
+
