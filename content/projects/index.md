@@ -5,6 +5,20 @@ draft: false
 lightgallery: true
 ---
 
+#### Witcher 3 API
+
+{{< image src="/projects/witcher3.png">}}
+
+Rest API  for the Witcher 3 🕹Game Created by [CDProjekt Red](https://en.cdprojektred.com/) . This API catalogs the character, armors, beasts, weapons in  the [Witcher 3: Wild Hunt](https://thewitcher.com/en/witcher3) game.
+
+##### :computer: *Technology Used*
+ 
+ > *ASP.Net Core, Azure Sql, Azure Web Service, Swagger*
+
+ *[Project Repo](https://github.com/diwashrestha/WitcherAPI)*
+
+</br>
+
 #### BakeShop
 
 {{< image src="/projects/bakeshop.png">}}
@@ -16,7 +30,6 @@ BakeShop is Online store for Bakery Products. In BakeShop, customer can select a
  
  > *ASP.Net Core, Azure Sql, Azure Web Service, Bootstrap 4*
 
- *[Project Demo](https://bakeshop20200903003834.azurewebsites.net/)*
  *[Project Repo](https://github.com/diwashrestha/BakeShop/)*
 
 </br>
