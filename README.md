@@ -2,6 +2,8 @@
 
 [![Diwash's github stats](https://github-readme-stats.vercel.app/api?username=diwashrestha)](https://github.com/anuraghazra/github-readme-stats)
 
+![](https://komarev.com/ghpvc/?username=diwashrestha&color=green)
+
 - 🔭 I’m currently working on on many things.
 - 🌱 I’m currently learning React Js.
 - 💬 Ask me about C#, ASP.NET Core, R and Data Analysis.
