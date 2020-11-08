@@ -6,6 +6,6 @@
 
 - 🔭 I’m currently working on on many things.
 - 🌱 I’m currently learning React Js.
-- 💬 Ask me about C#, ASP.NET Core, R and Data Analysis.
+- 💬 Ask me about R , Data Science , Machine Learning and Data Visualization.
 - 📫 How to reach me: [twitter](https://twitter.com/diwastha), [website](https://diwashrestha.com.np/), [linkedin](https://www.linkedin.com/in/shresthadiwash/)
 
