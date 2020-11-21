@@ -68,7 +68,7 @@ h7 {
 
 .single .post-meta {
     font-size: .875rem;
-    color: #a9a9b3;
+    color: #393e46;
     text-align: left;
 }
 
@@ -115,7 +115,7 @@ article.page.single{
 
 .page {
     position: relative;
-    max-width: 1000px;
+    max-width: 900px;
     width: 60%;
     margin: 0 auto;
 }
@@ -127,4 +127,8 @@ article.page.single{
 .home .home-profile .home-subtitle{
     font-size: 1.2rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.home[posts] .summary .content{
+    color: #393e46;
 }
