@@ -14,4 +14,3 @@
 ## **Language and Tools**
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=diwashrestha&theme=graywhite)
-![Diwash's GitHub Stats](https://github-readme-stats.vercel.app/api?username=diwashrestha&hide=prs,issues,contribs?username=diwashrestha&count_private=true?username=diwashrestha&show_icons=true&theme=graywhite)
