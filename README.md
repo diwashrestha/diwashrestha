@@ -4,7 +4,6 @@
 
 ![](https://komarev.com/ghpvc/?username=diwashrestha&color=green)
 
-- 🔭 I’m currently working as Data Scientist @ [**reduct Nepal**](https://www.humanassisted.ai/).
 - 🌱 I’m currently learning Machine Learning and Deep Learning.
 - 💬 Ask me about R , Data Science , Machine Learning and Data Visualization.
 - 👯 I’m looking to collaborate on Data Science, Machine Learning.
